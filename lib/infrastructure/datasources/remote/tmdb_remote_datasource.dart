@@ -1,10 +1,9 @@
-import 'package:dio/dio.dart';
-
 import 'package:agente_cine/config/constants/api_constants.dart';
 import 'package:agente_cine/infrastructure/models/credits_response_dto.dart';
 import 'package:agente_cine/infrastructure/models/genre_list_response_dto.dart';
 import 'package:agente_cine/infrastructure/models/movie_dto.dart';
 import 'package:agente_cine/infrastructure/models/movie_list_response_dto.dart';
+import 'package:dio/dio.dart';
 
 /// TMDB API Remote Data Source (manual implementation with Dio)
 class TmdbRemoteDataSource {

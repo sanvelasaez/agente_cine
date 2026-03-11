@@ -294,14 +294,15 @@ setx CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS true
 
 El orquestador tiene instrucción explícita de mantener siempre activos los 4 agentes especializados durante la fase de desarrollo activa, asignando trabajo en paralelo cuando las dependencias entre tareas lo permitan.
 
-### Equipo fijo: 4 agentes especializados
+### Equipo fijo: 5 agentes especializados
 
 | ID | Agente | Scope exclusivo |
 |----|--------|----------------|
 | `orchestrator` | Orquestador | Planificación, asignación, revisión de PRs, decisiones de arquitectura, gestión de `.agent/` |
 | `domain-infra-agent` | Dominio e Infraestructura | `domain/`, `infrastructure/`, `config/di/`, `config/database/` |
 | `presentation-agent` | Presentación | `presentation/`, `config/router/`, `config/theme/` |
-| `qa-agent` | Calidad | `test/`, `integration_test/`, cobertura, revisión de código |
+| `test-agent` | Testing | `test/`, `integration_test/`, cobertura de tests unitarios |
+| `product-qa-agent` | Calidad de Producto | Ejecución de app, validación funcional, detección de bugs, apertura de incidencias en `.agent/ISSUES.md` |
 
 ### Reglas del orquestador
 
@@ -309,9 +310,38 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 2. Respetar el orden de implementación por capas: `domain → infrastructure → config/di → presentation`.
 3. Asignar tareas de capas independientes en paralelo cuando sea posible.
 4. Nunca asignar a dos agentes tareas que modifiquen el mismo archivo simultáneamente.
-5. Revisar el diff de cada agente antes de mergear a `develop`.
-6. Proponer e implementar nuevas features autónomamente si mejoran la experiencia. Documentarlas en `.agent/DECISIONS.md`.
-7. Interrumpir al usuario únicamente para: información de negocio no especificada, credenciales externas, o decisión que afecte irreversiblemente la arquitectura.
+5. **OBLIGATORIO:** Después de cada merge a `develop`, asignar tarea a `product-qa-agent` para validar funcionalmente lo mergeado.
+6. Revisar el diff de cada agente antes de mergear a `develop`.
+7. Proponer e implementar nuevas features autónomamente si mejoran la experiencia. Documentarlas en `.agent/DECISIONS.md`.
+8. Interrumpir al usuario únicamente para: información de negocio no especificada, credenciales externas, o decisión que afecte irreversiblemente la arquitectura.
+
+### Protocolo de recuperación de agente caído
+
+Los subagentes son desechables por diseño. Cuando uno falla o no responde, el orquestador NUNCA debe asumir su trabajo directamente. El protocolo obligatorio es siempre este:
+
+**Paso 1 — Evaluar el estado real antes de actuar:**
+Revisar si el agente hizo commit de algo antes de caer o si la rama está limpia:
+```cmd
+git status
+git log --oneline -5
+```
+
+**Paso 2 — Actualizar TASKS.md con el estado exacto:**
+- Si no hizo commit → la tarea vuelve a `Pendiente` con nota `REINTENTAR`
+- Si hizo commit parcial → la tarea pasa a `Interrumpida` detallando qué archivos están creados
+
+**Paso 3 — Lanzar el agente de reemplazo con contexto completo:**
+El nuevo agente recibe en su prompt inicial siempre estos tres datos:
+1. La descripción completa de la tarea desde TASKS.md
+2. El resultado de `git status` y `git log --oneline -5` de su rama
+3. La instrucción explícita: "Retoma desde donde se quedó el agente anterior. No reescribas lo que ya está commiteado."
+
+**Lo que el orquestador NUNCA debe hacer:**
+- Ejecutar él mismo el trabajo de un agente especializado
+- Crear un agente nuevo sin pasarle el contexto del estado actual
+- Crear más de un agente de reemplazo para la misma tarea simultáneamente
+
+---
 
 ### Reglas de todos los agentes
 
@@ -350,7 +380,8 @@ El directorio `.agent/` en la raíz del proyecto es el espacio de trabajo compar
 ├── TASKS.md           # Tablón de tareas: pendiente / en progreso / completada
 ├── DECISIONS.md       # Registro de decisiones técnicas autónomas del orquestador
 ├── BLOCKERS.md        # Impedimentos que requieren intervención del usuario
-└── PROGRESS.md        # Resumen de progreso por fase para consulta rápida
+├── PROGRESS.md        # Resumen de progreso por fase para consulta rápida
+└── ISSUES.md          # Incidencias de calidad abiertas por product-qa-agent
 ```
 
 ### Formato de TASKS.md
@@ -364,14 +395,20 @@ El directorio `.agent/` en la raíz del proyecto es el espacio de trabajo compar
 | T-001 | Crear entidades Movie, Genre | domain-infra-agent | feature/domain-entities | YYYY-MM-DD |
 
 ### Pendiente
-| ID | Tarea | Agente asignado | Dependencias |
-|----|-------|----------------|--------------|
-| T-002 | Implementar TmdbRemoteDataSource | domain-infra-agent | T-001 |
+| ID | Tarea | Agente asignado | Dependencias | Notas |
+|----|-------|----------------|--------------|-------|
+| T-002 | Implementar TmdbRemoteDataSource | domain-infra-agent | T-001 | |
+| T-003 | Setup go_router | presentation-agent | — | REINTENTAR |
+
+### Interrumpida (agente caído con trabajo parcial)
+| ID | Tarea | Branch | Último commit | Qué falta |
+|----|-------|--------|--------------|-----------|
+| T-004 | Crear HomeBloc | feature/home-bloc | a3f1c2e | Falta estado de error y tests |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
-| T-000 | Setup inicial del proyecto | orchestrator | develop | YYYY-MM-DD |
+| T-000 | Setup inicial del proyecto | develop | YYYY-MM-DD |
 ```
 
 ### Formato de DECISIONS.md

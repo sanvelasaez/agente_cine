@@ -1,7 +1,6 @@
-import 'package:dio/dio.dart';
-
 import 'package:agente_cine/config/constants/api_constants.dart';
 import 'package:agente_cine/core/network/logging_interceptor.dart';
+import 'package:dio/dio.dart';
 
 /// Factory class for creating configured Dio instances
 class DioFactory {

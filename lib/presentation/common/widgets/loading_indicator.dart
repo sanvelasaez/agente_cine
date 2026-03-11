@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/presentation/common/extensions/context_extensions.dart';
+import 'package:flutter/material.dart';
 
 /// Custom loading indicator
 class LoadingIndicator extends StatelessWidget {

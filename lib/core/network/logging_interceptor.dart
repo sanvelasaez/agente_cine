@@ -1,6 +1,5 @@
-import 'package:dio/dio.dart';
-
 import 'package:agente_cine/core/utils/logger.dart';
+import 'package:dio/dio.dart';
 
 /// Custom logging interceptor for Dio requests
 class LoggingInterceptor extends Interceptor {
@@ -15,7 +14,7 @@ class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     AppLogger.logResponse(
       response.statusCode ?? 0,
       response.requestOptions.uri.toString(),

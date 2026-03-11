@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/usecases/get_now_playing_movies.dart';
@@ -8,9 +5,13 @@ import 'package:agente_cine/domain/usecases/get_popular_movies.dart';
 import 'package:agente_cine/domain/usecases/get_top_rated_movies.dart';
 import 'package:agente_cine/domain/usecases/get_trending_movies.dart';
 import 'package:agente_cine/domain/usecases/get_upcoming_movies.dart';
+import 'package:agente_cine/presentation/delegates/movie_search_delegate.dart';
 import 'package:agente_cine/presentation/features/home/bloc/home_bloc.dart';
 import 'package:agente_cine/presentation/features/home/widgets/movie_horizontal_list.dart';
 import 'package:agente_cine/presentation/features/home/widgets/section_header.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 /// Home page with multiple movie lists
 class HomePage extends StatelessWidget {
@@ -31,8 +32,33 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _HomeView extends StatelessWidget {
+class _HomeView extends StatefulWidget {
   const _HomeView();
+
+  @override
+  State<_HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<_HomeView> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        // Already on home, do nothing
+        break;
+      case 1:
+        context.go('/categories');
+        break;
+      case 2:
+        context.go('/favorites');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +69,10 @@ class _HomeView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // TODO: Navigate to search
+              showSearch(
+                context: context,
+                delegate: MovieSearchDelegate(),
+              );
             },
           ),
         ],
@@ -103,6 +132,24 @@ class _HomeView extends StatelessWidget {
             );
           },
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Categories',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
+          ),
+        ],
       ),
     );
   }

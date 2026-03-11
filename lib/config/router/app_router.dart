@@ -1,8 +1,12 @@
+import 'package:agente_cine/config/router/app_routes.dart';
+import 'package:agente_cine/domain/entities/genre.dart';
+import 'package:agente_cine/presentation/features/categories/pages/categories_page.dart';
+import 'package:agente_cine/presentation/features/categories/pages/category_movies_page.dart';
+import 'package:agente_cine/presentation/features/favorites/pages/favorites_page.dart';
+import 'package:agente_cine/presentation/features/home/pages/home_page.dart';
+import 'package:agente_cine/presentation/features/movie_detail/pages/movie_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 'package:agente_cine/config/router/app_routes.dart';
-import 'package:agente_cine/presentation/features/home/pages/home_page.dart';
 
 /// App router configuration
 class AppRouter {
@@ -21,56 +25,33 @@ class AppRouter {
         path: AppRoutes.movieDetail,
         name: 'movieDetail',
         builder: (context, state) {
-          final movieId = state.pathParameters['id']!;
-          return _PlaceholderPage(title: 'Movie Detail $movieId');
+          final movieId = int.parse(state.pathParameters['id']!);
+          return MovieDetailPage(movieId: movieId);
         },
       ),
       GoRoute(
         path: AppRoutes.favorites,
         name: 'favorites',
-        builder: (context, state) => const _PlaceholderPage(title: 'Favorites'),
+        builder: (context, state) => const FavoritesPage(),
       ),
       GoRoute(
         path: AppRoutes.categories,
         name: 'categories',
-        builder: (context, state) => const _PlaceholderPage(title: 'Categories'),
+        builder: (context, state) => const CategoriesPage(),
       ),
       GoRoute(
         path: AppRoutes.categoryMovies,
         name: 'categoryMovies',
         builder: (context, state) {
-          final genreId = state.pathParameters['genreId']!;
-          return _PlaceholderPage(title: 'Genre $genreId Movies');
+          final genreId = int.parse(state.pathParameters['genreId']!);
+          final genreName = state.uri.queryParameters['name'] ?? 'Unknown';
+          final genre = Genre(id: genreId, name: genreName);
+          return CategoryMoviesPage(genre: genre);
         },
-      ),
-      GoRoute(
-        path: AppRoutes.search,
-        name: 'search',
-        builder: (context, state) => const _PlaceholderPage(title: 'Search'),
       ),
     ],
     errorBuilder: (context, state) => const _ErrorPage(),
   );
-}
-
-/// Temporary placeholder page (will be replaced with real pages)
-class _PlaceholderPage extends StatelessWidget {
-  const _PlaceholderPage({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: Center(
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      ),
-    );
-  }
 }
 
 /// Error page for 404 and routing errors

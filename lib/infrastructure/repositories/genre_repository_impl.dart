@@ -1,12 +1,11 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-
 import 'package:agente_cine/core/error/app_exception.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/repositories/genre_repository.dart';
 import 'package:agente_cine/infrastructure/datasources/remote/tmdb_remote_datasource.dart';
 import 'package:agente_cine/infrastructure/mappers/genre_mapper.dart';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 /// Implementation of GenreRepository
 class GenreRepositoryImpl implements GenreRepository {

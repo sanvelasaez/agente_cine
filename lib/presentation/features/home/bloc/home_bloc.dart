@@ -1,12 +1,12 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_now_playing_movies.dart';
 import 'package:agente_cine/domain/usecases/get_popular_movies.dart';
 import 'package:agente_cine/domain/usecases/get_top_rated_movies.dart';
 import 'package:agente_cine/domain/usecases/get_trending_movies.dart';
 import 'package:agente_cine/domain/usecases/get_upcoming_movies.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';
@@ -58,23 +58,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       state.copyWith(
         trending: results[0].fold(
           (failure) => AsyncValue.error(failure.userMessage),
-          (movies) => AsyncValue.data(movies),
+          AsyncValue.data,
         ),
         popular: results[1].fold(
           (failure) => AsyncValue.error(failure.userMessage),
-          (movies) => AsyncValue.data(movies),
+          AsyncValue.data,
         ),
         topRated: results[2].fold(
           (failure) => AsyncValue.error(failure.userMessage),
-          (movies) => AsyncValue.data(movies),
+          AsyncValue.data,
         ),
         upcoming: results[3].fold(
           (failure) => AsyncValue.error(failure.userMessage),
-          (movies) => AsyncValue.data(movies),
+          AsyncValue.data,
         ),
         nowPlaying: results[4].fold(
           (failure) => AsyncValue.error(failure.userMessage),
-          (movies) => AsyncValue.data(movies),
+          AsyncValue.data,
         ),
       ),
     );

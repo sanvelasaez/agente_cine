@@ -1,7 +1,6 @@
-import 'package:dartz/dartz.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
+import 'package:dartz/dartz.dart';
 
 /// Repository contract for movie operations
 abstract class MovieRepository {

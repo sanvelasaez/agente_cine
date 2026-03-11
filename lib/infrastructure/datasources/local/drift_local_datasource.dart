@@ -1,7 +1,6 @@
-import 'package:drift/drift.dart';
-
 import 'package:agente_cine/config/database/app_database.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:drift/drift.dart';
 
 /// Local data source using Drift for favorites
 class DriftLocalDataSource {
