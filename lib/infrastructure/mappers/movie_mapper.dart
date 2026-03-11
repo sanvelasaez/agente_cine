@@ -1,5 +1,4 @@
 import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/infrastructure/mappers/cast_mapper.dart';
 import 'package:agente_cine/infrastructure/mappers/genre_mapper.dart';
 import 'package:agente_cine/infrastructure/models/movie_dto.dart';
 

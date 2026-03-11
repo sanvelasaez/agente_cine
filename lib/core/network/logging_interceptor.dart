@@ -15,7 +15,7 @@ class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     AppLogger.logResponse(
       response.statusCode ?? 0,
       response.requestOptions.uri.toString(),
