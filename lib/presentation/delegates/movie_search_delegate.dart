@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
@@ -10,6 +8,7 @@ import 'package:agente_cine/presentation/common/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/common/widgets/error_view.dart';
 import 'package:agente_cine/presentation/common/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/common/widgets/movie_card.dart';
+import 'package:flutter/material.dart';
 
 /// Search delegate for searching movies
 class MovieSearchDelegate extends SearchDelegate<Movie?> {
@@ -130,8 +129,8 @@ class MovieSearchDelegate extends SearchDelegate<Movie?> {
       final result = await _searchMovies(query: searchQuery);
 
       result.fold(
-        (failure) => completer.completeError(failure),
-        (movies) => completer.complete(movies),
+        completer.completeError,
+        completer.complete,
       );
     });
 
