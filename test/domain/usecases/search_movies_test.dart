@@ -37,7 +37,7 @@ void main() {
       final result = await usecase(query: testQuery);
 
       // Assert
-      expect(result, const Right([testMovie]));
+      expect(result, const Right<Failure, List<Movie>>([testMovie]));
       verify(() => mockRepository.searchMovies(query: testQuery))
           .called(1);
       verifyNoMoreInteractions(mockRepository);
@@ -88,7 +88,7 @@ void main() {
       final result = await usecase(query: testQuery);
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, List<Movie>>(failure));
       verify(() => mockRepository.searchMovies(query: testQuery))
           .called(1);
     });

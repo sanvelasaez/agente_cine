@@ -38,7 +38,7 @@ void main() {
       final result = await usecase(testMovie);
 
       // Assert
-      expect(result, const Right(true));
+      expect(result, const Right<Failure, bool>(true));
       verify(() => mockRepository.toggleFavorite(testMovie)).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
@@ -53,7 +53,7 @@ void main() {
       final result = await usecase(favoriteMovie);
 
       // Assert
-      expect(result, const Right(false));
+      expect(result, const Right<Failure, bool>(false));
       verify(() => mockRepository.toggleFavorite(favoriteMovie)).called(1);
     });
 
@@ -67,7 +67,7 @@ void main() {
       final result = await usecase(testMovie);
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, bool>(failure));
       verify(() => mockRepository.toggleFavorite(testMovie)).called(1);
     });
   });

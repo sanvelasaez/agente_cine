@@ -98,7 +98,7 @@ void main() {
         final result = await repository.toggleFavorite(testMovie);
 
         // Assert
-        expect(result, const Right(true));
+        expect(result, const Right<Failure, bool>(true));
         verify(() => mockDataSource.isFavorite(550)).called(1);
         verify(() => mockDataSource.addFavorite(testMovie)).called(1);
         verifyNever(() => mockDataSource.removeFavorite(any()));
@@ -116,7 +116,7 @@ void main() {
         final result = await repository.toggleFavorite(testMovie);
 
         // Assert
-        expect(result, const Right(false));
+        expect(result, const Right<Failure, bool>(false));
         verify(() => mockDataSource.isFavorite(550)).called(1);
         verify(() => mockDataSource.removeFavorite(550)).called(1);
         verifyNever(() => mockDataSource.addFavorite(any()));
@@ -149,7 +149,7 @@ void main() {
         final result = await repository.isFavorite(550);
 
         // Assert
-        expect(result, const Right(true));
+        expect(result, const Right<Failure, bool>(true));
         verify(() => mockDataSource.isFavorite(550)).called(1);
       });
 
@@ -162,7 +162,7 @@ void main() {
         final result = await repository.isFavorite(550);
 
         // Assert
-        expect(result, const Right(false));
+        expect(result, const Right<Failure, bool>(false));
         verify(() => mockDataSource.isFavorite(550)).called(1);
       });
 
