@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:agente_cine/config/router/app_routes.dart';
+import 'package:agente_cine/presentation/features/home/pages/home_page.dart';
 
 /// App router configuration
 class AppRouter {
@@ -14,7 +15,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.home,
         name: 'home',
-        builder: (context, state) => const _PlaceholderPage(title: 'Home'),
+        builder: (context, state) => const HomePage(),
       ),
       GoRoute(
         path: AppRoutes.movieDetail,
