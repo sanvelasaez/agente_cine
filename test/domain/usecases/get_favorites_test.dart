@@ -35,7 +35,7 @@ void main() {
       final result = await usecase();
 
       // Assert
-      expect(result, const Right([testMovie]));
+      expect(result, const Right<Failure, List<Movie>>([testMovie]));
       verify(() => mockRepository.getFavorites()).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
@@ -67,7 +67,7 @@ void main() {
       final result = await usecase();
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, List<Movie>>(failure));
       verify(() => mockRepository.getFavorites()).called(1);
     });
   });

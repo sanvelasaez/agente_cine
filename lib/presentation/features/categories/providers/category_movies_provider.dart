@@ -53,7 +53,9 @@ class CategoryMoviesNotifier extends StateNotifier<AsyncValue<List<Movie>>> {
 
   /// Load more movies (pagination)
   Future<void> loadMore() async {
-    if (state.isLoading) return;
+    if (state.isLoading) {
+      return;
+    }
 
     _currentPage++;
 

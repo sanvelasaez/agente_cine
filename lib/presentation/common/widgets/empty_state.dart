@@ -24,13 +24,13 @@ class EmptyState extends StatelessWidget {
             Icon(
               icon,
               size: 64,
-              color: context.colors.onSurface.withOpacity(0.3),
+              color: context.colors.onSurface.withValues(alpha: 0.3),
             ),
             const SizedBox(height: AppDimensions.spacingM),
             Text(
               message,
               style: context.textTheme.bodyLarge?.copyWith(
-                color: context.colors.onSurface.withOpacity(0.6),
+                color: context.colors.onSurface.withValues(alpha: 0.6),
               ),
               textAlign: TextAlign.center,
             ),

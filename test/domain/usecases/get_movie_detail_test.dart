@@ -51,7 +51,7 @@ void main() {
       final result = await usecase(testMovieId);
 
       // Assert
-      expect(result, const Right(testMovie));
+      expect(result, const Right<Failure, Movie>(testMovie));
       verify(() => mockRepository.getMovieDetail(testMovieId)).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
@@ -66,7 +66,7 @@ void main() {
       final result = await usecase(testMovieId);
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, Movie>(failure));
       verify(() => mockRepository.getMovieDetail(testMovieId)).called(1);
     });
 
@@ -80,7 +80,7 @@ void main() {
       final result = await usecase(testMovieId);
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, Movie>(failure));
     });
   });
 }

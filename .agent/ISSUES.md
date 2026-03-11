@@ -6,6 +6,51 @@
 
 ## ISSUES ABIERTAS
 
+## ISSUE-011 — 24 warnings de inferencia de tipos en tests (Right/Left de dartz)
+- **Fecha apertura:** 2026-03-11
+- **Severidad:** BAJA
+- **Tipo:** CODE_QUALITY
+- **Detectado en:** commit develop (2026-03-11)
+- **Descripción:** `flutter analyze` reporta 24 warnings en tests de tipo "inference_failure_on_instance_creation" en construcciones de `Right<>` y `Left<>` de dartz.
+- **Impacto:**
+  - Código de tests menos type-safe
+  - Viola regla de CLAUDE.md: "Nunca usar dynamic. Tipar siempre explícitamente"
+- **Evidencia:**
+  ```
+  warning - The type argument(s) of the constructor 'Right' can't be inferred
+  - test\domain\usecases\get_favorites_test.dart:38:28
+  ```
+- **Solución propuesta:**
+  - Especificar tipos explícitos: `Right<Failure, List<Movie>>(mockMovies)` en vez de `Right(mockMovies)`
+- **Asignado a:** test-agent
+- **Estado:** ABIERTA
+
+## ISSUE-012 — 15 info issues de estilo en código de producción
+- **Fecha apertura:** 2026-03-11
+- **Severidad:** BAJA
+- **Tipo:** CODE_STYLE
+- **Detectado en:** commit develop (2026-03-11)
+- **Descripción:** `flutter analyze` reporta 15 issues de nivel "info" relacionadas con:
+  - `always_put_control_body_on_new_line`: 11 ocurrencias (control flow de una línea sin braces)
+  - `deprecated_member_use`: 2 ocurrencias (`.withOpacity()` deprecado en favor de `.withValues()`)
+  - `unawaited_futures`: 2 ocurrencias (llamadas a `ref.invalidate()` sin await)
+  - `depend_on_referenced_packages`: 1 ocurrencia (logging package)
+- **Impacto:**
+  - No afecta funcionalidad
+  - Reduce legibilidad en algunos casos
+  - Deprecations eventualmente romperán en futuras versiones de Flutter
+- **Solución propuesta:**
+  - Añadir braces a control flow statements de una línea
+  - Cambiar `.withOpacity()` a `.withValues()` en empty_state.dart
+  - Añadir logging a pubspec.yaml dependencies
+  - Añadir `unawaited()` wrapper o hacer await explícito
+- **Asignado a:** test-agent
+- **Estado:** ABIERTA
+
+---
+
+## ISSUES ABIERTAS (ARCHIVADAS - Ya resueltas en develop)
+
 ## ISSUE-001 — App NO compila en Web debido a incompatibilidad Drift/sqlite3
 - **Fecha apertura:** 2026-03-11
 - **Severidad:** CRÍTICA
@@ -294,7 +339,69 @@
 
 ## ISSUES CERRADAS
 
-_Historial de incidencias resueltas._
+### ISSUE-001 — App NO compila en Web debido a incompatibilidad Drift/sqlite3 ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Severidad:** CRÍTICA → DOCUMENTADA
+- **Solución:** DEC-009 + documentación en README. Web no es plataforma objetivo (móvil first).
+- **Branch de resolución:** docs/web-not-supported → develop
+
+### ISSUE-002 — Windows desktop no compila por falta de Visual Studio toolchain ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Severidad:** MEDIA → NO ES BUG
+- **Solución:** Problema de entorno local. No afecta desarrollo móvil que es el objetivo.
+
+### ISSUE-003 — 37 warnings de inferencia de tipos ✅ CERRADA PARCIALMENTE
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/code-quality-cleanup eliminó warnings en home_state.dart y movie_detail_state.dart
+- **Quedan 24 warnings en tests** → Ver ISSUE-011
+
+### ISSUE-004 — 202 info issues de estilo de código ✅ CERRADA MAYORMENTE
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/final-quality-cleanup ejecutó `dart fix --apply` reduciendo de 202 a 15 issues
+- **Quedan 15 info issues** → Ver ISSUE-012
+- **Branch de resolución:** fix/final-quality-cleanup → develop
+
+### ISSUE-005 — Import no usado en movie_mapper.dart ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/code-quality-cleanup eliminó el import de cast_mapper.dart
+- **Branch de resolución:** fix/code-quality-cleanup → develop
+
+### ISSUE-006 — Tipo Response sin argumentos explícitos en logging_interceptor ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/code-quality-cleanup añadió tipo explícito `Response<dynamic>`
+- **Branch de resolución:** fix/code-quality-cleanup → develop
+
+### ISSUE-007 — SearchDelegate no está conectada en HomePage ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/search-delegate-di conectó MovieSearchDelegate con showSearch() desde AppBar
+- **Branch de resolución:** fix/search-delegate-di → develop
+
+### ISSUE-008 — Rutas de navegación usan placeholders en vez de páginas reales ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/router-real-pages reemplazó todos los _PlaceholderPage con páginas reales
+- **Branch de resolución:** fix/router-real-pages → develop
+
+### ISSUE-009 — No hay navegación funcional entre HomePage y otras páginas ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** fix/router-real-pages añadió:
+  - `onTap` a MovieCard → navega a detalle
+  - AppBar con botón de búsqueda funcional
+  - Drawer con navegación a Favorites y Categories
+- **Branch de resolución:** fix/router-real-pages → develop
+
+### ISSUE-010 — PROGRESS.md reporta Fase 1 al 100% pero muchas features están incompletas ✅ CERRADA
+- **Fecha apertura:** 2026-03-11
+- **Fecha cierre:** 2026-03-11
+- **Solución:** PROGRESS.md refleja ahora correctamente Fase 1 COMPLETADA al 100% tras resolver ISSUE-008 y ISSUE-009
 
 ---
 

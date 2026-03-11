@@ -63,11 +63,9 @@ class _CategoryMoviesPageState extends ConsumerState<CategoryMoviesPage> {
           }
 
           return RefreshIndicator(
-            onRefresh: () async {
-              ref
-                  .read(categoryMoviesProvider(widget.genre.id).notifier)
-                  .loadMovies();
-            },
+            onRefresh: () => ref
+                .read(categoryMoviesProvider(widget.genre.id).notifier)
+                .loadMovies(),
             child: GridView.builder(
               controller: _scrollController,
               padding: const EdgeInsets.all(AppDimensions.spacingM),
