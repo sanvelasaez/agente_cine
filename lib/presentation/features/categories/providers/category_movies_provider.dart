@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_movies_by_genre.dart';
 
 /// Provider for movies filtered by genre
@@ -41,7 +42,7 @@ class CategoryMoviesNotifier extends StateNotifier<AsyncValue<List<Movie>>> {
 
     result.fold(
       (failure) => state = AsyncValue.error(
-        failure.message,
+        failure.userMessage,
         StackTrace.current,
       ),
       (movies) {

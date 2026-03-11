@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_favorites.dart';
 import 'package:agente_cine/domain/usecases/toggle_favorite.dart';
 
@@ -34,7 +35,7 @@ class FavoritesNotifier extends StateNotifier<AsyncValue<List<Movie>>> {
 
     result.fold(
       (failure) => state = AsyncValue.error(
-        failure.message,
+        failure.userMessage,
         StackTrace.current,
       ),
       (movies) => state = AsyncValue.data(movies),

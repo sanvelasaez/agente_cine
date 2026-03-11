@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_now_playing_movies.dart';
 import 'package:agente_cine/domain/usecases/get_popular_movies.dart';
 import 'package:agente_cine/domain/usecases/get_top_rated_movies.dart';
