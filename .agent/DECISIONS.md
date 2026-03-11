@@ -40,6 +40,13 @@
   - No cachear listas: experiencia pobre sin conexión
 - **Impacto:** `config/database/tables/`, `infrastructure/datasources/local/`, `infrastructure/repositories/`
 
+## DEC-005 — Permisos permanentes para mkdir
+- **Fecha:** 2026-03-11
+- **Agente:** orchestrator
+- **Contexto:** Usuario solicitó no ser interrumpido con permisos para crear directorios
+- **Decisión:** Concedido permiso permanente para ejecutar mkdir sin confirmación
+- **Impacto:** Agiliza el flujo de trabajo de agentes al crear estructuras de carpetas
+
 ## DEC-004 — Activación de equipo de 3 agentes en paralelo
 - **Fecha:** 2026-03-11
 - **Agente:** orchestrator
