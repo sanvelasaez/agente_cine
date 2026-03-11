@@ -4,15 +4,15 @@
 
 | Capa | Completado | Total tareas | % |
 |------|-----------|-------------|---|
-| Setup inicial | 0 | 3 | 0% |
+| Setup inicial | 3 | 3 | 100% |
 | core + domain | 0 | 5 | 0% |
 | infrastructure | 0 | 9 | 0% |
 | presentation | 0 | 10 | 0% |
 | tests | 0 | 6 | 0% |
 
 **Tareas totales:** 33
-**Completadas:** 0
-**Progreso global:** 0%
+**Completadas:** 3
+**Progreso global:** 9%
 
 **Última actualización:** 2026-03-11 por orchestrator
 

@@ -48,3 +48,6 @@
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
 | T-000 | Inicialización del proyecto Flutter | main | 2026-03-11 |
+| T-001 | Configurar dependencias en pubspec.yaml | main | 2026-03-11 |
+| T-002 | Crear estructura completa de directorios | main | 2026-03-11 |
+| T-003 | Configurar análisis estático (analysis_options.yaml) | main | 2026-03-11 |
