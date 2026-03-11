@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:agente_cine/app.dart';
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/core/utils/logger.dart';
+import 'package:logging/logging.dart';
 
 void main() async {
   // Ensure Flutter bindings are initialized

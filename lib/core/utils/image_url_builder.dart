@@ -12,7 +12,7 @@ class ImageUrlBuilder {
   /// - Profile: w45, w185, h632, original
   static String buildImageUrl(
     String? path, {
-    ImageSize size = ImageSize.w500,
+    ImageSize size = PosterSize.w500,
   }) {
     if (path == null || path.isEmpty) {
       return _getPlaceholderUrl(size);
