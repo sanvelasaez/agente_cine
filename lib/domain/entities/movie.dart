@@ -1,7 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:agente_cine/domain/entities/cast_member.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'movie.freezed.dart';
 

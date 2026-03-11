@@ -1,6 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:agente_cine/infrastructure/models/cast_member_dto.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'credits_response_dto.freezed.dart';
 part 'credits_response_dto.g.dart';

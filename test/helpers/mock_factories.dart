@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/domain/repositories/favorite_repository.dart';
 import 'package:agente_cine/domain/repositories/genre_repository.dart';
 import 'package:agente_cine/domain/repositories/movie_repository.dart';
 import 'package:agente_cine/infrastructure/datasources/local/drift_local_datasource.dart';
 import 'package:agente_cine/infrastructure/datasources/remote/tmdb_remote_datasource.dart';
+import 'package:mocktail/mocktail.dart';
 
 /// Mock implementations for testing
 class MockMovieRepository extends Mock implements MovieRepository {}

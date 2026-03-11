@@ -1,7 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:agente_cine/infrastructure/mappers/cast_mapper.dart';
 import 'package:agente_cine/infrastructure/models/cast_member_dto.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('CastMapper', () {

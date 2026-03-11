@@ -1,12 +1,11 @@
 import 'dart:io';
 
+import 'package:agente_cine/config/database/daos/favorites_dao.dart';
+import 'package:agente_cine/config/database/tables/favorites_table.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
-
-import 'package:agente_cine/config/database/daos/favorites_dao.dart';
-import 'package:agente_cine/config/database/tables/favorites_table.dart';
 
 part 'app_database.g.dart';
 

@@ -1,13 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/core/utils/image_url_builder.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/presentation/common/extensions/context_extensions.dart';
 import 'package:agente_cine/presentation/common/widgets/rating_stars.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 /// Movie card widget (vertical)
 class MovieCard extends StatelessWidget {
@@ -54,20 +53,20 @@ class MovieCard extends StatelessWidget {
             ? CachedNetworkImage(
                 imageUrl: ImageUrlBuilder.poster(movie.posterPath),
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Container(
+                placeholder: (context, url) => const ColoredBox(
                   color: AppColors.surfaceVariant,
-                  child: const Center(
+                  child: Center(
                     child: CircularProgressIndicator(),
                   ),
                 ),
-                errorWidget: (context, url, error) => Container(
+                errorWidget: (context, url, error) => const ColoredBox(
                   color: AppColors.surfaceVariant,
-                  child: const Icon(Icons.movie, size: 48),
+                  child: Icon(Icons.movie, size: 48),
                 ),
               )
-            : Container(
+            : const ColoredBox(
                 color: AppColors.surfaceVariant,
-                child: const Icon(Icons.movie, size: 48),
+                child: Icon(Icons.movie, size: 48),
               ),
       ),
     );

@@ -1,6 +1,5 @@
-import 'package:dio/dio.dart';
-
 import 'package:agente_cine/core/utils/logger.dart';
+import 'package:dio/dio.dart';
 
 /// Custom logging interceptor for Dio requests
 class LoggingInterceptor extends Interceptor {

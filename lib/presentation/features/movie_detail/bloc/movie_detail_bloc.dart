@@ -1,10 +1,9 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_movie_detail.dart';
 import 'package:agente_cine/domain/usecases/toggle_favorite.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'movie_detail_bloc.freezed.dart';
 part 'movie_detail_event.dart';
@@ -62,7 +61,6 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
         emit(
           MovieDetailState.loaded(
             movie: updatedMovie,
-            isFavoriteLoading: false,
           ),
         );
       },

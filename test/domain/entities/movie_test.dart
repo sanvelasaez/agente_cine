@@ -1,6 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Movie Entity', () {
@@ -10,7 +9,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         releaseDate: DateTime(1999, 10, 15),
       );
@@ -28,7 +27,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
       );
 
@@ -45,7 +44,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         runtime: 139,
       );
@@ -63,7 +62,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         runtime: 120,
       );
@@ -81,7 +80,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         runtime: 45,
       );
@@ -99,7 +98,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
       );
 
@@ -116,7 +115,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         runtime: 0,
       );
@@ -151,9 +150,9 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
-        releaseDate: DateTime(2000, 1, 1),
+        releaseDate: DateTime(2000),
       );
 
       // Act
@@ -169,7 +168,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
         releaseDate: DateTime.now().add(const Duration(days: 30)),
       );
@@ -187,7 +186,7 @@ void main() {
         id: 1,
         title: 'Test Movie',
         overview: 'Test overview',
-        voteAverage: 8.0,
+        voteAverage: 8,
         voteCount: 100,
       );
 

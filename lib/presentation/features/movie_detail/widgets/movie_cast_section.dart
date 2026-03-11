@@ -1,11 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/core/utils/image_url_builder.dart';
 import 'package:agente_cine/domain/entities/cast_member.dart';
 import 'package:agente_cine/presentation/common/extensions/context_extensions.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 
 /// Movie cast section
 class MovieCastSection extends StatelessWidget {

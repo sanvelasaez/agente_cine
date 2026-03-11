@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/core/utils/image_url_builder.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 
 /// Movie backdrop image widget
 class MovieBackdrop extends StatelessWidget {

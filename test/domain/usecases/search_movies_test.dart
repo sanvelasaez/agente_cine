@@ -1,10 +1,9 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/search_movies.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 
@@ -35,18 +34,18 @@ void main() {
           )).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
-      final result = await usecase(query: testQuery, page: 1);
+      final result = await usecase(query: testQuery);
 
       // Assert
       expect(result, const Right([testMovie]));
-      verify(() => mockRepository.searchMovies(query: testQuery, page: 1))
+      verify(() => mockRepository.searchMovies(query: testQuery))
           .called(1);
       verifyNoMoreInteractions(mockRepository);
     });
 
     test('should return validation failure when query is empty', () async {
       // Act
-      final result = await usecase(query: '', page: 1);
+      final result = await usecase(query: '');
 
       // Assert
       expect(result.isLeft(), true);
@@ -63,7 +62,7 @@ void main() {
     test('should return validation failure when query is only whitespace',
         () async {
       // Act
-      final result = await usecase(query: '   ', page: 1);
+      final result = await usecase(query: '   ');
 
       // Assert
       expect(result.isLeft(), true);
@@ -86,11 +85,11 @@ void main() {
           )).thenAnswer((_) async => const Left(failure));
 
       // Act
-      final result = await usecase(query: testQuery, page: 1);
+      final result = await usecase(query: testQuery);
 
       // Assert
       expect(result, const Left(failure));
-      verify(() => mockRepository.searchMovies(query: testQuery, page: 1))
+      verify(() => mockRepository.searchMovies(query: testQuery))
           .called(1);
     });
 
@@ -105,7 +104,7 @@ void main() {
       await usecase(query: testQuery);
 
       // Assert
-      verify(() => mockRepository.searchMovies(query: testQuery, page: 1))
+      verify(() => mockRepository.searchMovies(query: testQuery))
           .called(1);
     });
   });

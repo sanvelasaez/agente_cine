@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-
 import 'package:agente_cine/config/database/app_database.dart';
 import 'package:agente_cine/core/network/dio_factory.dart';
+import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 @module
 abstract class AppModule {

@@ -1,10 +1,9 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/toggle_favorite.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 
@@ -23,7 +22,6 @@ void main() {
     overview: 'A test movie',
     voteAverage: 8.5,
     voteCount: 1000,
-    isFavorite: false,
   );
 
   setUpAll(() {

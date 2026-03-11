@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/config/theme/app_text_styles.dart';
+import 'package:flutter/material.dart';
 
 /// Section header widget with title and optional "See all" button
 class SectionHeader extends StatelessWidget {

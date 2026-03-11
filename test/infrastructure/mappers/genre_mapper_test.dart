@@ -1,7 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:agente_cine/infrastructure/mappers/genre_mapper.dart';
 import 'package:agente_cine/infrastructure/models/genre_dto.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('GenreMapper', () {
