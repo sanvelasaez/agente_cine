@@ -40,6 +40,21 @@
   - No cachear listas: experiencia pobre sin conexión
 - **Impacto:** `config/database/tables/`, `infrastructure/datasources/local/`, `infrastructure/repositories/`
 
+## DEC-005 — Decisión de implementación autónoma por el orquestador
+- **Fecha:** 2026-03-11
+- **Agente:** orchestrator
+- **Contexto:** Los 3 agentes spawneados (domain-infra, presentation, qa) permanecieron en idle sin responder a mensajes ni tomar tareas. Tras múltiples intentos de activación sin éxito, el orquestador decidió continuar autónomamente.
+- **Decisión:**
+  - Desactivar sistema de equipos temporalmente
+  - Orquestador implementa todas las tareas de forma secuencial respetando dependencias
+  - Mantener estructura de tareas y tracking en .agent/ para documentación
+  - Commits frecuentes por tarea completada
+  - Resultados hasta ahora: 14 tareas completadas exitosamente en main
+- **Alternativas descartadas:**
+  - Esperar a que los agentes respondan: bloqueante e indefinido
+  - Reiniciar agentes: sin garantía de éxito
+- **Impacto:** Mayor velocidad de desarrollo, control total del orquestador, infraestructura de team queda lista para futuro uso cuando el sistema madure
+
 ## DEC-004 — Activación de equipo de 3 agentes en paralelo
 - **Fecha:** 2026-03-11
 - **Agente:** orchestrator
