@@ -38,11 +38,11 @@ class AppTheme {
       ),
 
       // Card
-      cardTheme: CardTheme(
+      cardTheme: const CardTheme(
         color: AppColors.surface,
         elevation: AppDimensions.elevationS,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+          borderRadius: BorderRadius.all(Radius.circular(AppDimensions.radiusM)),
         ),
       ),
 
