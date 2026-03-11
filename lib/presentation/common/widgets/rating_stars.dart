@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
+import 'package:flutter/material.dart';
 
 /// Star rating widget (displays rating out of 5 stars)
 class RatingStars extends StatelessWidget {

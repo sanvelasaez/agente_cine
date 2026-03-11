@@ -1,8 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:agente_cine/infrastructure/mappers/movie_mapper.dart';
 import 'package:agente_cine/infrastructure/models/genre_dto.dart';
 import 'package:agente_cine/infrastructure/models/movie_dto.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('MovieMapper', () {
@@ -23,7 +22,6 @@ void main() {
           GenreDto(id: 53, name: 'Thriller'),
         ],
         runtime: 139,
-        isFavorite: false,
       );
 
       // Act

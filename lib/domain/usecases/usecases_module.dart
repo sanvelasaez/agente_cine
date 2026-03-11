@@ -1,5 +1,3 @@
-import 'package:injectable/injectable.dart';
-
 import 'package:agente_cine/domain/repositories/favorite_repository.dart';
 import 'package:agente_cine/domain/repositories/genre_repository.dart';
 import 'package:agente_cine/domain/repositories/movie_repository.dart';
@@ -14,6 +12,7 @@ import 'package:agente_cine/domain/usecases/get_trending_movies.dart';
 import 'package:agente_cine/domain/usecases/get_upcoming_movies.dart';
 import 'package:agente_cine/domain/usecases/search_movies.dart';
 import 'package:agente_cine/domain/usecases/toggle_favorite.dart';
+import 'package:injectable/injectable.dart';
 
 @module
 abstract class UseCasesModule {

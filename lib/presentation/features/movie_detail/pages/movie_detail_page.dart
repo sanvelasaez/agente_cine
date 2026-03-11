@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/usecases/get_movie_detail.dart';
@@ -13,6 +10,8 @@ import 'package:agente_cine/presentation/features/movie_detail/widgets/movie_cas
 import 'package:agente_cine/presentation/features/movie_detail/widgets/movie_genres_section.dart';
 import 'package:agente_cine/presentation/features/movie_detail/widgets/movie_info_section.dart';
 import 'package:agente_cine/presentation/features/movie_detail/widgets/movie_overview_section.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Movie detail page
 class MovieDetailPage extends StatelessWidget {

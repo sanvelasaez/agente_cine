@@ -1,12 +1,11 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/domain/entities/cast_member.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_movie_detail.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 

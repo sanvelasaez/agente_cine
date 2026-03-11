@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
+import 'package:flutter/material.dart';
 
 /// App text styles
 class AppTextStyles {

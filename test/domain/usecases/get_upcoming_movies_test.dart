@@ -1,10 +1,9 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_upcoming_movies.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 
@@ -33,11 +32,11 @@ void main() {
           .thenAnswer((_) async => const Right([testMovie]));
 
       // Act
-      final result = await usecase(page: 1);
+      final result = await usecase();
 
       // Assert
       expect(result, const Right([testMovie]));
-      verify(() => mockRepository.getUpcoming(page: 1)).called(1);
+      verify(() => mockRepository.getUpcoming()).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
 
@@ -48,11 +47,11 @@ void main() {
           .thenAnswer((_) async => const Left(failure));
 
       // Act
-      final result = await usecase(page: 1);
+      final result = await usecase();
 
       // Assert
       expect(result, const Left(failure));
-      verify(() => mockRepository.getUpcoming(page: 1)).called(1);
+      verify(() => mockRepository.getUpcoming()).called(1);
     });
   });
 }

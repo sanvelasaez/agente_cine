@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/presentation/common/widgets/error_view.dart';
 import 'package:agente_cine/presentation/common/widgets/genre_chip.dart';
 import 'package:agente_cine/presentation/common/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/features/categories/providers/genres_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Categories page showing all movie genres
 class CategoriesPage extends ConsumerWidget {

@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/usecases/get_now_playing_movies.dart';
@@ -13,6 +9,9 @@ import 'package:agente_cine/presentation/delegates/movie_search_delegate.dart';
 import 'package:agente_cine/presentation/features/home/bloc/home_bloc.dart';
 import 'package:agente_cine/presentation/features/home/widgets/movie_horizontal_list.dart';
 import 'package:agente_cine/presentation/features/home/widgets/section_header.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 /// Home page with multiple movie lists
 class HomePage extends StatelessWidget {

@@ -1,6 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:agente_cine/infrastructure/models/genre_dto.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'movie_dto.freezed.dart';
 part 'movie_dto.g.dart';

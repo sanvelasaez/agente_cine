@@ -1,9 +1,8 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/usecases/get_movies_by_genre.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider for movies filtered by genre
 final categoryMoviesProvider = StateNotifierProvider.family<

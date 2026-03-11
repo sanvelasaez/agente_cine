@@ -1,13 +1,11 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/core/error/app_exception.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/infrastructure/models/genre_dto.dart';
 import 'package:agente_cine/infrastructure/models/genre_list_response_dto.dart';
 import 'package:agente_cine/infrastructure/repositories/genre_repository_impl.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 

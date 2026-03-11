@@ -1,8 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
-
 import 'package:agente_cine/core/error/app_exception.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/infrastructure/models/cast_member_dto.dart';
@@ -11,6 +6,9 @@ import 'package:agente_cine/infrastructure/models/genre_dto.dart';
 import 'package:agente_cine/infrastructure/models/movie_dto.dart';
 import 'package:agente_cine/infrastructure/models/movie_list_response_dto.dart';
 import 'package:agente_cine/infrastructure/repositories/movie_repository_impl.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/mock_factories.dart';
 
@@ -46,7 +44,7 @@ void main() {
             .thenAnswer((_) async => testListResponse);
 
         // Act
-        final result = await repository.getTrending(page: 1);
+        final result = await repository.getTrending();
 
         // Assert
         expect(result.isRight(), true);
@@ -72,7 +70,7 @@ void main() {
         );
 
         // Act
-        final result = await repository.getTrending(page: 1);
+        final result = await repository.getTrending();
 
         // Assert
         expect(result.isLeft(), true);
@@ -92,7 +90,7 @@ void main() {
         );
 
         // Act
-        final result = await repository.getTrending(page: 1);
+        final result = await repository.getTrending();
 
         // Assert
         expect(result.isLeft(), true);
@@ -108,7 +106,7 @@ void main() {
             .thenThrow(const ServerException('Server error'));
 
         // Act
-        final result = await repository.getTrending(page: 1);
+        final result = await repository.getTrending();
 
         // Assert
         expect(result.isLeft(), true);
@@ -203,7 +201,7 @@ void main() {
             .thenAnswer((_) async => testListResponse);
 
         // Act
-        final result = await repository.searchMovies(query: 'Fight', page: 1);
+        final result = await repository.searchMovies(query: 'Fight');
 
         // Assert
         expect(result.isRight(), true);
@@ -223,7 +221,7 @@ void main() {
             .thenThrow(const NetworkException('No internet'));
 
         // Act
-        final result = await repository.searchMovies(query: 'Fight', page: 1);
+        final result = await repository.searchMovies(query: 'Fight');
 
         // Assert
         expect(result.isLeft(), true);

@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/presentation/common/extensions/context_extensions.dart';
 import 'package:agente_cine/presentation/common/widgets/genre_chip.dart';
+import 'package:flutter/material.dart';
 
 /// Movie genres section
 class MovieGenresSection extends StatelessWidget {

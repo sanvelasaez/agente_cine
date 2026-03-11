@@ -1,7 +1,6 @@
-import 'package:drift/drift.dart';
-
 import 'package:agente_cine/config/database/app_database.dart';
 import 'package:agente_cine/config/database/tables/favorites_table.dart';
+import 'package:drift/drift.dart';
 
 part 'favorites_dao.g.dart';
 

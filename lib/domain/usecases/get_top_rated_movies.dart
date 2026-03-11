@@ -1,8 +1,7 @@
-import 'package:dartz/dartz.dart';
-
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/failures/failure.dart';
 import 'package:agente_cine/domain/repositories/movie_repository.dart';
+import 'package:dartz/dartz.dart';
 
 /// Use case for getting top rated movies
 class GetTopRatedMovies {

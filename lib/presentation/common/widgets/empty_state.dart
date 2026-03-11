@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/presentation/common/extensions/context_extensions.dart';
+import 'package:flutter/material.dart';
 
 /// Empty state view
 class EmptyState extends StatelessWidget {

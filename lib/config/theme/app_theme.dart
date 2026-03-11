@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/config/theme/app_text_styles.dart';
+import 'package:flutter/material.dart';
 
 /// App theme configuration
 class AppTheme {
@@ -18,10 +17,7 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.surface,
-        error: AppColors.error,
         onPrimary: AppColors.textPrimary,
-        onSecondary: Colors.black,
-        onSurface: AppColors.textPrimary,
         onError: AppColors.textPrimary,
       ),
 

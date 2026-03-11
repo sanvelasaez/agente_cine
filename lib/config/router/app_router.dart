@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:agente_cine/config/router/app_routes.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/presentation/features/categories/pages/categories_page.dart';
@@ -8,6 +5,8 @@ import 'package:agente_cine/presentation/features/categories/pages/category_movi
 import 'package:agente_cine/presentation/features/favorites/pages/favorites_page.dart';
 import 'package:agente_cine/presentation/features/home/pages/home_page.dart';
 import 'package:agente_cine/presentation/features/movie_detail/pages/movie_detail_page.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 /// App router configuration
 class AppRouter {

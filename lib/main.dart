@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 import 'package:agente_cine/app.dart';
 import 'package:agente_cine/config/di/injection.dart';
 import 'package:agente_cine/core/utils/logger.dart';
-import 'package:logging/logging.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   // Ensure Flutter bindings are initialized
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize logger
-  AppLogger.initialize(level: Level.INFO);
+  AppLogger.initialize();
 
   // Set preferred orientations
   await SystemChrome.setPreferredOrientations([

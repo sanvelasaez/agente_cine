@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:agente_cine/config/router/app_routes.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
@@ -9,6 +6,8 @@ import 'package:agente_cine/presentation/common/widgets/error_view.dart';
 import 'package:agente_cine/presentation/common/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/common/widgets/movie_card.dart';
 import 'package:agente_cine/presentation/features/home/bloc/home_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 /// Horizontal scrolling list of movies
 class MovieHorizontalList extends StatelessWidget {
