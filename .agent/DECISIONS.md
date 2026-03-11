@@ -39,3 +39,23 @@
   - SharedPreferences para favoritos: límite de tamaño, no relacional
   - No cachear listas: experiencia pobre sin conexión
 - **Impacto:** `config/database/tables/`, `infrastructure/datasources/local/`, `infrastructure/repositories/`
+
+## DEC-004 — Activación de equipo de 3 agentes en paralelo
+- **Fecha:** 2026-03-11
+- **Agente:** orchestrator
+- **Contexto:** Necesidad de ejecutar 35 tareas de forma eficiente respetando dependencias arquitectónicas
+- **Decisión:**
+  - Crear team "agente-cine-team" con 3 agentes especializados activos simultáneamente:
+    1. **domain-infra-agent**: 13 tareas (T-001 a T-015 del plan original, #1-15 en TaskList)
+    2. **presentation-agent**: 10 tareas (#20-29 en TaskList)
+    3. **qa-agent**: 6 tareas (#30-35 en TaskList)
+  - Orden de ejecución:
+    1. domain-infra-agent arranca con #1, #2, #3 en paralelo (sin dependencias)
+    2. presentation-agent arranca con #28, #25 en paralelo (theme y router, independientes)
+    3. qa-agent espera hasta que se desbloqueen sus tareas
+  - Cada agente ejecuta tareas en paralelo cuando las dependencias lo permiten
+  - Commits frecuentes por tarea completada
+- **Alternativas descartadas:**
+  - Ejecutar secuencialmente: lento, subutiliza capacidad de paralelización
+  - Un solo agente: no respeta especialización, dificulta tracking
+- **Impacto:** Velocidad de desarrollo x3, mejor separación de responsabilidades, tracking granular por capa
