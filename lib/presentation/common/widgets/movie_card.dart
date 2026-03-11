@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:agente_cine/config/theme/app_colors.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
@@ -26,7 +27,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => context.go('/movie/${movie.id}'),
       child: SizedBox(
         width: width,
         child: Column(
