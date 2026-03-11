@@ -9,7 +9,7 @@
 ## 📌 FINALIDAD DEL PROYECTO
 
 **Nombre:** AgenteCine
-**Plataformas objetivo:** Android, iOS (móvil first), Windows/macOS/Linux Desktop. Web NO soportado (ver PLATFORM_SUPPORT.md)
+**Plataformas objetivo:** Android e iOS (móvil first)
 **Público objetivo:** Usuarios aficionados al cine que quieren explorar, descubrir y gestionar su experiencia cinematográfica desde el móvil.
 
 **Descripción:**
@@ -301,7 +301,7 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 | `orchestrator` | Orquestador | Planificación, asignación, revisión de PRs, decisiones de arquitectura, gestión de `.agent/` |
 | `domain-infra-agent` | Dominio e Infraestructura | `domain/`, `infrastructure/`, `config/di/`, `config/database/` |
 | `presentation-agent` | Presentación | `presentation/`, `config/router/`, `config/theme/` |
-| `qa-agent` | Testing | `test/`, `integration_test/`, cobertura de tests unitarios |
+| `test-agent` | Testing | `test/`, `integration_test/`, cobertura de tests unitarios |
 | `product-qa-agent` | Calidad de Producto | Ejecución de app, validación funcional, detección de bugs, apertura de incidencias en `.agent/ISSUES.md` |
 
 ### Reglas del orquestador
@@ -314,6 +314,34 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 6. Revisar el diff de cada agente antes de mergear a `develop`.
 7. Proponer e implementar nuevas features autónomamente si mejoran la experiencia. Documentarlas en `.agent/DECISIONS.md`.
 8. Interrumpir al usuario únicamente para: información de negocio no especificada, credenciales externas, o decisión que afecte irreversiblemente la arquitectura.
+
+### Protocolo de recuperación de agente caído
+
+Los subagentes son desechables por diseño. Cuando uno falla o no responde, el orquestador NUNCA debe asumir su trabajo directamente. El protocolo obligatorio es siempre este:
+
+**Paso 1 — Evaluar el estado real antes de actuar:**
+Revisar si el agente hizo commit de algo antes de caer o si la rama está limpia:
+```cmd
+git status
+git log --oneline -5
+```
+
+**Paso 2 — Actualizar TASKS.md con el estado exacto:**
+- Si no hizo commit → la tarea vuelve a `Pendiente` con nota `REINTENTAR`
+- Si hizo commit parcial → la tarea pasa a `Interrumpida` detallando qué archivos están creados
+
+**Paso 3 — Lanzar el agente de reemplazo con contexto completo:**
+El nuevo agente recibe en su prompt inicial siempre estos tres datos:
+1. La descripción completa de la tarea desde TASKS.md
+2. El resultado de `git status` y `git log --oneline -5` de su rama
+3. La instrucción explícita: "Retoma desde donde se quedó el agente anterior. No reescribas lo que ya está commiteado."
+
+**Lo que el orquestador NUNCA debe hacer:**
+- Ejecutar él mismo el trabajo de un agente especializado
+- Crear un agente nuevo sin pasarle el contexto del estado actual
+- Crear más de un agente de reemplazo para la misma tarea simultáneamente
+
+---
 
 ### Reglas de todos los agentes
 
@@ -367,14 +395,20 @@ El directorio `.agent/` en la raíz del proyecto es el espacio de trabajo compar
 | T-001 | Crear entidades Movie, Genre | domain-infra-agent | feature/domain-entities | YYYY-MM-DD |
 
 ### Pendiente
-| ID | Tarea | Agente asignado | Dependencias |
-|----|-------|----------------|--------------|
-| T-002 | Implementar TmdbRemoteDataSource | domain-infra-agent | T-001 |
+| ID | Tarea | Agente asignado | Dependencias | Notas |
+|----|-------|----------------|--------------|-------|
+| T-002 | Implementar TmdbRemoteDataSource | domain-infra-agent | T-001 | |
+| T-003 | Setup go_router | presentation-agent | — | REINTENTAR |
+
+### Interrumpida (agente caído con trabajo parcial)
+| ID | Tarea | Branch | Último commit | Qué falta |
+|----|-------|--------|--------------|-----------|
+| T-004 | Crear HomeBloc | feature/home-bloc | a3f1c2e | Falta estado de error y tests |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
-| T-000 | Setup inicial del proyecto | orchestrator | develop | YYYY-MM-DD |
+| T-000 | Setup inicial del proyecto | develop | YYYY-MM-DD |
 ```
 
 ### Formato de DECISIONS.md
