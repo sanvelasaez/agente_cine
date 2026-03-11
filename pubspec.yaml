@@ -26,7 +26,7 @@ dependencies:
 
   # Red
   dio: ^5.7.0
-  retrofit: ^4.5.0
+  # retrofit: ^4.4.2  # Temporalmente comentado por conflictos de versión con generator
 
   # Base de datos local
   drift: ^2.22.0
@@ -56,7 +56,7 @@ dev_dependencies:
   freezed: ^2.5.7
   json_serializable: ^6.9.2
   injectable_generator: ^2.6.2
-  retrofit_generator: ^9.1.4
+  # retrofit_generator: ^9.1.2  # Temporalmente comentado
   drift_dev: ^2.22.0
 
   # Testing

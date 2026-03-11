@@ -1,9 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(flutter pub:*)",
+      "Bash(flutter *)",
+      "Bash(git *)",
+      "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)",
       "Bash(git add:*)",
-      "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)"
+      "Bash(flutter clean:*)"
     ]
   }
 }

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(flutter *)",
+      "Bash(dart *)",
+      "Edit",
+      "MultiEdit"
+    ],
+    "deny": [
+      "Bash(git push --force *)"
+    ]
+  }
+}
