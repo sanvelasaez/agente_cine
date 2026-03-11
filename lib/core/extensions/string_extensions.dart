@@ -2,7 +2,9 @@
 extension StringExtensions on String {
   /// Capitalize first letter
   String capitalize() {
-    if (isEmpty) return this;
+    if (isEmpty) {
+      return this;
+    }
     return '${this[0].toUpperCase()}${substring(1)}';
   }
 
@@ -16,7 +18,9 @@ extension StringExtensions on String {
 
   /// Truncate string to specified length with ellipsis
   String truncate(int maxLength, {String ellipsis = '...'}) {
-    if (length <= maxLength) return this;
+    if (length <= maxLength) {
+      return this;
+    }
     return '${substring(0, maxLength)}$ellipsis';
   }
 

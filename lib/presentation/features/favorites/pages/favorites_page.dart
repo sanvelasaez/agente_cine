@@ -37,9 +37,8 @@ class FavoritesPage extends ConsumerWidget {
           }
 
           return RefreshIndicator(
-            onRefresh: () async {
-              ref.read(favoritesProvider.notifier).loadFavorites();
-            },
+            onRefresh: () =>
+                ref.read(favoritesProvider.notifier).loadFavorites(),
             child: GridView.builder(
               padding: const EdgeInsets.all(AppDimensions.spacingM),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

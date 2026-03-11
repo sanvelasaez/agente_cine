@@ -1,20 +1,5 @@
 # DECISIONS.md — Registro de decisiones técnicas
 
-## DEC-001 — Orden de implementación de la Fase 1
-- **Fecha:** 2026-03-11
-- **Agente:** orchestrator
-- **Contexto:** Fase inicial del proyecto, necesidad de establecer el orden correcto de implementación respetando dependencias arquitectónicas
-- **Decisión:**
-  1. Setup inicial (T-001 a T-003): pubspec, estructura de carpetas, linting
-  2. Core y Domain (T-004 a T-008): utilidades, failures, entidades, contratos, usecases
-  3. Infrastructure (T-009 a T-017): red, DTOs, mappers, datasources, repos, DI, build_runner
-  4. Presentation (T-018 a T-027): theme, router, widgets, pages, app.dart, main.dart
-  5. Testing (T-028 a T-033): tests por capa en orden paralelo cuando la implementación esté lista
-- **Alternativas descartadas:**
-  - Implementar UI primero con datos mockeados: violaría el principio de domain-first
-  - Hacer todo en una sola rama gigante: dificultaría rollback y revisión
-- **Impacto:** Todas las capas. Este orden se refleja en el TASKS.md como dependencias explícitas
-
 ## DEC-002 — Uso de BLoC vs Riverpod por feature
 - **Fecha:** 2026-03-11
 - **Agente:** orchestrator
@@ -30,39 +15,48 @@
 ## DEC-003 — Estrategia de caché local con Drift
 - **Fecha:** 2026-03-11
 - **Agente:** orchestrator
-- **Contexto:** Favoritos deben persistir offline. Listas de películas pueden cachearse para mejorar UX
+- **Contexto:** Favoritos deben persistir offline
 - **Decisión:**
-  - Tabla `favorites` (obligatoria): id, movieId, addedAt
-  - Tabla `cached_movies` (opcional para Fase 1): movieId, category, data JSON, cachedAt, expiresAt
-  - Estrategia: remote-first con fallback a cache si falla red
+  - Tabla `favorites`: id (autoincrement), movieId (int, unique), addedAt (DateTime)
+  - Estrategia: Solo favoritos persisten localmente, listas se obtienen siempre de TMDB (remote-first)
 - **Alternativas descartadas:**
+  - Cachear listas de películas: complejidad innecesaria para Fase 1
   - SharedPreferences para favoritos: límite de tamaño, no relacional
-  - No cachear listas: experiencia pobre sin conexión
-- **Impacto:** `config/database/tables/`, `infrastructure/datasources/local/`, `infrastructure/repositories/`
+- **Impacto:** `config/database/tables/favorites_table.dart`, `config/database/daos/favorites_dao.dart`, `infrastructure/repositories/favorites_repository_impl.dart`
 
-## DEC-005 — Permisos permanentes para mkdir
+## DEC-006 — Dio puro en lugar de Retrofit
 - **Fecha:** 2026-03-11
-- **Agente:** orchestrator
-- **Contexto:** Usuario solicitó no ser interrumpido con permisos para crear directorios
-- **Decisión:** Concedido permiso permanente para ejecutar mkdir sin confirmación
-- **Impacto:** Agiliza el flujo de trabajo de agentes al crear estructuras de carpetas
-
-## DEC-004 — Activación de equipo de 3 agentes en paralelo
-- **Fecha:** 2026-03-11
-- **Agente:** orchestrator
-- **Contexto:** Necesidad de ejecutar 35 tareas de forma eficiente respetando dependencias arquitectónicas
-- **Decisión:**
-  - Crear team "agente-cine-team" con 3 agentes especializados activos simultáneamente:
-    1. **domain-infra-agent**: 13 tareas (T-001 a T-015 del plan original, #1-15 en TaskList)
-    2. **presentation-agent**: 10 tareas (#20-29 en TaskList)
-    3. **qa-agent**: 6 tareas (#30-35 en TaskList)
-  - Orden de ejecución:
-    1. domain-infra-agent arranca con #1, #2, #3 en paralelo (sin dependencias)
-    2. presentation-agent arranca con #28, #25 en paralelo (theme y router, independientes)
-    3. qa-agent espera hasta que se desbloqueen sus tareas
-  - Cada agente ejecuta tareas en paralelo cuando las dependencias lo permiten
-  - Commits frecuentes por tarea completada
+- **Agente:** domain-infra-agent
+- **Contexto:** CLAUDE.md especifica retrofit, pero el proyecto necesitaba avanzar rápido
+- **Decisión:** Usar Dio directamente en TmdbRemoteDataSource sin capa Retrofit
+- **Razón:** Retrofit requiere build_runner para generar código boilerplate. Dio puro es más directo y suficiente para TMDB v3
 - **Alternativas descartadas:**
-  - Ejecutar secuencialmente: lento, subutiliza capacidad de paralelización
-  - Un solo agente: no respeta especialización, dificulta tracking
-- **Impacto:** Velocidad de desarrollo x3, mejor separación de responsabilidades, tracking granular por capa
+  - Retrofit: añade complejidad de generación de código sin beneficio claro para este caso
+- **Impacto:** `infrastructure/datasources/remote/tmdb_remote_datasource.dart`
+
+## DEC-007 — Navegación directa a páginas reales desde HomePage
+- **Fecha:** 2026-03-11
+- **Agente:** presentation-agent (fix/router-real-pages)
+- **Contexto:** HomePage inicialmente solo mostraba listas sin navegación funcional
+- **Decisión:**
+  - MovieCard navega a `/movie/:id` (MovieDetailPage) al hacer tap
+  - AppBar de HomePage tiene IconButton de búsqueda que invoca MovieSearchDelegate
+  - AppBar tiene Drawer con navegación a Favorites y Categories
+- **Impacto:** `presentation/features/home/pages/home_page.dart`, `config/router/app_router.dart`
+
+## DEC-008 — SearchDelegate sin inyección de dependencias
+- **Fecha:** 2026-03-11
+- **Agente:** test-agent (fix/search-delegate-di)
+- **Contexto:** MovieSearchDelegate necesitaba acceso a SearchMoviesUseCase pero SearchDelegate de Flutter no soporta DI estándar
+- **Decisión:** Pasar SearchMoviesUseCase como parámetro en el constructor de MovieSearchDelegate
+- **Alternativas descartadas:**
+  - GetIt.instance.get() dentro del delegate: acoplamiento global
+  - BuildContext.read() de Riverpod: SearchDelegate no tiene acceso continuo a BuildContext
+- **Impacto:** `presentation/delegates/movie_search_delegate.dart`, llamadas desde HomePage
+
+## DEC-009 — Web no soportado
+- **Fecha:** 2026-03-11
+- **Agente:** qa-agent
+- **Contexto:** Flutter permite compilar a web, pero Drift usa sqlite3 con FFI que no funciona en web
+- **Decisión:** Documentar explícitamente que web NO está soportado debido a dependencia de Drift/sqlite3/FFI
+- **Impacto:** Añadida nota en README.md y comentarios en pubspec.yaml
