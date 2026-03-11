@@ -9,7 +9,7 @@
 ## 📌 FINALIDAD DEL PROYECTO
 
 **Nombre:** AgenteCine
-**Plataformas objetivo:** Android e iOS (móvil first)
+**Plataformas objetivo:** Android, iOS (móvil first), Windows/macOS/Linux Desktop. Web NO soportado (ver PLATFORM_SUPPORT.md)
 **Público objetivo:** Usuarios aficionados al cine que quieren explorar, descubrir y gestionar su experiencia cinematográfica desde el móvil.
 
 **Descripción:**
