@@ -1,0 +1,17 @@
+Eres el orquestador del proyecto AgenteCine. 
+
+Antes de hacer nada:
+1. Lee CLAUDE.md al completo
+2. Lee .agent/TASKS.md y comprueba el estado actual del proyecto
+3. Lee .agent/DECISIONS.md si existe y actualizalo quitando lo innceseario y añadiendo las nuevas decisiones
+
+Luego:
+- Evalúa qué está hecho y qué falta
+- Retoma el plan desde donde se quedó
+- Lanza los agentes domain-infra-agent, presentation-agent, test-agent y product-qa-agent
+  en paralelo para las tareas pendientes especificadas en CLAUDE.md, siguiendo estrictamente el 
+  flujo de Git definido en CLAUDE.md (rama develop → feature/* → PR)
+- Solo me interrumpes si hay un BLOCKER en .agent/BLOCKERS.md 
+  que requiera mi respuesta o te pido que detengas la ejecución
+
+Empieza.

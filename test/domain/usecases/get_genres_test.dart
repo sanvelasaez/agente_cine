@@ -33,7 +33,7 @@ void main() {
       final result = await usecase();
 
       // Assert
-      expect(result, const Right(testGenres));
+      expect(result, const Right<Failure, List<Genre>>(testGenres));
       verify(() => mockRepository.getGenres()).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
@@ -65,7 +65,7 @@ void main() {
       final result = await usecase();
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, List<Genre>>(failure));
       verify(() => mockRepository.getGenres()).called(1);
     });
   });

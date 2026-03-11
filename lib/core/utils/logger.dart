@@ -12,7 +12,9 @@ class AppLogger {
 
   /// Initialize the logger with specified level
   static void initialize({Level level = Level.INFO}) {
-    if (_initialized) return;
+    if (_initialized) {
+      return;
+    }
 
     Logger.root.level = level;
     Logger.root.onRecord.listen((record) {

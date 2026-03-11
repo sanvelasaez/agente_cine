@@ -28,20 +28,28 @@ class Movie with _$Movie {
   /// Get release year as string
   String get releaseYear {
     final date = releaseDate;
-    if (date == null) return 'N/A';
+    if (date == null) {
+      return 'N/A';
+    }
     return date.year.toString();
   }
 
   /// Get runtime formatted as hours and minutes
   String get runtimeFormatted {
     final rt = runtime;
-    if (rt == null || rt == 0) return 'N/A';
+    if (rt == null || rt == 0) {
+      return 'N/A';
+    }
 
     final hours = rt ~/ 60;
     final minutes = rt % 60;
 
-    if (hours == 0) return '${minutes}min';
-    if (minutes == 0) return '${hours}h';
+    if (hours == 0) {
+      return '${minutes}min';
+    }
+    if (minutes == 0) {
+      return '${hours}h';
+    }
 
     return '${hours}h ${minutes}min';
   }
@@ -54,7 +62,9 @@ class Movie with _$Movie {
   /// Check if movie has been released
   bool get hasBeenReleased {
     final date = releaseDate;
-    if (date == null) return false;
+    if (date == null) {
+      return false;
+    }
     return date.isBefore(DateTime.now());
   }
 }

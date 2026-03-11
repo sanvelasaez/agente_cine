@@ -39,7 +39,7 @@ void main() {
       final result = await usecase(genreId: testGenreId);
 
       // Assert
-      expect(result, const Right([testMovie]));
+      expect(result, const Right<Failure, List<Movie>>([testMovie]));
       verify(() => mockRepository.getMoviesByGenre(
             genreId: testGenreId,
           )).called(1);
@@ -58,7 +58,7 @@ void main() {
       final result = await usecase(genreId: testGenreId);
 
       // Assert
-      expect(result, const Left(failure));
+      expect(result, const Left<Failure, List<Movie>>(failure));
       verify(() => mockRepository.getMoviesByGenre(
             genreId: testGenreId,
           )).called(1);

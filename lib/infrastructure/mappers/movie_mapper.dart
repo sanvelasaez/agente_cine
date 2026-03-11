@@ -22,7 +22,9 @@ extension MovieMapper on MovieDto {
   }
 
   DateTime? _parseDate(String? dateString) {
-    if (dateString == null || dateString.isEmpty) return null;
+    if (dateString == null || dateString.isEmpty) {
+      return null;
+    }
 
     try {
       return DateTime.parse(dateString);
