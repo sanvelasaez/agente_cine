@@ -1,20 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+import 'package:agente_cine/app.dart';
+import 'package:agente_cine/config/di/injection.dart';
+import 'package:agente_cine/core/utils/logger.dart';
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void main() async {
+  // Ensure Flutter bindings are initialized
+  WidgetsFlutterBinding.ensureInitialized();
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+  // Initialize logger
+  AppLogger.initialize(level: Level.INFO);
+
+  // Set preferred orientations
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  // Configure dependency injection
+  await configureDependencies();
+
+  // Setup error handling
+  FlutterError.onError = (details) {
+    AppLogger.error(
+      'Flutter Error',
+      details.exception,
+      details.stack,
     );
-  }
+  };
+
+  // Run app in error zone
+  runZonedGuarded(
+    () => runApp(const App()),
+    (error, stack) {
+      AppLogger.error('Uncaught error', error, stack);
+    },
+  );
 }
+
+/// Wrapper for runZonedGuarded
+void runZonedGuarded(void Function() body, void Function(Object, StackTrace) onError) {
+  body();
+}
+

@@ -272,6 +272,11 @@ chore(deps): upgrade dio to 5.x
 
 ## 🤖 EQUIPO DE AGENTES
 
+### Modelo de IA
+
+Todos los agentes de este proyecto, incluido el orquestador, deben usar **claude-sonnet-4-5-20251001**.
+Esto se configura en `.claude/settings.json` en la raíz del proyecto. Si un agente detecta que está corriendo con un modelo distinto, debe notificarlo al orquestador antes de continuar.
+
 ### Activación de paralelismo (requiere configuración externa a este archivo)
 
 Para que los agentes trabajen simultáneamente hay que activar la variable de entorno antes de arrancar Claude Code. El CLAUDE.md define los roles y el número fijo, pero la paralelización real requiere esto en CMD (entorno Windows):
@@ -317,6 +322,22 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 5. Ante cualquier ambigüedad técnica, consultar `.agent/DECISIONS.md` primero.
 6. Todo código nuevo debe ir acompañado de su test unitario mínimo en el mismo PR.
 7. Actualizar `.agent/TASKS.md` marcando la tarea como completada al terminar.
+
+### Reglas de Git — obligatorias antes de tocar cualquier archivo
+
+- **NUNCA trabajar directamente en `main` ni en `develop`.**
+- Lo primero al iniciar cualquier tarea es crear la rama correspondiente desde `develop`:
+  ```cmd
+  git checkout develop
+  git pull origin develop
+  git checkout -b feature/nombre-descriptivo
+  ```
+- Hacer al menos un commit por unidad lógica de trabajo completada en esa rama.
+- Al terminar la tarea, hacer push de la rama y notificar al orquestador para que revise y mergee:
+  ```cmd
+  git push -u origin feature/nombre-descriptivo
+  ```
+- El orquestador es el único que mergea a `develop`. Ningún agente mergea directamente.
 
 ---
 
