@@ -306,14 +306,15 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 
 ### Reglas del orquestador
 
-1. Mantener `.agent/TASKS.md` siempre actualizado antes de asignar cualquier tarea.
-2. Respetar el orden de implementación por capas: `domain → infrastructure → config/di → presentation`.
-3. Asignar tareas de capas independientes en paralelo cuando sea posible.
-4. Nunca asignar a dos agentes tareas que modifiquen el mismo archivo simultáneamente.
-5. **OBLIGATORIO:** Después de cada merge a `develop`, asignar tarea a `product-qa-agent` para validar funcionalmente lo mergeado.
-6. Revisar el diff de cada agente antes de mergear a `develop`.
-7. Proponer e implementar nuevas features autónomamente si mejoran la experiencia. Documentarlas en `.agent/DECISIONS.md`.
-8. Interrumpir al usuario únicamente para: información de negocio no especificada, credenciales externas, o decisión que afecte irreversiblemente la arquitectura.
+1. **Al inicio de cada sesión:** Leer `.agent/BACKLOG.md` y procesar todas las peticiones pendientes del usuario, convirtiéndolas en tareas en `TASKS.md` y eliminando las líneas procesadas.
+2. Mantener `.agent/TASKS.md` siempre actualizado antes de asignar cualquier tarea.
+3. Respetar el orden de implementación por capas: `domain → infrastructure → config/di → presentation`.
+4. Asignar tareas de capas independientes en paralelo cuando sea posible.
+5. Nunca asignar a dos agentes tareas que modifiquen el mismo archivo simultáneamente.
+6. **OBLIGATORIO:** Después de cada merge a `develop`, asignar tarea a `product-qa-agent` para validar funcionalmente lo mergeado.
+7. Revisar el diff de cada agente antes de mergear a `develop`.
+8. Proponer e implementar nuevas features autónomamente si mejoran la experiencia. Documentarlas en `.agent/DECISIONS.md`.
+9. Interrumpir al usuario únicamente para: información de negocio no especificada, credenciales externas, o decisión que afecte irreversiblemente la arquitectura.
 
 ### Protocolo de recuperación de agente caído
 
@@ -377,12 +378,51 @@ El directorio `.agent/` en la raíz del proyecto es el espacio de trabajo compar
 
 ```
 .agent/
+├── BACKLOG.md         # Inbox del usuario: peticiones de features/bugs (usuario escribe, orquestador procesa)
 ├── TASKS.md           # Tablón de tareas: pendiente / en progreso / completada
 ├── DECISIONS.md       # Registro de decisiones técnicas autónomas del orquestador
 ├── BLOCKERS.md        # Impedimentos que requieren intervención del usuario
 ├── PROGRESS.md        # Resumen de progreso por fase para consulta rápida
 └── ISSUES.md          # Incidencias de calidad abiertas por product-qa-agent
 ```
+
+### Protocolo de BACKLOG.md
+
+**BACKLOG.md** es el archivo exclusivo del usuario para solicitar nuevas features o reportar bugs sin tener que interrumpir al orquestador con explicaciones detalladas.
+
+**Flujo de trabajo:**
+1. **Usuario escribe** una línea por cada feature/bug que desee en `BACKLOG.md`
+2. **Orquestador consulta** `BACKLOG.md` automáticamente:
+   - Al inicio de cada sesión
+   - Cuando el usuario ejecuta el comando "procesa el backlog" o similar
+   - Cada vez que el usuario añade contenido y notifica
+3. **Orquestador procesa** cada línea:
+   - Crea una tarea formal en `TASKS.md` con ID, agente asignado, dependencias
+   - Documenta la decisión en `DECISIONS.md` si requiere decisión arquitectónica
+   - Elimina la línea procesada de `BACKLOG.md`
+4. **Orquestador ejecuta** las tareas según prioridad y dependencias
+
+**Formato del usuario en BACKLOG.md:**
+```
+[FEATURE] Descripción breve de la funcionalidad
+[BUG] Descripción breve del error
+[REFACTOR] Descripción breve de la refactorización
+Sin etiqueta → Se asume FEATURE por defecto
+```
+
+**Ejemplo:**
+```markdown
+# BACKLOG.md
+
+## 🔄 PETICIONES PENDIENTES
+
+[FEATURE] Añadir modo claro/oscuro dinámico
+[BUG] SearchDelegate no muestra resultados con espacios en el query
+Implementar skeleton loaders en todas las listas
+[REFACTOR] Extraer lógica de caché a un usecase separado
+```
+
+**Regla del orquestador:** NUNCA escribir en `BACKLOG.md` excepto para eliminar líneas ya procesadas. Este archivo es del usuario.
 
 ### Formato de TASKS.md
 
