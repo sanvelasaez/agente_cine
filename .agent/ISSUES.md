@@ -6,50 +6,11 @@
 
 ## ISSUES ABIERTAS
 
-## ISSUE-011 — 24 warnings de inferencia de tipos en tests (Right/Left de dartz)
-- **Fecha apertura:** 2026-03-11
-- **Severidad:** BAJA
-- **Tipo:** CODE_QUALITY
-- **Detectado en:** commit develop (2026-03-11)
-- **Descripción:** `flutter analyze` reporta 24 warnings en tests de tipo "inference_failure_on_instance_creation" en construcciones de `Right<>` y `Left<>` de dartz.
-- **Impacto:**
-  - Código de tests menos type-safe
-  - Viola regla de CLAUDE.md: "Nunca usar dynamic. Tipar siempre explícitamente"
-- **Evidencia:**
-  ```
-  warning - The type argument(s) of the constructor 'Right' can't be inferred
-  - test\domain\usecases\get_favorites_test.dart:38:28
-  ```
-- **Solución propuesta:**
-  - Especificar tipos explícitos: `Right<Failure, List<Movie>>(mockMovies)` en vez de `Right(mockMovies)`
-- **Asignado a:** test-agent
-- **Estado:** ABIERTA
-
-## ISSUE-012 — 15 info issues de estilo en código de producción
-- **Fecha apertura:** 2026-03-11
-- **Severidad:** BAJA
-- **Tipo:** CODE_STYLE
-- **Detectado en:** commit develop (2026-03-11)
-- **Descripción:** `flutter analyze` reporta 15 issues de nivel "info" relacionadas con:
-  - `always_put_control_body_on_new_line`: 11 ocurrencias (control flow de una línea sin braces)
-  - `deprecated_member_use`: 2 ocurrencias (`.withOpacity()` deprecado en favor de `.withValues()`)
-  - `unawaited_futures`: 2 ocurrencias (llamadas a `ref.invalidate()` sin await)
-  - `depend_on_referenced_packages`: 1 ocurrencia (logging package)
-- **Impacto:**
-  - No afecta funcionalidad
-  - Reduce legibilidad en algunos casos
-  - Deprecations eventualmente romperán en futuras versiones de Flutter
-- **Solución propuesta:**
-  - Añadir braces a control flow statements de una línea
-  - Cambiar `.withOpacity()` a `.withValues()` en empty_state.dart
-  - Añadir logging a pubspec.yaml dependencies
-  - Añadir `unawaited()` wrapper o hacer await explícito
-- **Asignado a:** test-agent
-- **Estado:** ABIERTA
+_No hay issues abiertas. Todas las issues detectadas fueron resueltas en la Fase 1._
 
 ---
 
-## ISSUES ABIERTAS (ARCHIVADAS - Ya resueltas en develop)
+## ISSUES ARCHIVADAS (Ya resueltas en develop)
 
 ## ISSUE-001 — App NO compila en Web debido a incompatibilidad Drift/sqlite3
 - **Fecha apertura:** 2026-03-11
