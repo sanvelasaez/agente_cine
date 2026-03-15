@@ -15,7 +15,7 @@ import 'package:agente_cine/domain/actions/toggle_favorite.dart';
 import 'package:injectable/injectable.dart';
 
 @module
-abstract class UseCasesModule {
+abstract class ActionsModule {
   @lazySingleton
   GetTrendingMovies getTrendingMovies(MovieRepository repository) =>
       GetTrendingMovies(repository);

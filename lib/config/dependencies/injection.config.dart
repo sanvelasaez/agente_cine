@@ -27,7 +27,7 @@ import 'package:agente_cine/domain/actions/get_trending_movies.dart' as _i329;
 import 'package:agente_cine/domain/actions/get_upcoming_movies.dart' as _i339;
 import 'package:agente_cine/domain/actions/search_movies.dart' as _i705;
 import 'package:agente_cine/domain/actions/toggle_favorite.dart' as _i958;
-import 'package:agente_cine/domain/actions/usecases_module.dart' as _i765;
+import 'package:agente_cine/domain/actions/actions_module.dart' as _i765;
 import 'package:agente_cine/infrastructure/datasources/local/drift_local_datasource.dart'
     as _i896;
 import 'package:agente_cine/infrastructure/datasources/local/drift_local_datasource_module.dart'
@@ -52,7 +52,7 @@ extension GetItInjectableX on _i174.GetIt {
     final appModule = _$AppModule();
     final tmdbRemoteDataSourceModule = _$TmdbRemoteDataSourceModule();
     final repositoriesModule = _$RepositoriesModule();
-    final useCasesModule = _$UseCasesModule();
+    final actionsModule = _$ActionsModule();
     final driftLocalDataSourceModule = _$DriftLocalDataSourceModule();
     gh.lazySingleton<_i361.Dio>(() => appModule.dio);
     gh.lazySingleton<_i52.AppDatabase>(() => appModule.database);
@@ -64,28 +64,28 @@ extension GetItInjectableX on _i174.GetIt {
           repositoriesModule.movieRepository(gh<_i939.TmdbRemoteDataSource>()),
     );
     gh.lazySingleton<_i329.GetTrendingMovies>(
-      () => useCasesModule.getTrendingMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.getTrendingMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i257.GetPopularMovies>(
-      () => useCasesModule.getPopularMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.getPopularMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i510.GetTopRatedMovies>(
-      () => useCasesModule.getTopRatedMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.getTopRatedMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i339.GetUpcomingMovies>(
-      () => useCasesModule.getUpcomingMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.getUpcomingMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i690.GetNowPlayingMovies>(
-      () => useCasesModule.getNowPlayingMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.getNowPlayingMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i460.GetMovieDetail>(
-      () => useCasesModule.getMovieDetail(gh<_i885.MovieRepository>()),
+      () => actionsModule.getMovieDetail(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i705.SearchMovies>(
-      () => useCasesModule.searchMovies(gh<_i885.MovieRepository>()),
+      () => actionsModule.searchMovies(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i999.GetMoviesByGenre>(
-      () => useCasesModule.getMoviesByGenre(gh<_i885.MovieRepository>()),
+      () => actionsModule.getMoviesByGenre(gh<_i885.MovieRepository>()),
     );
     gh.lazySingleton<_i896.DriftLocalDataSource>(
       () => driftLocalDataSourceModule.driftLocalDataSource(
@@ -102,13 +102,13 @@ extension GetItInjectableX on _i174.GetIt {
           repositoriesModule.genreRepository(gh<_i939.TmdbRemoteDataSource>()),
     );
     gh.lazySingleton<_i430.GetGenres>(
-      () => useCasesModule.getGenres(gh<_i473.GenreRepository>()),
+      () => actionsModule.getGenres(gh<_i473.GenreRepository>()),
     );
     gh.lazySingleton<_i807.GetFavorites>(
-      () => useCasesModule.getFavorites(gh<_i155.FavoriteRepository>()),
+      () => actionsModule.getFavorites(gh<_i155.FavoriteRepository>()),
     );
     gh.lazySingleton<_i958.ToggleFavorite>(
-      () => useCasesModule.toggleFavorite(gh<_i155.FavoriteRepository>()),
+      () => actionsModule.toggleFavorite(gh<_i155.FavoriteRepository>()),
     );
     return this;
   }
@@ -120,6 +120,6 @@ class _$TmdbRemoteDataSourceModule extends _i645.TmdbRemoteDataSourceModule {}
 
 class _$RepositoriesModule extends _i512.RepositoriesModule {}
 
-class _$UseCasesModule extends _i765.UseCasesModule {}
+class _$ActionsModule extends _i765.ActionsModule {}
 
 class _$DriftLocalDataSourceModule extends _i968.DriftLocalDataSourceModule {}
