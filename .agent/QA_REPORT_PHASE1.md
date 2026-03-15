@@ -187,7 +187,7 @@ La Fase 1 del proyecto AgenteCine está **funcionalmente completa y lista para p
 
 ### ✅ Validación de HomePage
 
-**Archivo:** `lib/presentation/features/home/pages/home_page.dart`
+**Archivo:** `lib/presentation/screens/home/pages/home_page.dart`
 
 **Verificado:**
 - ✅ **BLoC correctamente configurado:** HomeBloc con DI via get_it
@@ -212,7 +212,7 @@ La Fase 1 del proyecto AgenteCine está **funcionalmente completa y lista para p
 
 ### ✅ Validación de MovieCard
 
-**Archivo:** `lib/presentation/common/widgets/movie_card.dart`
+**Archivo:** `lib/presentation/shared/widgets/movie_card.dart`
 
 **Navegación:**
 ```dart
@@ -226,7 +226,7 @@ onTap: onTap ?? () => context.go('/movie/${movie.id}'),
 
 ### ✅ Validación de SearchDelegate
 
-**Archivo:** `lib/presentation/delegates/movie_search_delegate.dart`
+**Archivo:** `lib/presentation/search/movie_search_delegate.dart`
 
 **Características:**
 - ✅ DI configurado: `SearchMovies _searchMovies = getIt<SearchMovies>()`

@@ -30,7 +30,7 @@ Aplicación móvil Flutter que consume principalmente la API de The Movie Databa
 - API Key: `12f09b2a1cc31bb460929d44c9387f69`
 - Base URL: `https://api.themoviedb.org/3`
 - Imágenes base URL: `https://image.tmdb.org/t/p/`
-- La clave se guarda en `config/constants/api_constants.dart` — nunca hardcodeada en widgets ni usecases
+- La clave se guarda en `config/constants/api_constants.dart` — nunca hardcodeada en widgets ni actions
 
 **Escalabilidad de APIs:**
 El sistema de datasources debe diseñarse para que añadir una nueva API (ej. OMDB, JustWatch) sea tan simple como crear un nuevo `RemoteDataSource` + su `RepositoryImpl`, sin modificar el dominio.
@@ -70,7 +70,7 @@ agente_cine/
 │   │   ├── router/                      # GoRouter: rutas nombradas, guards, shell routes
 │   │   ├── theme/                       # ThemeData, colores, tipografía, tokens de diseño
 │   │   ├── constants/                   # api_constants.dart, app_constants.dart
-│   │   ├── di/                          # Módulos get_it + injectable (@module)
+│   │   ├── dependencies/                # Módulos get_it + injectable (@module)
 │   │   ├── env/                         # Manejo de variables de entorno (envied o dotenv)
 │   │   └── database/                    # Configuración de Drift: AppDatabase, DAOs, tablas
 │   │       ├── app_database.dart        # @DriftDatabase(tables: [...])
@@ -80,8 +80,8 @@ agente_cine/
 │   ├── domain/                          # Lógica de negocio pura — cero imports de Flutter/Drift/Dio
 │   │   ├── entities/                    # Clases Dart puras (con freezed si se desea)
 │   │   ├── repositories/                # Interfaces abstractas (contratos)
-│   │   ├── usecases/                    # Un archivo por caso de uso, retornan Either<Failure, T>
-│   │   └── failures/                    # Jerarquía de Failure: NetworkFailure, CacheFailure, etc.
+│   │   ├── actions/                     # Un archivo por acción de negocio, retornan Either<Failure, T>
+│   │   └── errors/                      # Jerarquía de Failure: NetworkFailure, CacheFailure, etc.
 │   │
 │   ├── infrastructure/                  # Implementaciones concretas — nunca importado por domain
 │   │   ├── repositories/                # Implementaciones de los contratos de domain/repositories
@@ -92,13 +92,13 @@ agente_cine/
 │   │   └── mappers/                     # Conversión DTO → Entidad y Drift Row → Entidad
 │   │
 │   ├── presentation/                    # UI, estado y navegación — sin lógica de negocio
-│   │   ├── common/                      # Elementos reutilizables en toda la app
+│   │   ├── shared/                      # Elementos reutilizables en toda la app
 │   │   │   ├── widgets/                 # MovieCard, RatingBar, ErrorView, LoadingIndicator, etc.
 │   │   │   ├── views/                   # Vistas base reutilizables si el orquestador las considera necesarias
 │   │   │   └── extensions/              # Extension methods de UI (context.colors, context.textTheme)
-│   │   ├── delegates/                   # SearchDelegate para búsqueda global de películas
+│   │   ├── search/                      # SearchDelegate para búsqueda global de películas
 │   │   │   └── movie_search_delegate.dart
-│   │   └── features/                    # Una carpeta por funcionalidad completa
+│   │   └── screens/                     # Una carpeta por funcionalidad completa
 │   │       ├── home/                    # Página principal con listas
 │   │       │   ├── bloc/                # o providers/ según decisión del orquestador
 │   │       │   ├── pages/
@@ -134,8 +134,8 @@ presentation ──► domain ◄── infrastructure
 
 1. `domain` importa únicamente Dart puro. Ningún paquete de Flutter, Dio, Drift o similar.
 2. `infrastructure` implementa `domain`. `domain` nunca conoce `infrastructure`.
-3. `presentation` importa `domain` (entidades, usecases, failures). Nunca importa `infrastructure`.
-4. `config/di` es el único lugar donde se instancian implementaciones concretas.
+3. `presentation` importa `domain` (entidades, actions, errors). Nunca importa `infrastructure`.
+4. `config/dependencies` es el único lugar donde se instancian implementaciones concretas.
 5. `core` puede ser importado desde cualquier capa pero no importa nada de `domain`, `infrastructure` ni `presentation`.
 
 ### Reglas de nombrado
@@ -161,7 +161,7 @@ presentation ──► domain ◄── infrastructure
 - Máximo 1 clase pública por archivo.
 - Nunca usar `dynamic`. Tipar siempre explícitamente.
 - Nunca `print()`. Usar el logger de `core/utils/logger.dart` en todos los casos.
-- Toda lógica de negocio en un UseCase. Blocs y Cubits solo orquestan flujo, no razonan.
+- Toda lógica de negocio en un Action. Blocs y Cubits solo orquestan flujo, no razonan.
 - Manejo de errores con `Either<Failure, T>` de dartz. Sin `throw` sueltos fuera de datasources.
 - Los datasources remotos sí pueden lanzar excepciones — el repositorio las captura y convierte en Failure.
 - Todos los strings visibles al usuario en archivos ARB de internacionalización. Cero strings hardcodeados en widgets.
@@ -176,15 +176,15 @@ presentation ──► domain ◄── infrastructure
 | Repository Pattern | `domain/repositories` (contrato) + `infrastructure/repositories` (impl) | Desacopla origen de datos del dominio |
 | Factory Method | `infrastructure/models` (fromJson, fromDrift) | Construcción controlada de objetos |
 | Facade | `infrastructure/repositories/impl` | Oculta la complejidad de múltiples datasources |
-| Observer / BLoC | `presentation/features/*/bloc` | Estado reactivo, testeable y desacoplado de UI |
-| Provider (Riverpod) | `presentation/features/*/providers` | Caché reactivo, estado simple, scoped |
-| Dependency Injection | `config/di` con get_it | Bajo acoplamiento, facilita testing |
+| Observer / BLoC | `presentation/screens/*/bloc` | Estado reactivo, testeable y desacoplado de UI |
+| Provider (Riverpod) | `presentation/screens/*/providers` | Caché reactivo, estado simple, scoped |
+| Dependency Injection | `config/dependencies` con get_it | Bajo acoplamiento, facilita testing |
 | Singleton | Servicios globales registrados en get_it | Una instancia controlada (AppDatabase, DioClient) |
 | Mapper / Adapter | `infrastructure/mappers` | Conversión entre capas sin contaminar entidades |
-| Command | `domain/usecases` | Encapsula y nombra operaciones de negocio |
-| Composite | Widgets complejos en `presentation/common/widgets` | Composición reutilizable de UI |
+| Command | `domain/actions` | Encapsula y nombra operaciones de negocio |
+| Composite | Widgets complejos en `presentation/shared/widgets` | Composición reutilizable de UI |
 | Strategy | Validadores, formatters en `core/utils` | Algoritmos intercambiables |
-| Delegate | `presentation/delegates` | Búsqueda con SearchDelegate nativo de Flutter |
+| Delegate | `presentation/search` | Búsqueda con SearchDelegate nativo de Flutter |
 
 ---
 
@@ -207,8 +207,8 @@ test/
 │
 ├── domain/
 │   ├── entities/                        # Tests de lógica de entidades (si tienen métodos)
-│   ├── usecases/                        # Un test por UseCase — mockear solo el repositorio
-│   └── failures/
+│   ├── actions/                         # Un test por Action — mockear solo el repositorio
+│   └── errors/
 │
 ├── infrastructure/
 │   ├── repositories/                    # Test del repo: lógica de coordinación remote/local
@@ -218,9 +218,9 @@ test/
 │   └── mappers/                         # Test de conversión DTO ↔ Entidad
 │
 └── presentation/
-    ├── common/widgets/                  # Widget tests de componentes comunes
-    └── features/
-        └── [feature]/
+    ├── shared/widgets/                  # Widget tests de componentes comunes
+    └── screens/
+        └── [screen]/
             ├── bloc/                    # Unit test del Bloc/Cubit con bloc_test
             └── pages/                   # Widget test de la page con providers/blocs mockeados
 ```
@@ -229,7 +229,7 @@ test/
 
 - Cobertura mínima: 80% en `domain/` e `infrastructure/`
 - Unit tests cubren todo `domain/` y `infrastructure/`
-- Widget tests cubren todos los widgets de `common/` y las pages de cada feature
+- Widget tests cubren todos los widgets de `shared/` y las pages de cada screen
 - Integration tests en `integration_test/` para flujos completos (home → detalle, búsqueda, favoritos)
 - Mocking solo con `mocktail`. Prohibido `mockito` con generación de código
 - Tests de BLoC usan el paquete `bloc_test` con `whenListen` y `expectLater`
@@ -299,7 +299,7 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 | ID | Agente | Scope exclusivo |
 |----|--------|----------------|
 | `orchestrator` | Orquestador | Planificación, asignación, revisión de PRs, decisiones de arquitectura, gestión de `.agent/` |
-| `domain-infra-agent` | Dominio e Infraestructura | `domain/`, `infrastructure/`, `config/di/`, `config/database/` |
+| `domain-infra-agent` | Dominio e Infraestructura | `domain/`, `infrastructure/`, `config/dependencies/`, `config/database/` |
 | `presentation-agent` | Presentación | `presentation/`, `config/router/`, `config/theme/` |
 | `test-agent` | Testing | `test/`, `integration_test/`, cobertura de tests unitarios |
 | `product-qa-agent` | Calidad de Producto | Ejecución de app, validación funcional, detección de bugs, apertura de incidencias en `.agent/ISSUES.md` |
@@ -308,7 +308,7 @@ El orquestador tiene instrucción explícita de mantener siempre activos los 4 a
 
 1. **Al inicio de cada sesión:** Leer `.agent/BACKLOG.md` y procesar todas las peticiones pendientes del usuario, convirtiéndolas en tareas en `TASKS.md` y eliminando las líneas procesadas.
 2. Mantener `.agent/TASKS.md` siempre actualizado antes de asignar cualquier tarea.
-3. Respetar el orden de implementación por capas: `domain → infrastructure → config/di → presentation`.
+3. Respetar el orden de implementación por capas: `domain → infrastructure → config/dependencies → presentation`.
 4. Asignar tareas de capas independientes en paralelo cuando sea posible.
 5. Nunca asignar a dos agentes tareas que modifiquen el mismo archivo simultáneamente.
 6. **OBLIGATORIO:** Después de cada merge a `develop`, asignar tarea a `product-qa-agent` para validar funcionalmente lo mergeado.

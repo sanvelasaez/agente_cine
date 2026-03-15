@@ -13,7 +13,8 @@
       "Read(//d/workspace/flutter/agente_cine/lib/domain/entities/**)",
       "Bash(done)",
       "WebFetch(domain:pub.dev)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(cp:*)"
     ]
   }
 }
