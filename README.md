@@ -52,24 +52,11 @@ Antes de clonar el proyecto asegúrate de tener instalado:
 - [Android Studio](https://developer.android.com/studio) con Android SDK ≥ 35 y Java 17
 - Para iOS: Xcode ≥ 15 con CocoaPods
 
-### Java 17
-
-El proyecto requiere Java 17 como toolchain de compilación Android. Verifica tu versión:
-
-```bash
-java -version
-# Debe mostrar: openjdk version "17.x.x"
-```
-
-Si tienes otra versión, instala [Temurin 17](https://adoptium.net/) y configúrala como activa.
-
----
-
 ## Instalación de FVM
 
 El proyecto fija la versión de Flutter en `.fvmrc` (actualmente **3.41.4**). FVM descarga y gestiona esa versión automáticamente sin afectar a tu Flutter global.
 
-### Instalar FVM (una sola vez por máquina)
+### Instalar FVM (una sola vez)
 
 ```bash
 dart pub global activate fvm
@@ -87,17 +74,6 @@ Verifica la instalación:
 ```bash
 fvm --version
 ```
-
----
-
-## Clonar y poner en marcha
-
-```bash
-git clone https://github.com/sanvelasaez/agente_cine.git
-cd agente_cine
-```
-
-A partir de aquí usa los comandos cortos del proyecto según tu sistema operativo:
 
 ---
 
@@ -148,31 +124,6 @@ El repositorio incluye scripts que evitan tener que escribir `fvm flutter` en ca
 | `build-ios` | Compila para iOS sin firma de código |
 | `clean` | Limpia artefactos de build |
 
-### Ejemplos
-
-**macOS / Linux / Git Bash:**
-```bash
-make setup    # primera vez tras clonar
-make run
-make test
-make build
-```
-
-**Windows CMD:**
-```cmd
-make.bat setup
-make.bat run
-make.bat test
-make.bat build
-```
-
-**Windows PowerShell:**
-```powershell
-.\make.ps1 setup
-.\make.ps1 run
-.\make.ps1 test
-.\make.ps1 build
-```
 
 > En todos los casos puedes ejecutar el comando sin argumentos (`make`, `make.bat` o `.\make.ps1`) para ver la lista completa de comandos disponibles.
 
