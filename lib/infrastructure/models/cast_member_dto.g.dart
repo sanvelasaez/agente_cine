@@ -6,8 +6,8 @@ part of 'cast_member_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CastMemberDtoImpl _$$CastMemberDtoImplFromJson(Map<String, dynamic> json) =>
-    _$CastMemberDtoImpl(
+_CastMemberDto _$CastMemberDtoFromJson(Map<String, dynamic> json) =>
+    _CastMemberDto(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       character: json['character'] as String,
@@ -15,7 +15,7 @@ _$CastMemberDtoImpl _$$CastMemberDtoImplFromJson(Map<String, dynamic> json) =>
       order: (json['order'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$CastMemberDtoImplToJson(_$CastMemberDtoImpl instance) =>
+Map<String, dynamic> _$CastMemberDtoToJson(_CastMemberDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

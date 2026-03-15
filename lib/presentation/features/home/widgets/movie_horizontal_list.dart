@@ -62,21 +62,3 @@ class MovieHorizontalList extends StatelessWidget {
   }
 }
 
-/// Extension to handle AsyncValue pattern matching
-extension AsyncValueX<T> on AsyncValue<T> {
-  R when<R>({
-    required R Function() loading,
-    required R Function(String message) error,
-    required R Function(T value) data,
-  }) {
-    final value = this;
-    if (value is AsyncLoading<T>) {
-      return loading();
-    } else if (value is AsyncError<T>) {
-      return error(value.message);
-    } else if (value is AsyncData<T>) {
-      return data(value.value);
-    }
-    throw Exception('Unknown AsyncValue type');
-  }
-}

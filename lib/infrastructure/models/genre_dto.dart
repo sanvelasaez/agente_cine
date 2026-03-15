@@ -5,7 +5,7 @@ part 'genre_dto.g.dart';
 
 /// Genre Data Transfer Object
 @freezed
-class GenreDto with _$GenreDto {
+abstract class GenreDto with _$GenreDto {
   const factory GenreDto({
     required int id,
     required String name,

@@ -4,7 +4,7 @@ part 'genre.freezed.dart';
 
 /// Genre entity - represents a movie genre
 @freezed
-class Genre with _$Genre {
+abstract class Genre with _$Genre {
   const factory Genre({
     required int id,
     required String name,

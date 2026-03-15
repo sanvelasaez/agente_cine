@@ -2,10 +2,10 @@ name: Claude Code Review
 
 on:
   pull_request:
-    branches: [master, develop]
+    branches: [main, develop]
     types: [opened, synchronize, reopened]
   push:
-    branches: [master, develop]
+    branches: [main, develop]
 
 jobs:
   flutter-checks:
@@ -15,10 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Flutter (Dart 3.11.1)
+      - name: Setup Flutter 3.41.4
         uses: subosito/flutter-action@v2
         with:
-          dart-version: "3.11.1"
+          flutter-version: "3.41.4"
+          channel: stable
           cache: true
 
       - name: Install dependencies

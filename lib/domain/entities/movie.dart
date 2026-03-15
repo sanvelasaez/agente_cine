@@ -6,7 +6,7 @@ part 'movie.freezed.dart';
 
 /// Movie entity - represents a movie with all its details
 @freezed
-class Movie with _$Movie {
+abstract class Movie with _$Movie {
   const factory Movie({
     required int id,
     required String title,

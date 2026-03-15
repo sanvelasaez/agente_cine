@@ -6,7 +6,7 @@ part 'movie_list_response_dto.g.dart';
 
 /// Movie List Response Data Transfer Object
 @freezed
-class MovieListResponseDto with _$MovieListResponseDto {
+abstract class MovieListResponseDto with _$MovieListResponseDto {
   const factory MovieListResponseDto({
     required int page,
     required List<MovieDto> results,

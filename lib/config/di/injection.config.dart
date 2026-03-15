@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -52,8 +52,8 @@ extension GetItInjectableX on _i174.GetIt {
     final appModule = _$AppModule();
     final tmdbRemoteDataSourceModule = _$TmdbRemoteDataSourceModule();
     final repositoriesModule = _$RepositoriesModule();
-    final driftLocalDataSourceModule = _$DriftLocalDataSourceModule();
     final useCasesModule = _$UseCasesModule();
+    final driftLocalDataSourceModule = _$DriftLocalDataSourceModule();
     gh.lazySingleton<_i361.Dio>(() => appModule.dio);
     gh.lazySingleton<_i52.AppDatabase>(() => appModule.database);
     gh.lazySingleton<_i939.TmdbRemoteDataSource>(
@@ -62,15 +62,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i885.MovieRepository>(
       () =>
           repositoriesModule.movieRepository(gh<_i939.TmdbRemoteDataSource>()),
-    );
-    gh.lazySingleton<_i473.GenreRepository>(
-      () =>
-          repositoriesModule.genreRepository(gh<_i939.TmdbRemoteDataSource>()),
-    );
-    gh.lazySingleton<_i896.DriftLocalDataSource>(
-      () => driftLocalDataSourceModule.driftLocalDataSource(
-        gh<_i52.AppDatabase>(),
-      ),
     );
     gh.lazySingleton<_i329.GetTrendingMovies>(
       () => useCasesModule.getTrendingMovies(gh<_i885.MovieRepository>()),
@@ -96,10 +87,19 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i999.GetMoviesByGenre>(
       () => useCasesModule.getMoviesByGenre(gh<_i885.MovieRepository>()),
     );
+    gh.lazySingleton<_i896.DriftLocalDataSource>(
+      () => driftLocalDataSourceModule.driftLocalDataSource(
+        gh<_i52.AppDatabase>(),
+      ),
+    );
     gh.lazySingleton<_i155.FavoriteRepository>(
       () => repositoriesModule.favoriteRepository(
         gh<_i896.DriftLocalDataSource>(),
       ),
+    );
+    gh.lazySingleton<_i473.GenreRepository>(
+      () =>
+          repositoriesModule.genreRepository(gh<_i939.TmdbRemoteDataSource>()),
     );
     gh.lazySingleton<_i430.GetGenres>(
       () => useCasesModule.getGenres(gh<_i473.GenreRepository>()),
@@ -120,6 +120,6 @@ class _$TmdbRemoteDataSourceModule extends _i645.TmdbRemoteDataSourceModule {}
 
 class _$RepositoriesModule extends _i512.RepositoriesModule {}
 
-class _$DriftLocalDataSourceModule extends _i968.DriftLocalDataSourceModule {}
-
 class _$UseCasesModule extends _i765.UseCasesModule {}
+
+class _$DriftLocalDataSourceModule extends _i968.DriftLocalDataSourceModule {}

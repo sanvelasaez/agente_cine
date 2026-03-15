@@ -3,67 +3,69 @@ description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
 
+# Flutter 3.41.4 / Dart 3.11.1 — versiones fijadas en .fvmrc
+# No modificar este rango sin actualizar también .fvmrc y regenerar pubspec.lock
 environment:
-  sdk: ^3.10.8
+  sdk: '>=3.11.0 <3.12.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   # Estado
-  flutter_bloc: ^8.1.6
-  bloc: ^8.1.4
-  flutter_riverpod: ^2.5.1
-  riverpod: ^2.5.1
-  hooks_riverpod: ^2.5.1
+  flutter_bloc: 8.1.6
+  bloc: 8.1.4
+  flutter_riverpod: 2.6.1
+  riverpod: 2.6.1
+  hooks_riverpod: 2.6.1
 
   # Inyección de dependencias
-  get_it: ^8.0.2
-  injectable: ^2.5.0
+  get_it: 8.3.0
+  injectable: 2.7.1+4
 
   # Navegación
-  go_router: ^14.6.2
+  go_router: 14.8.1
 
   # Red
-  dio: ^5.7.0
+  dio: 5.9.2
   # retrofit: ^4.4.2  # Temporalmente comentado por conflictos de versión con generator
 
   # Base de datos local
-  drift: ^2.22.0
-  sqlite3_flutter_libs: ^0.5.28
-  path_provider: ^2.1.5
-  path: ^1.9.0
+  drift: 2.32.0
+  sqlite3_flutter_libs: 0.5.42
+  path_provider: 2.1.5
+  path: 1.9.1
 
   # Preferencias
-  shared_preferences: ^2.3.3
+  shared_preferences: 2.5.4
 
   # Modelos inmutables
-  freezed_annotation: ^2.4.4
-  json_annotation: ^4.9.0
+  freezed_annotation: 3.1.0
+  json_annotation: 4.9.0
 
   # Utilidades
-  dartz: ^0.10.1
-  equatable: ^2.0.7
-  intl: ^0.20.1
-  cached_network_image: ^3.4.1
-  logging: ^1.2.0
+  dartz: 0.10.1
+  equatable: 2.0.8
+  intl: 0.20.2
+  cached_network_image: 3.4.1
+  logging: 1.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
+  flutter_lints: 6.0.0
 
   # Generación de código
-  build_runner: ^2.4.15
-  freezed: ^2.5.7
-  json_serializable: ^6.9.2
-  injectable_generator: ^2.6.2
+  build_runner: 2.12.2
+  freezed: 3.2.5
+  json_serializable: 6.11.4
+  injectable_generator: 2.12.1
   # retrofit_generator: ^9.1.2  # Temporalmente comentado
-  drift_dev: ^2.22.0
+  drift_dev: 2.32.0
 
   # Testing
-  mocktail: ^1.0.4
-  bloc_test: ^9.1.7
+  mocktail: 1.0.4
+  bloc_test: 9.1.7
 
   # Integration testing
   integration_test:

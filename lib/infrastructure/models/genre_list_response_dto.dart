@@ -6,7 +6,7 @@ part 'genre_list_response_dto.g.dart';
 
 /// Genre List Response Data Transfer Object
 @freezed
-class GenreListResponseDto with _$GenreListResponseDto {
+abstract class GenreListResponseDto with _$GenreListResponseDto {
   const factory GenreListResponseDto({
     required List<GenreDto> genres,
   }) = _GenreListResponseDto;

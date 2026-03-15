@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,235 +9,275 @@ part of 'cast_member.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$CastMember {
-  int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get character => throw _privateConstructorUsedError;
-  String? get profilePath => throw _privateConstructorUsedError;
-  int get order => throw _privateConstructorUsedError;
 
-  /// Create a copy of CastMember
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $CastMemberCopyWith<CastMember> get copyWith =>
-      throw _privateConstructorUsedError;
+ int get id; String get name; String get character; String? get profilePath; int get order;
+/// Create a copy of CastMember
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CastMemberCopyWith<CastMember> get copyWith => _$CastMemberCopyWithImpl<CastMember>(this as CastMember, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CastMember&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.character, character) || other.character == character)&&(identical(other.profilePath, profilePath) || other.profilePath == profilePath)&&(identical(other.order, order) || other.order == order));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id,name,character,profilePath,order);
+
+@override
+String toString() {
+  return 'CastMember(id: $id, name: $name, character: $character, profilePath: $profilePath, order: $order)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CastMemberCopyWith<$Res> {
-  factory $CastMemberCopyWith(
-    CastMember value,
-    $Res Function(CastMember) then,
-  ) = _$CastMemberCopyWithImpl<$Res, CastMember>;
-  @useResult
-  $Res call({
-    int id,
-    String name,
-    String character,
-    String? profilePath,
-    int order,
-  });
-}
+abstract mixin class $CastMemberCopyWith<$Res>  {
+  factory $CastMemberCopyWith(CastMember value, $Res Function(CastMember) _then) = _$CastMemberCopyWithImpl;
+@useResult
+$Res call({
+ int id, String name, String character, String? profilePath, int order
+});
 
+
+
+
+}
 /// @nodoc
-class _$CastMemberCopyWithImpl<$Res, $Val extends CastMember>
+class _$CastMemberCopyWithImpl<$Res>
     implements $CastMemberCopyWith<$Res> {
-  _$CastMemberCopyWithImpl(this._value, this._then);
+  _$CastMemberCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CastMember _self;
+  final $Res Function(CastMember) _then;
 
-  /// Create a copy of CastMember
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? character = null,
-    Object? profilePath = freezed,
-    Object? order = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            id: null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as int,
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            character: null == character
-                ? _value.character
-                : character // ignore: cast_nullable_to_non_nullable
-                      as String,
-            profilePath: freezed == profilePath
-                ? _value.profilePath
-                : profilePath // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            order: null == order
-                ? _value.order
-                : order // ignore: cast_nullable_to_non_nullable
-                      as int,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of CastMember
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? character = null,Object? profilePath = freezed,Object? order = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
+as String,profilePath: freezed == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
+as String?,order: null == order ? _self.order : order // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [CastMember].
+extension CastMemberPatterns on CastMember {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CastMember value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _CastMember() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CastMember value)  $default,){
+final _that = this;
+switch (_that) {
+case _CastMember():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CastMember value)?  $default,){
+final _that = this;
+switch (_that) {
+case _CastMember() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String character,  String? profilePath,  int order)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _CastMember() when $default != null:
+return $default(_that.id,_that.name,_that.character,_that.profilePath,_that.order);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String character,  String? profilePath,  int order)  $default,) {final _that = this;
+switch (_that) {
+case _CastMember():
+return $default(_that.id,_that.name,_that.character,_that.profilePath,_that.order);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String character,  String? profilePath,  int order)?  $default,) {final _that = this;
+switch (_that) {
+case _CastMember() when $default != null:
+return $default(_that.id,_that.name,_that.character,_that.profilePath,_that.order);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$CastMemberImplCopyWith<$Res>
-    implements $CastMemberCopyWith<$Res> {
-  factory _$$CastMemberImplCopyWith(
-    _$CastMemberImpl value,
-    $Res Function(_$CastMemberImpl) then,
-  ) = __$$CastMemberImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    int id,
-    String name,
-    String character,
-    String? profilePath,
-    int order,
-  });
+
+
+class _CastMember implements CastMember {
+  const _CastMember({required this.id, required this.name, required this.character, this.profilePath, required this.order});
+  
+
+@override final  int id;
+@override final  String name;
+@override final  String character;
+@override final  String? profilePath;
+@override final  int order;
+
+/// Create a copy of CastMember
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CastMemberCopyWith<_CastMember> get copyWith => __$CastMemberCopyWithImpl<_CastMember>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CastMember&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.character, character) || other.character == character)&&(identical(other.profilePath, profilePath) || other.profilePath == profilePath)&&(identical(other.order, order) || other.order == order));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id,name,character,profilePath,order);
+
+@override
+String toString() {
+  return 'CastMember(id: $id, name: $name, character: $character, profilePath: $profilePath, order: $order)';
+}
+
+
 }
 
 /// @nodoc
-class __$$CastMemberImplCopyWithImpl<$Res>
-    extends _$CastMemberCopyWithImpl<$Res, _$CastMemberImpl>
-    implements _$$CastMemberImplCopyWith<$Res> {
-  __$$CastMemberImplCopyWithImpl(
-    _$CastMemberImpl _value,
-    $Res Function(_$CastMemberImpl) _then,
-  ) : super(_value, _then);
+abstract mixin class _$CastMemberCopyWith<$Res> implements $CastMemberCopyWith<$Res> {
+  factory _$CastMemberCopyWith(_CastMember value, $Res Function(_CastMember) _then) = __$CastMemberCopyWithImpl;
+@override @useResult
+$Res call({
+ int id, String name, String character, String? profilePath, int order
+});
 
-  /// Create a copy of CastMember
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? character = null,
-    Object? profilePath = freezed,
-    Object? order = null,
-  }) {
-    return _then(
-      _$CastMemberImpl(
-        id: null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as int,
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        character: null == character
-            ? _value.character
-            : character // ignore: cast_nullable_to_non_nullable
-                  as String,
-        profilePath: freezed == profilePath
-            ? _value.profilePath
-            : profilePath // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        order: null == order
-            ? _value.order
-            : order // ignore: cast_nullable_to_non_nullable
-                  as int,
-      ),
-    );
-  }
+
+
+
 }
-
 /// @nodoc
+class __$CastMemberCopyWithImpl<$Res>
+    implements _$CastMemberCopyWith<$Res> {
+  __$CastMemberCopyWithImpl(this._self, this._then);
 
-class _$CastMemberImpl implements _CastMember {
-  const _$CastMemberImpl({
-    required this.id,
-    required this.name,
-    required this.character,
-    this.profilePath,
-    required this.order,
-  });
+  final _CastMember _self;
+  final $Res Function(_CastMember) _then;
 
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  final String character;
-  @override
-  final String? profilePath;
-  @override
-  final int order;
-
-  @override
-  String toString() {
-    return 'CastMember(id: $id, name: $name, character: $character, profilePath: $profilePath, order: $order)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CastMemberImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.character, character) ||
-                other.character == character) &&
-            (identical(other.profilePath, profilePath) ||
-                other.profilePath == profilePath) &&
-            (identical(other.order, order) || other.order == order));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, character, profilePath, order);
-
-  /// Create a copy of CastMember
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CastMemberImplCopyWith<_$CastMemberImpl> get copyWith =>
-      __$$CastMemberImplCopyWithImpl<_$CastMemberImpl>(this, _$identity);
+/// Create a copy of CastMember
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? character = null,Object? profilePath = freezed,Object? order = null,}) {
+  return _then(_CastMember(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,character: null == character ? _self.character : character // ignore: cast_nullable_to_non_nullable
+as String,profilePath: freezed == profilePath ? _self.profilePath : profilePath // ignore: cast_nullable_to_non_nullable
+as String?,order: null == order ? _self.order : order // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-abstract class _CastMember implements CastMember {
-  const factory _CastMember({
-    required final int id,
-    required final String name,
-    required final String character,
-    final String? profilePath,
-    required final int order,
-  }) = _$CastMemberImpl;
 
-  @override
-  int get id;
-  @override
-  String get name;
-  @override
-  String get character;
-  @override
-  String? get profilePath;
-  @override
-  int get order;
-
-  /// Create a copy of CastMember
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CastMemberImplCopyWith<_$CastMemberImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+// dart format on
