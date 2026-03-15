@@ -10,7 +10,7 @@
 - **Alternativas descartadas:**
   - Usar solo BLoC en todo: overhead innecesario en páginas simples
   - Usar solo Riverpod: dificulta testing de flujos complejos como búsqueda
-- **Impacto:** `presentation/features/*/bloc/` o `presentation/features/*/providers/` según la feature
+- **Impacto:** `presentation/screens/*/bloc/` o `presentation/screens/*/providers/` según la feature
 
 ## DEC-003 — Estrategia de caché local con Drift
 - **Fecha:** 2026-03-11
@@ -42,7 +42,7 @@
   - MovieCard navega a `/movie/:id` (MovieDetailPage) al hacer tap
   - AppBar de HomePage tiene IconButton de búsqueda que invoca MovieSearchDelegate
   - AppBar tiene Drawer con navegación a Favorites y Categories
-- **Impacto:** `presentation/features/home/pages/home_page.dart`, `config/router/app_router.dart`
+- **Impacto:** `presentation/screens/home/pages/home_page.dart`, `config/router/app_router.dart`
 
 ## DEC-008 — SearchDelegate sin inyección de dependencias
 - **Fecha:** 2026-03-11
@@ -52,7 +52,7 @@
 - **Alternativas descartadas:**
   - GetIt.instance.get() dentro del delegate: acoplamiento global
   - BuildContext.read() de Riverpod: SearchDelegate no tiene acceso continuo a BuildContext
-- **Impacto:** `presentation/delegates/movie_search_delegate.dart`, llamadas desde HomePage
+- **Impacto:** `presentation/search/movie_search_delegate.dart`, llamadas desde HomePage
 
 ## DEC-009 — Web no soportado
 - **Fecha:** 2026-03-11

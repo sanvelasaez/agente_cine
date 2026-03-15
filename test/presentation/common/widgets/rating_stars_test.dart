@@ -1,4 +1,4 @@
-import 'package:agente_cine/presentation/common/widgets/rating_stars.dart';
+import 'package:agente_cine/presentation/shared/widgets/rating_stars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

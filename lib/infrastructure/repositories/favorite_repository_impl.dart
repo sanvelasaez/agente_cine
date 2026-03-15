@@ -1,5 +1,5 @@
 import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/failures/failure.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/domain/repositories/favorite_repository.dart';
 import 'package:agente_cine/infrastructure/datasources/local/drift_local_datasource.dart';
 import 'package:dartz/dartz.dart';

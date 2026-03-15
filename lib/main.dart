@@ -1,5 +1,5 @@
 import 'package:agente_cine/app.dart';
-import 'package:agente_cine/config/di/injection.dart';
+import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/core/utils/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
