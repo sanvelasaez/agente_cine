@@ -6,15 +6,13 @@ part of 'credits_response_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreditsResponseDtoImpl _$$CreditsResponseDtoImplFromJson(
-  Map<String, dynamic> json,
-) => _$CreditsResponseDtoImpl(
-  id: (json['id'] as num).toInt(),
-  cast: (json['cast'] as List<dynamic>)
-      .map((e) => CastMemberDto.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
+_CreditsResponseDto _$CreditsResponseDtoFromJson(Map<String, dynamic> json) =>
+    _CreditsResponseDto(
+      id: (json['id'] as num).toInt(),
+      cast: (json['cast'] as List<dynamic>)
+          .map((e) => CastMemberDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
-Map<String, dynamic> _$$CreditsResponseDtoImplToJson(
-  _$CreditsResponseDtoImpl instance,
-) => <String, dynamic>{'id': instance.id, 'cast': instance.cast};
+Map<String, dynamic> _$CreditsResponseDtoToJson(_CreditsResponseDto instance) =>
+    <String, dynamic>{'id': instance.id, 'cast': instance.cast};

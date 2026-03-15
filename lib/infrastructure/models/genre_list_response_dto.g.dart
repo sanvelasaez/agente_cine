@@ -6,14 +6,14 @@ part of 'genre_list_response_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GenreListResponseDtoImpl _$$GenreListResponseDtoImplFromJson(
+_GenreListResponseDto _$GenreListResponseDtoFromJson(
   Map<String, dynamic> json,
-) => _$GenreListResponseDtoImpl(
+) => _GenreListResponseDto(
   genres: (json['genres'] as List<dynamic>)
       .map((e) => GenreDto.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 
-Map<String, dynamic> _$$GenreListResponseDtoImplToJson(
-  _$GenreListResponseDtoImpl instance,
+Map<String, dynamic> _$GenreListResponseDtoToJson(
+  _GenreListResponseDto instance,
 ) => <String, dynamic>{'genres': instance.genres};

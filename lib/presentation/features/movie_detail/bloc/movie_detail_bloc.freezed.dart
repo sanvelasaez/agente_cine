@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,1090 +9,693 @@ part of 'movie_detail_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$MovieDetailEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int movieId) loadMovieDetail,
-    required TResult Function() toggleFavorite,
-    required TResult Function() retry,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int movieId)? loadMovieDetail,
-    TResult? Function()? toggleFavorite,
-    TResult? Function()? retry,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int movieId)? loadMovieDetail,
-    TResult Function()? toggleFavorite,
-    TResult Function()? retry,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadMovieDetail value) loadMovieDetail,
-    required TResult Function(_ToggleFavorite value) toggleFavorite,
-    required TResult Function(_Retry value) retry,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult? Function(_ToggleFavorite value)? toggleFavorite,
-    TResult? Function(_Retry value)? retry,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult Function(_ToggleFavorite value)? toggleFavorite,
-    TResult Function(_Retry value)? retry,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieDetailEvent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailEvent()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $MovieDetailEventCopyWith<$Res> {
-  factory $MovieDetailEventCopyWith(
-    MovieDetailEvent value,
-    $Res Function(MovieDetailEvent) then,
-  ) = _$MovieDetailEventCopyWithImpl<$Res, MovieDetailEvent>;
+class $MovieDetailEventCopyWith<$Res>  {
+$MovieDetailEventCopyWith(MovieDetailEvent _, $Res Function(MovieDetailEvent) __);
 }
 
-/// @nodoc
-class _$MovieDetailEventCopyWithImpl<$Res, $Val extends MovieDetailEvent>
-    implements $MovieDetailEventCopyWith<$Res> {
-  _$MovieDetailEventCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [MovieDetailEvent].
+extension MovieDetailEventPatterns on MovieDetailEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _LoadMovieDetail value)?  loadMovieDetail,TResult Function( _ToggleFavorite value)?  toggleFavorite,TResult Function( _Retry value)?  retry,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LoadMovieDetail() when loadMovieDetail != null:
+return loadMovieDetail(_that);case _ToggleFavorite() when toggleFavorite != null:
+return toggleFavorite(_that);case _Retry() when retry != null:
+return retry(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _LoadMovieDetail value)  loadMovieDetail,required TResult Function( _ToggleFavorite value)  toggleFavorite,required TResult Function( _Retry value)  retry,}){
+final _that = this;
+switch (_that) {
+case _LoadMovieDetail():
+return loadMovieDetail(_that);case _ToggleFavorite():
+return toggleFavorite(_that);case _Retry():
+return retry(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _LoadMovieDetail value)?  loadMovieDetail,TResult? Function( _ToggleFavorite value)?  toggleFavorite,TResult? Function( _Retry value)?  retry,}){
+final _that = this;
+switch (_that) {
+case _LoadMovieDetail() when loadMovieDetail != null:
+return loadMovieDetail(_that);case _ToggleFavorite() when toggleFavorite != null:
+return toggleFavorite(_that);case _Retry() when retry != null:
+return retry(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int movieId)?  loadMovieDetail,TResult Function()?  toggleFavorite,TResult Function()?  retry,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LoadMovieDetail() when loadMovieDetail != null:
+return loadMovieDetail(_that.movieId);case _ToggleFavorite() when toggleFavorite != null:
+return toggleFavorite();case _Retry() when retry != null:
+return retry();case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int movieId)  loadMovieDetail,required TResult Function()  toggleFavorite,required TResult Function()  retry,}) {final _that = this;
+switch (_that) {
+case _LoadMovieDetail():
+return loadMovieDetail(_that.movieId);case _ToggleFavorite():
+return toggleFavorite();case _Retry():
+return retry();case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int movieId)?  loadMovieDetail,TResult? Function()?  toggleFavorite,TResult? Function()?  retry,}) {final _that = this;
+switch (_that) {
+case _LoadMovieDetail() when loadMovieDetail != null:
+return loadMovieDetail(_that.movieId);case _ToggleFavorite() when toggleFavorite != null:
+return toggleFavorite();case _Retry() when retry != null:
+return retry();case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$LoadMovieDetailImplCopyWith<$Res> {
-  factory _$$LoadMovieDetailImplCopyWith(
-    _$LoadMovieDetailImpl value,
-    $Res Function(_$LoadMovieDetailImpl) then,
-  ) = __$$LoadMovieDetailImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int movieId});
-}
-
-/// @nodoc
-class __$$LoadMovieDetailImplCopyWithImpl<$Res>
-    extends _$MovieDetailEventCopyWithImpl<$Res, _$LoadMovieDetailImpl>
-    implements _$$LoadMovieDetailImplCopyWith<$Res> {
-  __$$LoadMovieDetailImplCopyWithImpl(
-    _$LoadMovieDetailImpl _value,
-    $Res Function(_$LoadMovieDetailImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? movieId = null}) {
-    return _then(
-      _$LoadMovieDetailImpl(
-        null == movieId
-            ? _value.movieId
-            : movieId // ignore: cast_nullable_to_non_nullable
-                  as int,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$LoadMovieDetailImpl implements _LoadMovieDetail {
-  const _$LoadMovieDetailImpl(this.movieId);
-
-  @override
-  final int movieId;
-
-  @override
-  String toString() {
-    return 'MovieDetailEvent.loadMovieDetail(movieId: $movieId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoadMovieDetailImpl &&
-            (identical(other.movieId, movieId) || other.movieId == movieId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, movieId);
-
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadMovieDetailImplCopyWith<_$LoadMovieDetailImpl> get copyWith =>
-      __$$LoadMovieDetailImplCopyWithImpl<_$LoadMovieDetailImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int movieId) loadMovieDetail,
-    required TResult Function() toggleFavorite,
-    required TResult Function() retry,
-  }) {
-    return loadMovieDetail(movieId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int movieId)? loadMovieDetail,
-    TResult? Function()? toggleFavorite,
-    TResult? Function()? retry,
-  }) {
-    return loadMovieDetail?.call(movieId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int movieId)? loadMovieDetail,
-    TResult Function()? toggleFavorite,
-    TResult Function()? retry,
-    required TResult orElse(),
-  }) {
-    if (loadMovieDetail != null) {
-      return loadMovieDetail(movieId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadMovieDetail value) loadMovieDetail,
-    required TResult Function(_ToggleFavorite value) toggleFavorite,
-    required TResult Function(_Retry value) retry,
-  }) {
-    return loadMovieDetail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult? Function(_ToggleFavorite value)? toggleFavorite,
-    TResult? Function(_Retry value)? retry,
-  }) {
-    return loadMovieDetail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult Function(_ToggleFavorite value)? toggleFavorite,
-    TResult Function(_Retry value)? retry,
-    required TResult orElse(),
-  }) {
-    if (loadMovieDetail != null) {
-      return loadMovieDetail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadMovieDetail implements MovieDetailEvent {
-  const factory _LoadMovieDetail(final int movieId) = _$LoadMovieDetailImpl;
-
-  int get movieId;
-
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadMovieDetailImplCopyWith<_$LoadMovieDetailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleFavoriteImplCopyWith<$Res> {
-  factory _$$ToggleFavoriteImplCopyWith(
-    _$ToggleFavoriteImpl value,
-    $Res Function(_$ToggleFavoriteImpl) then,
-  ) = __$$ToggleFavoriteImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleFavoriteImplCopyWithImpl<$Res>
-    extends _$MovieDetailEventCopyWithImpl<$Res, _$ToggleFavoriteImpl>
-    implements _$$ToggleFavoriteImplCopyWith<$Res> {
-  __$$ToggleFavoriteImplCopyWithImpl(
-    _$ToggleFavoriteImpl _value,
-    $Res Function(_$ToggleFavoriteImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ToggleFavoriteImpl implements _ToggleFavorite {
-  const _$ToggleFavoriteImpl();
 
-  @override
-  String toString() {
-    return 'MovieDetailEvent.toggleFavorite()';
-  }
+class _LoadMovieDetail implements MovieDetailEvent {
+  const _LoadMovieDetail(this.movieId);
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleFavoriteImpl);
-  }
+ final  int movieId;
 
-  @override
-  int get hashCode => runtimeType.hashCode;
+/// Create a copy of MovieDetailEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LoadMovieDetailCopyWith<_LoadMovieDetail> get copyWith => __$LoadMovieDetailCopyWithImpl<_LoadMovieDetail>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int movieId) loadMovieDetail,
-    required TResult Function() toggleFavorite,
-    required TResult Function() retry,
-  }) {
-    return toggleFavorite();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int movieId)? loadMovieDetail,
-    TResult? Function()? toggleFavorite,
-    TResult? Function()? retry,
-  }) {
-    return toggleFavorite?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int movieId)? loadMovieDetail,
-    TResult Function()? toggleFavorite,
-    TResult Function()? retry,
-    required TResult orElse(),
-  }) {
-    if (toggleFavorite != null) {
-      return toggleFavorite();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadMovieDetail value) loadMovieDetail,
-    required TResult Function(_ToggleFavorite value) toggleFavorite,
-    required TResult Function(_Retry value) retry,
-  }) {
-    return toggleFavorite(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult? Function(_ToggleFavorite value)? toggleFavorite,
-    TResult? Function(_Retry value)? retry,
-  }) {
-    return toggleFavorite?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult Function(_ToggleFavorite value)? toggleFavorite,
-    TResult Function(_Retry value)? retry,
-    required TResult orElse(),
-  }) {
-    if (toggleFavorite != null) {
-      return toggleFavorite(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoadMovieDetail&&(identical(other.movieId, movieId) || other.movieId == movieId));
 }
 
-abstract class _ToggleFavorite implements MovieDetailEvent {
-  const factory _ToggleFavorite() = _$ToggleFavoriteImpl;
+
+@override
+int get hashCode => Object.hash(runtimeType,movieId);
+
+@override
+String toString() {
+  return 'MovieDetailEvent.loadMovieDetail(movieId: $movieId)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$RetryImplCopyWith<$Res> {
-  factory _$$RetryImplCopyWith(
-    _$RetryImpl value,
-    $Res Function(_$RetryImpl) then,
-  ) = __$$RetryImplCopyWithImpl<$Res>;
+abstract mixin class _$LoadMovieDetailCopyWith<$Res> implements $MovieDetailEventCopyWith<$Res> {
+  factory _$LoadMovieDetailCopyWith(_LoadMovieDetail value, $Res Function(_LoadMovieDetail) _then) = __$LoadMovieDetailCopyWithImpl;
+@useResult
+$Res call({
+ int movieId
+});
+
+
+
+
+}
+/// @nodoc
+class __$LoadMovieDetailCopyWithImpl<$Res>
+    implements _$LoadMovieDetailCopyWith<$Res> {
+  __$LoadMovieDetailCopyWithImpl(this._self, this._then);
+
+  final _LoadMovieDetail _self;
+  final $Res Function(_LoadMovieDetail) _then;
+
+/// Create a copy of MovieDetailEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? movieId = null,}) {
+  return _then(_LoadMovieDetail(
+null == movieId ? _self.movieId : movieId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-class __$$RetryImplCopyWithImpl<$Res>
-    extends _$MovieDetailEventCopyWithImpl<$Res, _$RetryImpl>
-    implements _$$RetryImplCopyWith<$Res> {
-  __$$RetryImplCopyWithImpl(
-    _$RetryImpl _value,
-    $Res Function(_$RetryImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of MovieDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RetryImpl implements _Retry {
-  const _$RetryImpl();
 
-  @override
-  String toString() {
-    return 'MovieDetailEvent.retry()';
-  }
+class _ToggleFavorite implements MovieDetailEvent {
+  const _ToggleFavorite();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RetryImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int movieId) loadMovieDetail,
-    required TResult Function() toggleFavorite,
-    required TResult Function() retry,
-  }) {
-    return retry();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int movieId)? loadMovieDetail,
-    TResult? Function()? toggleFavorite,
-    TResult? Function()? retry,
-  }) {
-    return retry?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int movieId)? loadMovieDetail,
-    TResult Function()? toggleFavorite,
-    TResult Function()? retry,
-    required TResult orElse(),
-  }) {
-    if (retry != null) {
-      return retry();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadMovieDetail value) loadMovieDetail,
-    required TResult Function(_ToggleFavorite value) toggleFavorite,
-    required TResult Function(_Retry value) retry,
-  }) {
-    return retry(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult? Function(_ToggleFavorite value)? toggleFavorite,
-    TResult? Function(_Retry value)? retry,
-  }) {
-    return retry?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadMovieDetail value)? loadMovieDetail,
-    TResult Function(_ToggleFavorite value)? toggleFavorite,
-    TResult Function(_Retry value)? retry,
-    required TResult orElse(),
-  }) {
-    if (retry != null) {
-      return retry(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToggleFavorite);
 }
 
-abstract class _Retry implements MovieDetailEvent {
-  const factory _Retry() = _$RetryImpl;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailEvent.toggleFavorite()';
 }
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Retry implements MovieDetailEvent {
+  const _Retry();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Retry);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailEvent.retry()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 mixin _$MovieDetailState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Movie movie, bool isFavoriteLoading) loaded,
-    required TResult Function(String message) error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult? Function(String message)? error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MovieDetailState);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailState()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $MovieDetailStateCopyWith<$Res> {
-  factory $MovieDetailStateCopyWith(
-    MovieDetailState value,
-    $Res Function(MovieDetailState) then,
-  ) = _$MovieDetailStateCopyWithImpl<$Res, MovieDetailState>;
+class $MovieDetailStateCopyWith<$Res>  {
+$MovieDetailStateCopyWith(MovieDetailState _, $Res Function(MovieDetailState) __);
 }
 
-/// @nodoc
-class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
-    implements $MovieDetailStateCopyWith<$Res> {
-  _$MovieDetailStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [MovieDetailState].
+extension MovieDetailStatePatterns on MovieDetailState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Loaded value)?  loaded,TResult Function( _Error value)?  error,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Initial() when initial != null:
+return initial(_that);case _Loading() when loading != null:
+return loading(_that);case _Loaded() when loaded != null:
+return loaded(_that);case _Error() when error != null:
+return error(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Loaded value)  loaded,required TResult Function( _Error value)  error,}){
+final _that = this;
+switch (_that) {
+case _Initial():
+return initial(_that);case _Loading():
+return loading(_that);case _Loaded():
+return loaded(_that);case _Error():
+return error(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Loaded value)?  loaded,TResult? Function( _Error value)?  error,}){
+final _that = this;
+switch (_that) {
+case _Initial() when initial != null:
+return initial(_that);case _Loading() when loading != null:
+return loading(_that);case _Loaded() when loaded != null:
+return loaded(_that);case _Error() when error != null:
+return error(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( Movie movie,  bool isFavoriteLoading)?  loaded,TResult Function( String message)?  error,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Initial() when initial != null:
+return initial();case _Loading() when loading != null:
+return loading();case _Loaded() when loaded != null:
+return loaded(_that.movie,_that.isFavoriteLoading);case _Error() when error != null:
+return error(_that.message);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( Movie movie,  bool isFavoriteLoading)  loaded,required TResult Function( String message)  error,}) {final _that = this;
+switch (_that) {
+case _Initial():
+return initial();case _Loading():
+return loading();case _Loaded():
+return loaded(_that.movie,_that.isFavoriteLoading);case _Error():
+return error(_that.message);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( Movie movie,  bool isFavoriteLoading)?  loaded,TResult? Function( String message)?  error,}) {final _that = this;
+switch (_that) {
+case _Initial() when initial != null:
+return initial();case _Loading() when loading != null:
+return loading();case _Loaded() when loaded != null:
+return loaded(_that.movie,_that.isFavoriteLoading);case _Error() when error != null:
+return error(_that.message);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-    _$InitialImpl value,
-    $Res Function(_$InitialImpl) then,
-  ) = __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$MovieDetailStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-    _$InitialImpl _value,
-    $Res Function(_$InitialImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'MovieDetailState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Movie movie, bool isFavoriteLoading) loaded,
-    required TResult Function(String message) error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements MovieDetailState {
-  const factory _Initial() = _$InitialImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-    _$LoadingImpl value,
-    $Res Function(_$LoadingImpl) then,
-  ) = __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$MovieDetailStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-    _$LoadingImpl _value,
-    $Res Function(_$LoadingImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
 
-  @override
-  String toString() {
-    return 'MovieDetailState.loading()';
-  }
+class _Initial implements MovieDetailState {
+  const _Initial();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Movie movie, bool isFavoriteLoading) loaded,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
 }
 
-abstract class _Loading implements MovieDetailState {
-  const factory _Loading() = _$LoadingImpl;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailState.initial()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Loading implements MovieDetailState {
+  const _Loading();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MovieDetailState.loading()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Loaded implements MovieDetailState {
+  const _Loaded({required this.movie, this.isFavoriteLoading = false});
+  
+
+ final  Movie movie;
+@JsonKey() final  bool isFavoriteLoading;
+
+/// Create a copy of MovieDetailState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LoadedCopyWith<_Loaded> get copyWith => __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&(identical(other.movie, movie) || other.movie == movie)&&(identical(other.isFavoriteLoading, isFavoriteLoading) || other.isFavoriteLoading == isFavoriteLoading));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,movie,isFavoriteLoading);
+
+@override
+String toString() {
+  return 'MovieDetailState.loaded(movie: $movie, isFavoriteLoading: $isFavoriteLoading)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-    _$LoadedImpl value,
-    $Res Function(_$LoadedImpl) then,
-  ) = __$$LoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Movie movie, bool isFavoriteLoading});
+abstract mixin class _$LoadedCopyWith<$Res> implements $MovieDetailStateCopyWith<$Res> {
+  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) _then) = __$LoadedCopyWithImpl;
+@useResult
+$Res call({
+ Movie movie, bool isFavoriteLoading
+});
 
-  $MovieCopyWith<$Res> get movie;
+
+$MovieCopyWith<$Res> get movie;
+
+}
+/// @nodoc
+class __$LoadedCopyWithImpl<$Res>
+    implements _$LoadedCopyWith<$Res> {
+  __$LoadedCopyWithImpl(this._self, this._then);
+
+  final _Loaded _self;
+  final $Res Function(_Loaded) _then;
+
+/// Create a copy of MovieDetailState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? movie = null,Object? isFavoriteLoading = null,}) {
+  return _then(_Loaded(
+movie: null == movie ? _self.movie : movie // ignore: cast_nullable_to_non_nullable
+as Movie,isFavoriteLoading: null == isFavoriteLoading ? _self.isFavoriteLoading : isFavoriteLoading // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$MovieDetailStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-    _$LoadedImpl _value,
-    $Res Function(_$LoadedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? movie = null, Object? isFavoriteLoading = null}) {
-    return _then(
-      _$LoadedImpl(
-        movie: null == movie
-            ? _value.movie
-            : movie // ignore: cast_nullable_to_non_nullable
-                  as Movie,
-        isFavoriteLoading: null == isFavoriteLoading
-            ? _value.isFavoriteLoading
-            : isFavoriteLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MovieCopyWith<$Res> get movie {
-    return $MovieCopyWith<$Res>(_value.movie, (value) {
-      return _then(_value.copyWith(movie: value));
-    });
-  }
+/// Create a copy of MovieDetailState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MovieCopyWith<$Res> get movie {
+  
+  return $MovieCopyWith<$Res>(_self.movie, (value) {
+    return _then(_self.copyWith(movie: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl({required this.movie, this.isFavoriteLoading = false});
 
-  @override
-  final Movie movie;
-  @override
-  @JsonKey()
-  final bool isFavoriteLoading;
+class _Error implements MovieDetailState {
+  const _Error(this.message);
+  
 
-  @override
-  String toString() {
-    return 'MovieDetailState.loaded(movie: $movie, isFavoriteLoading: $isFavoriteLoading)';
-  }
+ final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
-            (identical(other.movie, movie) || other.movie == movie) &&
-            (identical(other.isFavoriteLoading, isFavoriteLoading) ||
-                other.isFavoriteLoading == isFavoriteLoading));
-  }
+/// Create a copy of MovieDetailState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, movie, isFavoriteLoading);
 
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Movie movie, bool isFavoriteLoading) loaded,
-    required TResult Function(String message) error,
-  }) {
-    return loaded(movie, isFavoriteLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return loaded?.call(movie, isFavoriteLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(movie, isFavoriteLoading);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class _Loaded implements MovieDetailState {
-  const factory _Loaded({
-    required final Movie movie,
-    final bool isFavoriteLoading,
-  }) = _$LoadedImpl;
 
-  Movie get movie;
-  bool get isFavoriteLoading;
+@override
+int get hashCode => Object.hash(runtimeType,message);
 
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'MovieDetailState.error(message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-    _$ErrorImpl value,
-    $Res Function(_$ErrorImpl) then,
-  ) = __$$ErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
+abstract mixin class _$ErrorCopyWith<$Res> implements $MovieDetailStateCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
+@useResult
+$Res call({
+ String message
+});
 
+
+
+
+}
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$MovieDetailStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-    _$ErrorImpl _value,
-    $Res Function(_$ErrorImpl) _then,
-  ) : super(_value, _then);
+class __$ErrorCopyWithImpl<$Res>
+    implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(this._self, this._then);
 
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$ErrorImpl(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
+  final _Error _self;
+  final $Res Function(_Error) _then;
+
+/// Create a copy of MovieDetailState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(_Error(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
 
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'MovieDetailState.error(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Movie movie, bool isFavoriteLoading) loaded,
-    required TResult Function(String message) error,
-  }) {
-    return error(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return error?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Movie movie, bool isFavoriteLoading)? loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Error implements MovieDetailState {
-  const factory _Error(final String message) = _$ErrorImpl;
-
-  String get message;
-
-  /// Create a copy of MovieDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -6,7 +6,7 @@ part 'credits_response_dto.g.dart';
 
 /// Credits Response Data Transfer Object
 @freezed
-class CreditsResponseDto with _$CreditsResponseDto {
+abstract class CreditsResponseDto with _$CreditsResponseDto {
   const factory CreditsResponseDto({
     required int id,
     required List<CastMemberDto> cast,

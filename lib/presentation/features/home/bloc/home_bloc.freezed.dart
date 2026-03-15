@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,1057 +9,931 @@ part of 'home_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$HomeEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() refresh,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? refresh,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? refresh,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Refresh value) refresh,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Refresh value)? refresh,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refresh value)? refresh,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeEvent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'HomeEvent()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $HomeEventCopyWith<$Res> {
-  factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
-      _$HomeEventCopyWithImpl<$Res, HomeEvent>;
+class $HomeEventCopyWith<$Res>  {
+$HomeEventCopyWith(HomeEvent _, $Res Function(HomeEvent) __);
 }
 
-/// @nodoc
-class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
-    implements $HomeEventCopyWith<$Res> {
-  _$HomeEventCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [HomeEvent].
+extension HomeEventPatterns on HomeEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of HomeEvent
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Started value)?  started,TResult Function( _Refresh value)?  refresh,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Started() when started != null:
+return started(_that);case _Refresh() when refresh != null:
+return refresh(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Started value)  started,required TResult Function( _Refresh value)  refresh,}){
+final _that = this;
+switch (_that) {
+case _Started():
+return started(_that);case _Refresh():
+return refresh(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Started value)?  started,TResult? Function( _Refresh value)?  refresh,}){
+final _that = this;
+switch (_that) {
+case _Started() when started != null:
+return started(_that);case _Refresh() when refresh != null:
+return refresh(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  started,TResult Function()?  refresh,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Started() when started != null:
+return started();case _Refresh() when refresh != null:
+return refresh();case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  started,required TResult Function()  refresh,}) {final _that = this;
+switch (_that) {
+case _Started():
+return started();case _Refresh():
+return refresh();case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  started,TResult? Function()?  refresh,}) {final _that = this;
+switch (_that) {
+case _Started() when started != null:
+return started();case _Refresh() when refresh != null:
+return refresh();case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-    _$StartedImpl value,
-    $Res Function(_$StartedImpl) then,
-  ) = __$$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-    _$StartedImpl _value,
-    $Res Function(_$StartedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of HomeEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
-
-  @override
-  String toString() {
-    return 'HomeEvent.started()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() refresh,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? refresh,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? refresh,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Refresh value) refresh,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Refresh value)? refresh,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refresh value)? refresh,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements HomeEvent {
-  const factory _Started() = _$StartedImpl;
-}
-
-/// @nodoc
-abstract class _$$RefreshImplCopyWith<$Res> {
-  factory _$$RefreshImplCopyWith(
-    _$RefreshImpl value,
-    $Res Function(_$RefreshImpl) then,
-  ) = __$$RefreshImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RefreshImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$RefreshImpl>
-    implements _$$RefreshImplCopyWith<$Res> {
-  __$$RefreshImplCopyWithImpl(
-    _$RefreshImpl _value,
-    $Res Function(_$RefreshImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of HomeEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$RefreshImpl implements _Refresh {
-  const _$RefreshImpl();
 
-  @override
-  String toString() {
-    return 'HomeEvent.refresh()';
-  }
+class _Started implements HomeEvent {
+  const _Started();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RefreshImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() refresh,
-  }) {
-    return refresh();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? refresh,
-  }) {
-    return refresh?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? refresh,
-    required TResult orElse(),
-  }) {
-    if (refresh != null) {
-      return refresh();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Refresh value) refresh,
-  }) {
-    return refresh(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Refresh value)? refresh,
-  }) {
-    return refresh?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refresh value)? refresh,
-    required TResult orElse(),
-  }) {
-    if (refresh != null) {
-      return refresh(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Started);
 }
 
-abstract class _Refresh implements HomeEvent {
-  const factory _Refresh() = _$RefreshImpl;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'HomeEvent.started()';
 }
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Refresh implements HomeEvent {
+  const _Refresh();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Refresh);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'HomeEvent.refresh()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 mixin _$HomeState {
-  AsyncValue<List<Movie>> get trending => throw _privateConstructorUsedError;
-  AsyncValue<List<Movie>> get popular => throw _privateConstructorUsedError;
-  AsyncValue<List<Movie>> get topRated => throw _privateConstructorUsedError;
-  AsyncValue<List<Movie>> get upcoming => throw _privateConstructorUsedError;
-  AsyncValue<List<Movie>> get nowPlaying => throw _privateConstructorUsedError;
 
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $HomeStateCopyWith<HomeState> get copyWith =>
-      throw _privateConstructorUsedError;
+ AsyncValue<List<Movie>> get trending; AsyncValue<List<Movie>> get popular; AsyncValue<List<Movie>> get topRated; AsyncValue<List<Movie>> get upcoming; AsyncValue<List<Movie>> get nowPlaying;
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>(this as HomeState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.trending, trending) || other.trending == trending)&&(identical(other.popular, popular) || other.popular == popular)&&(identical(other.topRated, topRated) || other.topRated == topRated)&&(identical(other.upcoming, upcoming) || other.upcoming == upcoming)&&(identical(other.nowPlaying, nowPlaying) || other.nowPlaying == nowPlaying));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,trending,popular,topRated,upcoming,nowPlaying);
+
+@override
+String toString() {
+  return 'HomeState(trending: $trending, popular: $popular, topRated: $topRated, upcoming: $upcoming, nowPlaying: $nowPlaying)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
-  @useResult
-  $Res call({
-    AsyncValue<List<Movie>> trending,
-    AsyncValue<List<Movie>> popular,
-    AsyncValue<List<Movie>> topRated,
-    AsyncValue<List<Movie>> upcoming,
-    AsyncValue<List<Movie>> nowPlaying,
-  });
+abstract mixin class $HomeStateCopyWith<$Res>  {
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
+@useResult
+$Res call({
+ AsyncValue<List<Movie>> trending, AsyncValue<List<Movie>> popular, AsyncValue<List<Movie>> topRated, AsyncValue<List<Movie>> upcoming, AsyncValue<List<Movie>> nowPlaying
+});
 
-  $AsyncValueCopyWith<List<Movie>, $Res> get trending;
-  $AsyncValueCopyWith<List<Movie>, $Res> get popular;
-  $AsyncValueCopyWith<List<Movie>, $Res> get topRated;
-  $AsyncValueCopyWith<List<Movie>, $Res> get upcoming;
-  $AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying;
+
+$AsyncValueCopyWith<List<Movie>, $Res> get trending;$AsyncValueCopyWith<List<Movie>, $Res> get popular;$AsyncValueCopyWith<List<Movie>, $Res> get topRated;$AsyncValueCopyWith<List<Movie>, $Res> get upcoming;$AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying;
+
 }
-
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
+class _$HomeStateCopyWithImpl<$Res>
     implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+  _$HomeStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final HomeState _self;
+  final $Res Function(HomeState) _then;
 
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? trending = null,
-    Object? popular = null,
-    Object? topRated = null,
-    Object? upcoming = null,
-    Object? nowPlaying = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            trending: null == trending
-                ? _value.trending
-                : trending // ignore: cast_nullable_to_non_nullable
-                      as AsyncValue<List<Movie>>,
-            popular: null == popular
-                ? _value.popular
-                : popular // ignore: cast_nullable_to_non_nullable
-                      as AsyncValue<List<Movie>>,
-            topRated: null == topRated
-                ? _value.topRated
-                : topRated // ignore: cast_nullable_to_non_nullable
-                      as AsyncValue<List<Movie>>,
-            upcoming: null == upcoming
-                ? _value.upcoming
-                : upcoming // ignore: cast_nullable_to_non_nullable
-                      as AsyncValue<List<Movie>>,
-            nowPlaying: null == nowPlaying
-                ? _value.nowPlaying
-                : nowPlaying // ignore: cast_nullable_to_non_nullable
-                      as AsyncValue<List<Movie>>,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AsyncValueCopyWith<List<Movie>, $Res> get trending {
-    return $AsyncValueCopyWith<List<Movie>, $Res>(_value.trending, (value) {
-      return _then(_value.copyWith(trending: value) as $Val);
-    });
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AsyncValueCopyWith<List<Movie>, $Res> get popular {
-    return $AsyncValueCopyWith<List<Movie>, $Res>(_value.popular, (value) {
-      return _then(_value.copyWith(popular: value) as $Val);
-    });
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AsyncValueCopyWith<List<Movie>, $Res> get topRated {
-    return $AsyncValueCopyWith<List<Movie>, $Res>(_value.topRated, (value) {
-      return _then(_value.copyWith(topRated: value) as $Val);
-    });
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AsyncValueCopyWith<List<Movie>, $Res> get upcoming {
-    return $AsyncValueCopyWith<List<Movie>, $Res>(_value.upcoming, (value) {
-      return _then(_value.copyWith(upcoming: value) as $Val);
-    });
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying {
-    return $AsyncValueCopyWith<List<Movie>, $Res>(_value.nowPlaying, (value) {
-      return _then(_value.copyWith(nowPlaying: value) as $Val);
-    });
-  }
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? trending = null,Object? popular = null,Object? topRated = null,Object? upcoming = null,Object? nowPlaying = null,}) {
+  return _then(_self.copyWith(
+trending: null == trending ? _self.trending : trending // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,popular: null == popular ? _self.popular : popular // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,topRated: null == topRated ? _self.topRated : topRated // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,upcoming: null == upcoming ? _self.upcoming : upcoming // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,nowPlaying: null == nowPlaying ? _self.nowPlaying : nowPlaying // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,
+  ));
 }
-
-/// @nodoc
-abstract class _$$HomeStateImplCopyWith<$Res>
-    implements $HomeStateCopyWith<$Res> {
-  factory _$$HomeStateImplCopyWith(
-    _$HomeStateImpl value,
-    $Res Function(_$HomeStateImpl) then,
-  ) = __$$HomeStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    AsyncValue<List<Movie>> trending,
-    AsyncValue<List<Movie>> popular,
-    AsyncValue<List<Movie>> topRated,
-    AsyncValue<List<Movie>> upcoming,
-    AsyncValue<List<Movie>> nowPlaying,
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get trending {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.trending, (value) {
+    return _then(_self.copyWith(trending: value));
   });
-
-  @override
-  $AsyncValueCopyWith<List<Movie>, $Res> get trending;
-  @override
-  $AsyncValueCopyWith<List<Movie>, $Res> get popular;
-  @override
-  $AsyncValueCopyWith<List<Movie>, $Res> get topRated;
-  @override
-  $AsyncValueCopyWith<List<Movie>, $Res> get upcoming;
-  @override
-  $AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying;
-}
-
-/// @nodoc
-class __$$HomeStateImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
-    implements _$$HomeStateImplCopyWith<$Res> {
-  __$$HomeStateImplCopyWithImpl(
-    _$HomeStateImpl _value,
-    $Res Function(_$HomeStateImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? trending = null,
-    Object? popular = null,
-    Object? topRated = null,
-    Object? upcoming = null,
-    Object? nowPlaying = null,
-  }) {
-    return _then(
-      _$HomeStateImpl(
-        trending: null == trending
-            ? _value.trending
-            : trending // ignore: cast_nullable_to_non_nullable
-                  as AsyncValue<List<Movie>>,
-        popular: null == popular
-            ? _value.popular
-            : popular // ignore: cast_nullable_to_non_nullable
-                  as AsyncValue<List<Movie>>,
-        topRated: null == topRated
-            ? _value.topRated
-            : topRated // ignore: cast_nullable_to_non_nullable
-                  as AsyncValue<List<Movie>>,
-        upcoming: null == upcoming
-            ? _value.upcoming
-            : upcoming // ignore: cast_nullable_to_non_nullable
-                  as AsyncValue<List<Movie>>,
-        nowPlaying: null == nowPlaying
-            ? _value.nowPlaying
-            : nowPlaying // ignore: cast_nullable_to_non_nullable
-                  as AsyncValue<List<Movie>>,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({
-    this.trending = const AsyncValue.loading(),
-    this.popular = const AsyncValue.loading(),
-    this.topRated = const AsyncValue.loading(),
-    this.upcoming = const AsyncValue.loading(),
-    this.nowPlaying = const AsyncValue.loading(),
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get popular {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.popular, (value) {
+    return _then(_self.copyWith(popular: value));
   });
-
-  @override
-  @JsonKey()
-  final AsyncValue<List<Movie>> trending;
-  @override
-  @JsonKey()
-  final AsyncValue<List<Movie>> popular;
-  @override
-  @JsonKey()
-  final AsyncValue<List<Movie>> topRated;
-  @override
-  @JsonKey()
-  final AsyncValue<List<Movie>> upcoming;
-  @override
-  @JsonKey()
-  final AsyncValue<List<Movie>> nowPlaying;
-
-  @override
-  String toString() {
-    return 'HomeState(trending: $trending, popular: $popular, topRated: $topRated, upcoming: $upcoming, nowPlaying: $nowPlaying)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HomeStateImpl &&
-            (identical(other.trending, trending) ||
-                other.trending == trending) &&
-            (identical(other.popular, popular) || other.popular == popular) &&
-            (identical(other.topRated, topRated) ||
-                other.topRated == topRated) &&
-            (identical(other.upcoming, upcoming) ||
-                other.upcoming == upcoming) &&
-            (identical(other.nowPlaying, nowPlaying) ||
-                other.nowPlaying == nowPlaying));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    trending,
-    popular,
-    topRated,
-    upcoming,
-    nowPlaying,
-  );
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
-      __$$HomeStateImplCopyWithImpl<_$HomeStateImpl>(this, _$identity);
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get topRated {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.topRated, (value) {
+    return _then(_self.copyWith(topRated: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get upcoming {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.upcoming, (value) {
+    return _then(_self.copyWith(upcoming: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.nowPlaying, (value) {
+    return _then(_self.copyWith(nowPlaying: value));
+  });
+}
 }
 
-abstract class _HomeState implements HomeState {
-  const factory _HomeState({
-    final AsyncValue<List<Movie>> trending,
-    final AsyncValue<List<Movie>> popular,
-    final AsyncValue<List<Movie>> topRated,
-    final AsyncValue<List<Movie>> upcoming,
-    final AsyncValue<List<Movie>> nowPlaying,
-  }) = _$HomeStateImpl;
 
-  @override
-  AsyncValue<List<Movie>> get trending;
-  @override
-  AsyncValue<List<Movie>> get popular;
-  @override
-  AsyncValue<List<Movie>> get topRated;
-  @override
-  AsyncValue<List<Movie>> get upcoming;
-  @override
-  AsyncValue<List<Movie>> get nowPlaying;
+/// Adds pattern-matching-related methods to [HomeState].
+extension HomeStatePatterns on HomeState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _HomeState value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _HomeState() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _HomeState value)  $default,){
+final _that = this;
+switch (_that) {
+case _HomeState():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _HomeState value)?  $default,){
+final _that = this;
+switch (_that) {
+case _HomeState() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( AsyncValue<List<Movie>> trending,  AsyncValue<List<Movie>> popular,  AsyncValue<List<Movie>> topRated,  AsyncValue<List<Movie>> upcoming,  AsyncValue<List<Movie>> nowPlaying)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _HomeState() when $default != null:
+return $default(_that.trending,_that.popular,_that.topRated,_that.upcoming,_that.nowPlaying);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( AsyncValue<List<Movie>> trending,  AsyncValue<List<Movie>> popular,  AsyncValue<List<Movie>> topRated,  AsyncValue<List<Movie>> upcoming,  AsyncValue<List<Movie>> nowPlaying)  $default,) {final _that = this;
+switch (_that) {
+case _HomeState():
+return $default(_that.trending,_that.popular,_that.topRated,_that.upcoming,_that.nowPlaying);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( AsyncValue<List<Movie>> trending,  AsyncValue<List<Movie>> popular,  AsyncValue<List<Movie>> topRated,  AsyncValue<List<Movie>> upcoming,  AsyncValue<List<Movie>> nowPlaying)?  $default,) {final _that = this;
+switch (_that) {
+case _HomeState() when $default != null:
+return $default(_that.trending,_that.popular,_that.topRated,_that.upcoming,_that.nowPlaying);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+
+
+class _HomeState implements HomeState {
+  const _HomeState({this.trending = const AsyncValue<List<Movie>>.loading(), this.popular = const AsyncValue<List<Movie>>.loading(), this.topRated = const AsyncValue<List<Movie>>.loading(), this.upcoming = const AsyncValue<List<Movie>>.loading(), this.nowPlaying = const AsyncValue<List<Movie>>.loading()});
+  
+
+@override@JsonKey() final  AsyncValue<List<Movie>> trending;
+@override@JsonKey() final  AsyncValue<List<Movie>> popular;
+@override@JsonKey() final  AsyncValue<List<Movie>> topRated;
+@override@JsonKey() final  AsyncValue<List<Movie>> upcoming;
+@override@JsonKey() final  AsyncValue<List<Movie>> nowPlaying;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeState>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.trending, trending) || other.trending == trending)&&(identical(other.popular, popular) || other.popular == popular)&&(identical(other.topRated, topRated) || other.topRated == topRated)&&(identical(other.upcoming, upcoming) || other.upcoming == upcoming)&&(identical(other.nowPlaying, nowPlaying) || other.nowPlaying == nowPlaying));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,trending,popular,topRated,upcoming,nowPlaying);
+
+@override
+String toString() {
+  return 'HomeState(trending: $trending, popular: $popular, topRated: $topRated, upcoming: $upcoming, nowPlaying: $nowPlaying)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
+@override @useResult
+$Res call({
+ AsyncValue<List<Movie>> trending, AsyncValue<List<Movie>> popular, AsyncValue<List<Movie>> topRated, AsyncValue<List<Movie>> upcoming, AsyncValue<List<Movie>> nowPlaying
+});
+
+
+@override $AsyncValueCopyWith<List<Movie>, $Res> get trending;@override $AsyncValueCopyWith<List<Movie>, $Res> get popular;@override $AsyncValueCopyWith<List<Movie>, $Res> get topRated;@override $AsyncValueCopyWith<List<Movie>, $Res> get upcoming;@override $AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying;
+
+}
+/// @nodoc
+class __$HomeStateCopyWithImpl<$Res>
+    implements _$HomeStateCopyWith<$Res> {
+  __$HomeStateCopyWithImpl(this._self, this._then);
+
+  final _HomeState _self;
+  final $Res Function(_HomeState) _then;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? trending = null,Object? popular = null,Object? topRated = null,Object? upcoming = null,Object? nowPlaying = null,}) {
+  return _then(_HomeState(
+trending: null == trending ? _self.trending : trending // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,popular: null == popular ? _self.popular : popular // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,topRated: null == topRated ? _self.topRated : topRated // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,upcoming: null == upcoming ? _self.upcoming : upcoming // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,nowPlaying: null == nowPlaying ? _self.nowPlaying : nowPlaying // ignore: cast_nullable_to_non_nullable
+as AsyncValue<List<Movie>>,
+  ));
+}
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get trending {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.trending, (value) {
+    return _then(_self.copyWith(trending: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get popular {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.popular, (value) {
+    return _then(_self.copyWith(popular: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get topRated {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.topRated, (value) {
+    return _then(_self.copyWith(topRated: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get upcoming {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.upcoming, (value) {
+    return _then(_self.copyWith(upcoming: value));
+  });
+}/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AsyncValueCopyWith<List<Movie>, $Res> get nowPlaying {
+  
+  return $AsyncValueCopyWith<List<Movie>, $Res>(_self.nowPlaying, (value) {
+    return _then(_self.copyWith(nowPlaying: value));
+  });
+}
 }
 
 /// @nodoc
 mixin _$AsyncValue<T> {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(T value) data,
-    required TResult Function(String message) error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(T value)? data,
-    TResult? Function(String message)? error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(T value)? data,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AsyncLoading<T> value) loading,
-    required TResult Function(AsyncData<T> value) data,
-    required TResult Function(AsyncError<T> value) error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AsyncLoading<T> value)? loading,
-    TResult? Function(AsyncData<T> value)? data,
-    TResult? Function(AsyncError<T> value)? error,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AsyncLoading<T> value)? loading,
-    TResult Function(AsyncData<T> value)? data,
-    TResult Function(AsyncError<T> value)? error,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AsyncValue<T>);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AsyncValue<$T>()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AsyncValueCopyWith<T, $Res> {
-  factory $AsyncValueCopyWith(
-    AsyncValue<T> value,
-    $Res Function(AsyncValue<T>) then,
-  ) = _$AsyncValueCopyWithImpl<T, $Res, AsyncValue<T>>;
+class $AsyncValueCopyWith<T,$Res>  {
+$AsyncValueCopyWith(AsyncValue<T> _, $Res Function(AsyncValue<T>) __);
 }
 
-/// @nodoc
-class _$AsyncValueCopyWithImpl<T, $Res, $Val extends AsyncValue<T>>
-    implements $AsyncValueCopyWith<T, $Res> {
-  _$AsyncValueCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [AsyncValue].
+extension AsyncValuePatterns<T> on AsyncValue<T> {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( AsyncLoading<T> value)?  loading,TResult Function( AsyncData<T> value)?  data,TResult Function( AsyncError<T> value)?  error,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case AsyncLoading() when loading != null:
+return loading(_that);case AsyncData() when data != null:
+return data(_that);case AsyncError() when error != null:
+return error(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( AsyncLoading<T> value)  loading,required TResult Function( AsyncData<T> value)  data,required TResult Function( AsyncError<T> value)  error,}){
+final _that = this;
+switch (_that) {
+case AsyncLoading():
+return loading(_that);case AsyncData():
+return data(_that);case AsyncError():
+return error(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( AsyncLoading<T> value)?  loading,TResult? Function( AsyncData<T> value)?  data,TResult? Function( AsyncError<T> value)?  error,}){
+final _that = this;
+switch (_that) {
+case AsyncLoading() when loading != null:
+return loading(_that);case AsyncData() when data != null:
+return data(_that);case AsyncError() when error != null:
+return error(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( T value)?  data,TResult Function( String message)?  error,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case AsyncLoading() when loading != null:
+return loading();case AsyncData() when data != null:
+return data(_that.value);case AsyncError() when error != null:
+return error(_that.message);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( T value)  data,required TResult Function( String message)  error,}) {final _that = this;
+switch (_that) {
+case AsyncLoading():
+return loading();case AsyncData():
+return data(_that.value);case AsyncError():
+return error(_that.message);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( T value)?  data,TResult? Function( String message)?  error,}) {final _that = this;
+switch (_that) {
+case AsyncLoading() when loading != null:
+return loading();case AsyncData() when data != null:
+return data(_that.value);case AsyncError() when error != null:
+return error(_that.message);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$AsyncLoadingImplCopyWith<T, $Res> {
-  factory _$$AsyncLoadingImplCopyWith(
-    _$AsyncLoadingImpl<T> value,
-    $Res Function(_$AsyncLoadingImpl<T>) then,
-  ) = __$$AsyncLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$AsyncLoadingImplCopyWithImpl<T, $Res>
-    extends _$AsyncValueCopyWithImpl<T, $Res, _$AsyncLoadingImpl<T>>
-    implements _$$AsyncLoadingImplCopyWith<T, $Res> {
-  __$$AsyncLoadingImplCopyWithImpl(
-    _$AsyncLoadingImpl<T> _value,
-    $Res Function(_$AsyncLoadingImpl<T>) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$AsyncLoadingImpl<T> implements AsyncLoading<T> {
-  const _$AsyncLoadingImpl();
-
-  @override
-  String toString() {
-    return 'AsyncValue<$T>.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AsyncLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(T value) data,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(T value)? data,
-    TResult? Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(T value)? data,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AsyncLoading<T> value) loading,
-    required TResult Function(AsyncData<T> value) data,
-    required TResult Function(AsyncError<T> value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AsyncLoading<T> value)? loading,
-    TResult? Function(AsyncData<T> value)? data,
-    TResult? Function(AsyncError<T> value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AsyncLoading<T> value)? loading,
-    TResult Function(AsyncData<T> value)? data,
-    TResult Function(AsyncError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AsyncLoading<T> implements AsyncValue<T> {
-  const factory AsyncLoading() = _$AsyncLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$AsyncDataImplCopyWith<T, $Res> {
-  factory _$$AsyncDataImplCopyWith(
-    _$AsyncDataImpl<T> value,
-    $Res Function(_$AsyncDataImpl<T>) then,
-  ) = __$$AsyncDataImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T value});
-}
-
-/// @nodoc
-class __$$AsyncDataImplCopyWithImpl<T, $Res>
-    extends _$AsyncValueCopyWithImpl<T, $Res, _$AsyncDataImpl<T>>
-    implements _$$AsyncDataImplCopyWith<T, $Res> {
-  __$$AsyncDataImplCopyWithImpl(
-    _$AsyncDataImpl<T> _value,
-    $Res Function(_$AsyncDataImpl<T>) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? value = freezed}) {
-    return _then(
-      _$AsyncDataImpl<T>(
-        freezed == value
-            ? _value.value
-            : value // ignore: cast_nullable_to_non_nullable
-                  as T,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
-class _$AsyncDataImpl<T> implements AsyncData<T> {
-  const _$AsyncDataImpl(this.value);
 
-  @override
-  final T value;
+class AsyncLoading<T> implements AsyncValue<T> {
+  const AsyncLoading();
+  
 
-  @override
-  String toString() {
-    return 'AsyncValue<$T>.data(value: $value)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AsyncDataImpl<T> &&
-            const DeepCollectionEquality().equals(other.value, value));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AsyncDataImplCopyWith<T, _$AsyncDataImpl<T>> get copyWith =>
-      __$$AsyncDataImplCopyWithImpl<T, _$AsyncDataImpl<T>>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(T value) data,
-    required TResult Function(String message) error,
-  }) {
-    return data(value);
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(T value)? data,
-    TResult? Function(String message)? error,
-  }) {
-    return data?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(T value)? data,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AsyncLoading<T> value) loading,
-    required TResult Function(AsyncData<T> value) data,
-    required TResult Function(AsyncError<T> value) error,
-  }) {
-    return data(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AsyncLoading<T> value)? loading,
-    TResult? Function(AsyncData<T> value)? data,
-    TResult? Function(AsyncError<T> value)? error,
-  }) {
-    return data?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AsyncLoading<T> value)? loading,
-    TResult Function(AsyncData<T> value)? data,
-    TResult Function(AsyncError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AsyncLoading<T>);
 }
 
-abstract class AsyncData<T> implements AsyncValue<T> {
-  const factory AsyncData(final T value) = _$AsyncDataImpl<T>;
 
-  T get value;
+@override
+int get hashCode => runtimeType.hashCode;
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AsyncDataImplCopyWith<T, _$AsyncDataImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'AsyncValue<$T>.loading()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class AsyncData<T> implements AsyncValue<T> {
+  const AsyncData(this.value);
+  
+
+ final  T value;
+
+/// Create a copy of AsyncValue
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AsyncDataCopyWith<T, AsyncData<T>> get copyWith => _$AsyncDataCopyWithImpl<T, AsyncData<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AsyncData<T>&&const DeepCollectionEquality().equals(other.value, value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(value));
+
+@override
+String toString() {
+  return 'AsyncValue<$T>.data(value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$AsyncErrorImplCopyWith<T, $Res> {
-  factory _$$AsyncErrorImplCopyWith(
-    _$AsyncErrorImpl<T> value,
-    $Res Function(_$AsyncErrorImpl<T>) then,
-  ) = __$$AsyncErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String message});
+abstract mixin class $AsyncDataCopyWith<T,$Res> implements $AsyncValueCopyWith<T, $Res> {
+  factory $AsyncDataCopyWith(AsyncData<T> value, $Res Function(AsyncData<T>) _then) = _$AsyncDataCopyWithImpl;
+@useResult
+$Res call({
+ T value
+});
+
+
+
+
+}
+/// @nodoc
+class _$AsyncDataCopyWithImpl<T,$Res>
+    implements $AsyncDataCopyWith<T, $Res> {
+  _$AsyncDataCopyWithImpl(this._self, this._then);
+
+  final AsyncData<T> _self;
+  final $Res Function(AsyncData<T>) _then;
+
+/// Create a copy of AsyncValue
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = freezed,}) {
+  return _then(AsyncData<T>(
+freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as T,
+  ));
 }
 
-/// @nodoc
-class __$$AsyncErrorImplCopyWithImpl<T, $Res>
-    extends _$AsyncValueCopyWithImpl<T, $Res, _$AsyncErrorImpl<T>>
-    implements _$$AsyncErrorImplCopyWith<T, $Res> {
-  __$$AsyncErrorImplCopyWithImpl(
-    _$AsyncErrorImpl<T> _value,
-    $Res Function(_$AsyncErrorImpl<T>) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$AsyncErrorImpl<T>(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
-class _$AsyncErrorImpl<T> implements AsyncError<T> {
-  const _$AsyncErrorImpl(this.message);
 
-  @override
-  final String message;
+class AsyncError<T> implements AsyncValue<T> {
+  const AsyncError(this.message);
+  
 
-  @override
-  String toString() {
-    return 'AsyncValue<$T>.error(message: $message)';
-  }
+ final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AsyncErrorImpl<T> &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of AsyncValue
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AsyncErrorCopyWith<T, AsyncError<T>> get copyWith => _$AsyncErrorCopyWithImpl<T, AsyncError<T>>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AsyncErrorImplCopyWith<T, _$AsyncErrorImpl<T>> get copyWith =>
-      __$$AsyncErrorImplCopyWithImpl<T, _$AsyncErrorImpl<T>>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(T value) data,
-    required TResult Function(String message) error,
-  }) {
-    return error(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(T value)? data,
-    TResult? Function(String message)? error,
-  }) {
-    return error?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(T value)? data,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AsyncLoading<T> value) loading,
-    required TResult Function(AsyncData<T> value) data,
-    required TResult Function(AsyncError<T> value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AsyncLoading<T> value)? loading,
-    TResult? Function(AsyncData<T> value)? data,
-    TResult? Function(AsyncError<T> value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AsyncLoading<T> value)? loading,
-    TResult Function(AsyncData<T> value)? data,
-    TResult Function(AsyncError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AsyncError<T>&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class AsyncError<T> implements AsyncValue<T> {
-  const factory AsyncError(final String message) = _$AsyncErrorImpl<T>;
 
-  String get message;
+@override
+int get hashCode => Object.hash(runtimeType,message);
 
-  /// Create a copy of AsyncValue
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AsyncErrorImplCopyWith<T, _$AsyncErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'AsyncValue<$T>.error(message: $message)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class $AsyncErrorCopyWith<T,$Res> implements $AsyncValueCopyWith<T, $Res> {
+  factory $AsyncErrorCopyWith(AsyncError<T> value, $Res Function(AsyncError<T>) _then) = _$AsyncErrorCopyWithImpl;
+@useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$AsyncErrorCopyWithImpl<T,$Res>
+    implements $AsyncErrorCopyWith<T, $Res> {
+  _$AsyncErrorCopyWithImpl(this._self, this._then);
+
+  final AsyncError<T> _self;
+  final $Res Function(AsyncError<T>) _then;
+
+/// Create a copy of AsyncValue
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(AsyncError<T>(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

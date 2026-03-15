@@ -4,7 +4,7 @@ part 'cast_member.freezed.dart';
 
 /// Cast member entity - represents an actor/actress in a movie
 @freezed
-class CastMember with _$CastMember {
+abstract class CastMember with _$CastMember {
   const factory CastMember({
     required int id,
     required String name,
