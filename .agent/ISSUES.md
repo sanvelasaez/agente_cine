@@ -92,9 +92,9 @@ _No hay issues abiertas. Todas las issues detectadas fueron resueltas en la Fase
   - test\domain\usecases\get_favorites_test.dart:39:28
   ```
 - **Archivos afectados:**
-  - `lib/presentation/features/home/bloc/home_state.dart` (5 warnings)
-  - `lib/presentation/features/movie_detail/bloc/movie_detail_state.dart` (1 warning)
-  - `test/domain/usecases/*.dart` (31 warnings en tests)
+  - `lib/presentation/screens/home/bloc/home_state.dart` (5 warnings)
+  - `lib/presentation/screens/movie_detail/bloc/movie_detail_state.dart` (1 warning)
+  - `test/domain/actions/*.dart` (31 warnings en tests)
 - **Solución propuesta:**
   - Especificar tipos explícitos: `AsyncValue<List<Movie>>.loading()` en vez de `AsyncValue.loading()`
   - Especificar tipos en Either: `Right<Failure, List<Movie>>(mockMovies)` en vez de `Right(mockMovies)`
@@ -173,7 +173,7 @@ _No hay issues abiertas. Todas las issues detectadas fueron resueltas en la Fase
 - **Severidad:** ALTA
 - **Tipo:** FUNCIONALIDAD_INCOMPLETA
 - **Detectado en:** revisión manual de código
-- **Descripción:** En `lib/presentation/features/home/pages/home_page.dart` línea 46, el botón de búsqueda en AppBar tiene un `// TODO: Navigate to search` sin implementar. El archivo `movie_search_delegate.dart` existe pero no está conectado.
+- **Descripción:** En `lib/presentation/screens/home/pages/home_page.dart` línea 46, el botón de búsqueda en AppBar tiene un `// TODO: Navigate to search` sin implementar. El archivo `movie_search_delegate.dart` existe pero no está conectado.
 - **Impacto:**
   - Funcionalidad core de Fase 1 no operativa
   - Usuario no puede buscar películas desde HomePage
@@ -226,10 +226,10 @@ _No hay issues abiertas. Todas las issues detectadas fueron resueltas en la Fase
 - **Solución propuesta:**
   - Reemplazar todos los `_PlaceholderPage` con las páginas reales que ya existen:
     ```dart
-    import 'package:agente_cine/presentation/features/movie_detail/pages/movie_detail_page.dart';
-    import 'package:agente_cine/presentation/features/favorites/pages/favorites_page.dart';
-    import 'package:agente_cine/presentation/features/categories/pages/categories_page.dart';
-    import 'package:agente_cine/presentation/features/categories/pages/category_movies_page.dart';
+    import 'package:agente_cine/presentation/screens/movie_detail/pages/movie_detail_page.dart';
+    import 'package:agente_cine/presentation/screens/favorites/pages/favorites_page.dart';
+    import 'package:agente_cine/presentation/screens/categories/pages/categories_page.dart';
+    import 'package:agente_cine/presentation/screens/categories/pages/category_movies_page.dart';
 
     // Y actualizar los builders correspondientes
     ```

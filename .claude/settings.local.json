@@ -5,7 +5,16 @@
       "Bash(git *)",
       "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)",
       "Bash(git add:*)",
-      "Bash(flutter clean:*)"
+      "Bash(flutter clean:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(for file:*)",
+      "Bash(do echo:*)",
+      "Read(//d/workspace/flutter/agente_cine/lib/domain/entities/**)",
+      "Bash(done)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(cd:*)",
+      "Bash(cp:*)"
     ]
   }
 }

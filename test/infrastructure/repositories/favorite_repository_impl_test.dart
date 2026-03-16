@@ -1,5 +1,5 @@
 import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/failures/failure.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/infrastructure/repositories/favorite_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -5,7 +5,7 @@ part 'cast_member_dto.g.dart';
 
 /// Cast Member Data Transfer Object
 @freezed
-class CastMemberDto with _$CastMemberDto {
+abstract class CastMemberDto with _$CastMemberDto {
   const factory CastMemberDto({
     required int id,
     required String name,

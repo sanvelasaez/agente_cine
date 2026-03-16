@@ -6,7 +6,7 @@ part 'movie_dto.g.dart';
 
 /// Movie Data Transfer Object
 @freezed
-class MovieDto with _$MovieDto {
+abstract class MovieDto with _$MovieDto {
   const factory MovieDto({
     required int id,
     required String title,

@@ -1,6 +1,6 @@
 import 'package:agente_cine/core/error/app_exception.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/failures/failure.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/domain/repositories/movie_repository.dart';
 import 'package:agente_cine/infrastructure/datasources/remote/tmdb_remote_datasource.dart';
 import 'package:agente_cine/infrastructure/mappers/cast_mapper.dart';
