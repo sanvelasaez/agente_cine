@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/get_movies_by_genre.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/get_movies_by_genre.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -27,57 +27,65 @@ void main() {
   );
 
   group('GetMoviesByGenre', () {
-    test('should return list of movies when repository call is successful',
-        () async {
-      // Arrange
-      when(() => mockRepository.getMoviesByGenre(
+    test(
+      'should return list of movies when repository call is successful',
+      () async {
+        // Arrange
+        when(
+          () => mockRepository.getMoviesByGenre(
             genreId: any(named: 'genreId'),
             page: any(named: 'page'),
-          )).thenAnswer((_) async => const Right([testMovie]));
+          ),
+        ).thenAnswer((_) async => const Right([testMovie]));
 
-      // Act
-      final result = await usecase(genreId: testGenreId);
+        // Act
+        final result = await usecase(genreId: testGenreId);
 
-      // Assert
-      expect(result, const Right<Failure, List<Movie>>([testMovie]));
-      verify(() => mockRepository.getMoviesByGenre(
-            genreId: testGenreId,
-          )).called(1);
-      verifyNoMoreInteractions(mockRepository);
-    });
+        // Assert
+        expect(result, const Right<Failure, List<Movie>>([testMovie]));
+        verify(
+          () => mockRepository.getMoviesByGenre(genreId: testGenreId),
+        ).called(1);
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
 
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.network();
-      when(() => mockRepository.getMoviesByGenre(
-            genreId: any(named: 'genreId'),
-            page: any(named: 'page'),
-          )).thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getMoviesByGenre(
+          genreId: any(named: 'genreId'),
+          page: any(named: 'page'),
+        ),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase(genreId: testGenreId);
 
       // Assert
       expect(result, const Left<Failure, List<Movie>>(failure));
-      verify(() => mockRepository.getMoviesByGenre(
-            genreId: testGenreId,
-          )).called(1);
+      verify(
+        () => mockRepository.getMoviesByGenre(genreId: testGenreId),
+      ).called(1);
     });
 
     test('should use default page value when not provided', () async {
       // Arrange
-      when(() => mockRepository.getMoviesByGenre(
-            genreId: any(named: 'genreId'),
-            page: any(named: 'page'),
-          )).thenAnswer((_) async => const Right([testMovie]));
+      when(
+        () => mockRepository.getMoviesByGenre(
+          genreId: any(named: 'genreId'),
+          page: any(named: 'page'),
+        ),
+      ).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
       await usecase(genreId: testGenreId);
 
       // Assert
-      verify(() => mockRepository.getMoviesByGenre(
-            genreId: testGenreId,
-          )).called(1);
+      verify(
+        () => mockRepository.getMoviesByGenre(genreId: testGenreId),
+      ).called(1);
     });
   });
 }

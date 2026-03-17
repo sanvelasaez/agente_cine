@@ -3,11 +3,15 @@ part of 'home_bloc.dart';
 @freezed
 abstract class HomeState with _$HomeState {
   const factory HomeState({
-    @Default(AsyncValue<List<Movie>>.loading()) AsyncValue<List<Movie>> trending,
+    @Default(AsyncValue<List<Movie>>.loading())
+    AsyncValue<List<Movie>> trending,
     @Default(AsyncValue<List<Movie>>.loading()) AsyncValue<List<Movie>> popular,
-    @Default(AsyncValue<List<Movie>>.loading()) AsyncValue<List<Movie>> topRated,
-    @Default(AsyncValue<List<Movie>>.loading()) AsyncValue<List<Movie>> upcoming,
-    @Default(AsyncValue<List<Movie>>.loading()) AsyncValue<List<Movie>> nowPlaying,
+    @Default(AsyncValue<List<Movie>>.loading())
+    AsyncValue<List<Movie>> topRated,
+    @Default(AsyncValue<List<Movie>>.loading())
+    AsyncValue<List<Movie>> upcoming,
+    @Default(AsyncValue<List<Movie>>.loading())
+    AsyncValue<List<Movie>> nowPlaying,
   }) = _HomeState;
 }
 

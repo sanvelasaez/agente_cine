@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 
 /// Movie genres section
 class MovieGenresSection extends StatelessWidget {
-  const MovieGenresSection({
-    required this.genres,
-    super.key,
-  });
+  const MovieGenresSection({required this.genres, super.key});
 
   final List<Genre>? genres;
 

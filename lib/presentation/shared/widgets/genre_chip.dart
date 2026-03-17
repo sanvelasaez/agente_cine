@@ -5,11 +5,7 @@ import 'package:flutter/material.dart';
 
 /// Genre chip widget
 class GenreChip extends StatelessWidget {
-  const GenreChip({
-    required this.genre,
-    this.onTap,
-    super.key,
-  });
+  const GenreChip({required this.genre, this.onTap, super.key});
 
   final Genre genre;
   final VoidCallback? onTap;

@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 
 /// Movie title, year, runtime, and rating section
 class MovieInfoSection extends StatelessWidget {
-  const MovieInfoSection({
-    required this.movie,
-    super.key,
-  });
+  const MovieInfoSection({required this.movie, super.key});
 
   final Movie movie;
 
@@ -59,10 +56,7 @@ class MovieInfoSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: AppDimensions.spacingM),
-        RatingStars(
-          rating: movie.voteAverage,
-          size: AppDimensions.iconM,
-        ),
+        RatingStars(rating: movie.voteAverage, size: AppDimensions.iconM),
       ],
     );
   }

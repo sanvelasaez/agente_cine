@@ -40,45 +40,45 @@ void main() {
     group('getTrending', () {
       test('should return list of movies on successful fetch', () async {
         // Arrange
-        when(() => mockDataSource.getTrending(any()))
-            .thenAnswer((_) async => testListResponse);
+        when(
+          () => mockDataSource.getTrending(any()),
+        ).thenAnswer((_) async => testListResponse);
 
         // Act
         final result = await repository.getTrending();
 
         // Assert
         expect(result.isRight(), true);
-        result.fold(
-          (_) => fail('Should return Right'),
-          (movies) {
-            expect(movies.length, 1);
-            expect(movies[0].id, 550);
-            expect(movies[0].title, 'Fight Club');
-          },
-        );
+        result.fold((_) => fail('Should return Right'), (movies) {
+          expect(movies.length, 1);
+          expect(movies[0].id, 550);
+          expect(movies[0].title, 'Fight Club');
+        });
         verify(() => mockDataSource.getTrending(1)).called(1);
       });
 
-      test('should return network failure on DioException connection error',
-          () async {
-        // Arrange
-        when(() => mockDataSource.getTrending(any())).thenThrow(
-          DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.connectionError,
-          ),
-        );
+      test(
+        'should return network failure on DioException connection error',
+        () async {
+          // Arrange
+          when(() => mockDataSource.getTrending(any())).thenThrow(
+            DioException(
+              requestOptions: RequestOptions(),
+              type: DioExceptionType.connectionError,
+            ),
+          );
 
-        // Act
-        final result = await repository.getTrending();
+          // Act
+          final result = await repository.getTrending();
 
-        // Assert
-        expect(result.isLeft(), true);
-        result.fold(
-          (failure) => expect(failure, isA<NetworkFailure>()),
-          (_) => fail('Should return Left'),
-        );
-      });
+          // Assert
+          expect(result.isLeft(), true);
+          result.fold(
+            (failure) => expect(failure, isA<NetworkFailure>()),
+            (_) => fail('Should return Left'),
+          );
+        },
+      );
 
       test('should return timeout failure on DioException timeout', () async {
         // Arrange
@@ -102,8 +102,9 @@ void main() {
 
       test('should return server failure on ServerException', () async {
         // Arrange
-        when(() => mockDataSource.getTrending(any()))
-            .thenThrow(const ServerException('Server error'));
+        when(
+          () => mockDataSource.getTrending(any()),
+        ).thenThrow(const ServerException('Server error'));
 
         // Act
         final result = await repository.getTrending();
@@ -125,9 +126,7 @@ void main() {
         voteAverage: 8.433,
         voteCount: 27000,
         runtime: 139,
-        genres: [
-          GenreDto(id: 18, name: 'Drama'),
-        ],
+        genres: [GenreDto(id: 18, name: 'Drama')],
       );
 
       const creditsDto = CreditsResponseDto(
@@ -144,27 +143,26 @@ void main() {
 
       test('should return movie detail with cast on success', () async {
         // Arrange
-        when(() => mockDataSource.getMovieDetail(any()))
-            .thenAnswer((_) async => detailDto);
-        when(() => mockDataSource.getMovieCredits(any()))
-            .thenAnswer((_) async => creditsDto);
+        when(
+          () => mockDataSource.getMovieDetail(any()),
+        ).thenAnswer((_) async => detailDto);
+        when(
+          () => mockDataSource.getMovieCredits(any()),
+        ).thenAnswer((_) async => creditsDto);
 
         // Act
         final result = await repository.getMovieDetail(550);
 
         // Assert
         expect(result.isRight(), true);
-        result.fold(
-          (_) => fail('Should return Right'),
-          (movie) {
-            expect(movie.id, 550);
-            expect(movie.title, 'Fight Club');
-            expect(movie.runtime, 139);
-            expect(movie.genres?.length, 1);
-            expect(movie.cast?.length, 1);
-            expect(movie.cast?[0].name, 'Edward Norton');
-          },
-        );
+        result.fold((_) => fail('Should return Right'), (movie) {
+          expect(movie.id, 550);
+          expect(movie.title, 'Fight Club');
+          expect(movie.runtime, 139);
+          expect(movie.genres?.length, 1);
+          expect(movie.cast?.length, 1);
+          expect(movie.cast?[0].name, 'Edward Norton');
+        });
         verify(() => mockDataSource.getMovieDetail(550)).called(1);
         verify(() => mockDataSource.getMovieCredits(550)).called(1);
       });
@@ -197,28 +195,27 @@ void main() {
     group('searchMovies', () {
       test('should return list of movies on successful search', () async {
         // Arrange
-        when(() => mockDataSource.searchMovies(any(), any()))
-            .thenAnswer((_) async => testListResponse);
+        when(
+          () => mockDataSource.searchMovies(any(), any()),
+        ).thenAnswer((_) async => testListResponse);
 
         // Act
         final result = await repository.searchMovies(query: 'Fight');
 
         // Assert
         expect(result.isRight(), true);
-        result.fold(
-          (_) => fail('Should return Right'),
-          (movies) {
-            expect(movies.length, 1);
-            expect(movies[0].title, 'Fight Club');
-          },
-        );
+        result.fold((_) => fail('Should return Right'), (movies) {
+          expect(movies.length, 1);
+          expect(movies[0].title, 'Fight Club');
+        });
         verify(() => mockDataSource.searchMovies('Fight', 1)).called(1);
       });
 
       test('should return network failure on NetworkException', () async {
         // Arrange
-        when(() => mockDataSource.searchMovies(any(), any()))
-            .thenThrow(const NetworkException('No internet'));
+        when(
+          () => mockDataSource.searchMovies(any(), any()),
+        ).thenThrow(const NetworkException('No internet'));
 
         // Act
         final result = await repository.searchMovies(query: 'Fight');

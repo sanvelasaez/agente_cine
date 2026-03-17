@@ -10,10 +10,7 @@ import 'package:path_provider/path_provider.dart';
 part 'app_database.g.dart';
 
 /// Main database class for AgenteCine
-@DriftDatabase(
-  tables: [FavoritesTable],
-  daos: [FavoritesDao],
-)
+@DriftDatabase(tables: [FavoritesTable], daos: [FavoritesDao])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 

@@ -21,6 +21,5 @@ abstract class RepositoriesModule {
   @LazySingleton(as: FavoriteRepository)
   FavoriteRepositoryImpl favoriteRepository(
     DriftLocalDataSource localDataSource,
-  ) =>
-      FavoriteRepositoryImpl(localDataSource);
+  ) => FavoriteRepositoryImpl(localDataSource);
 }

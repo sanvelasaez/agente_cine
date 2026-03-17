@@ -10,11 +10,7 @@ void main() {
   }) {
     return MaterialApp(
       home: Scaffold(
-        body: RatingStars(
-          rating: rating,
-          size: size,
-          showValue: showValue,
-        ),
+        body: RatingStars(rating: rating, size: size, showValue: showValue),
       ),
     );
   }
@@ -29,8 +25,9 @@ void main() {
       expect(find.byIcon(Icons.star_border), findsWidgets);
     });
 
-    testWidgets('should display rating value when showValue is true',
-        (tester) async {
+    testWidgets('should display rating value when showValue is true', (
+      tester,
+    ) async {
       // Arrange & Act
       await tester.pumpWidget(createWidgetUnderTest(rating: 8.5));
 
@@ -38,8 +35,9 @@ void main() {
       expect(find.text('8.5'), findsOneWidget);
     });
 
-    testWidgets('should not display rating value when showValue is false',
-        (tester) async {
+    testWidgets('should not display rating value when showValue is false', (
+      tester,
+    ) async {
       // Arrange & Act
       await tester.pumpWidget(
         createWidgetUnderTest(rating: 8.5, showValue: false),

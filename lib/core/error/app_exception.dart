@@ -18,7 +18,7 @@ class ServerException extends AppException {
   const ServerException([super.message = 'Server error occurred']);
 
   ServerException.withStatusCode(int statusCode)
-      : super('Server error: $statusCode');
+    : super('Server error: $statusCode');
 }
 
 /// Cache-related exceptions

@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 
 /// Section header widget with title and optional "See all" button
 class SectionHeader extends StatelessWidget {
-  const SectionHeader({
-    required this.title,
-    this.onSeeAllTap,
-    super.key,
-  });
+  const SectionHeader({required this.title, this.onSeeAllTap, super.key});
 
   final String title;
   final VoidCallback? onSeeAllTap;
@@ -25,10 +21,7 @@ class SectionHeader extends StatelessWidget {
         children: [
           Text(title, style: AppTextStyles.sectionHeader),
           if (onSeeAllTap != null)
-            TextButton(
-              onPressed: onSeeAllTap,
-              child: const Text('See all'),
-            ),
+            TextButton(onPressed: onSeeAllTap, child: const Text('See all')),
         ],
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:agente_cine/config/theme/app_dimensions.dart';
+import 'package:agente_cine/presentation/screens/favorites/providers/favorites_provider.dart';
 import 'package:agente_cine/presentation/shared/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/shared/widgets/movie_card.dart';
-import 'package:agente_cine/presentation/screens/favorites/providers/favorites_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 
 /// Movie overview/synopsis section
 class MovieOverviewSection extends StatelessWidget {
-  const MovieOverviewSection({
-    required this.overview,
-    super.key,
-  });
+  const MovieOverviewSection({required this.overview, super.key});
 
   final String overview;
 
@@ -29,9 +26,7 @@ class MovieOverviewSection extends StatelessWidget {
         const SizedBox(height: AppDimensions.spacingS),
         Text(
           overview,
-          style: context.textTheme.bodyMedium?.copyWith(
-            height: 1.5,
-          ),
+          style: context.textTheme.bodyMedium?.copyWith(height: 1.5),
         ),
       ],
     );

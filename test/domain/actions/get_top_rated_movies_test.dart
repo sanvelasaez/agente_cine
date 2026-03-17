@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/get_top_rated_movies.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/get_top_rated_movies.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -25,26 +25,30 @@ void main() {
   );
 
   group('GetTopRatedMovies', () {
-    test('should return list of movies when repository call is successful',
-        () async {
-      // Arrange
-      when(() => mockRepository.getTopRated(page: any(named: 'page')))
-          .thenAnswer((_) async => const Right([testMovie]));
+    test(
+      'should return list of movies when repository call is successful',
+      () async {
+        // Arrange
+        when(
+          () => mockRepository.getTopRated(page: any(named: 'page')),
+        ).thenAnswer((_) async => const Right([testMovie]));
 
-      // Act
-      final result = await usecase();
+        // Act
+        final result = await usecase();
 
-      // Assert
-      expect(result, const Right<Failure, List<Movie>>([testMovie]));
-      verify(() => mockRepository.getTopRated()).called(1);
-      verifyNoMoreInteractions(mockRepository);
-    });
+        // Assert
+        expect(result, const Right<Failure, List<Movie>>([testMovie]));
+        verify(() => mockRepository.getTopRated()).called(1);
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
 
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.timeout();
-      when(() => mockRepository.getTopRated(page: any(named: 'page')))
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getTopRated(page: any(named: 'page')),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase();
@@ -56,8 +60,9 @@ void main() {
 
     test('should use default page value when not provided', () async {
       // Arrange
-      when(() => mockRepository.getTopRated(page: any(named: 'page')))
-          .thenAnswer((_) async => const Right([testMovie]));
+      when(
+        () => mockRepository.getTopRated(page: any(named: 'page')),
+      ).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
       await usecase();

@@ -12,10 +12,9 @@ class FavoritesDao extends DatabaseAccessor<AppDatabase>
 
   /// Get all favorite movies
   Future<List<FavoritesTableData>> getAllFavorites() {
-    return (select(favoritesTable)
-          ..orderBy([
-            (t) => OrderingTerm(expression: t.addedAt, mode: OrderingMode.desc),
-          ]))
+    return (select(favoritesTable)..orderBy([
+          (t) => OrderingTerm(expression: t.addedAt, mode: OrderingMode.desc),
+        ]))
         .get();
   }
 
@@ -26,21 +25,23 @@ class FavoritesDao extends DatabaseAccessor<AppDatabase>
 
   /// Delete a favorite by movie ID
   Future<int> deleteFavorite(int movieId) {
-    return (delete(favoritesTable)..where((t) => t.movieId.equals(movieId)))
-        .go();
+    return (delete(
+      favoritesTable,
+    )..where((t) => t.movieId.equals(movieId))).go();
   }
 
   /// Check if a movie is favorite
   Future<bool> isFavorite(int movieId) async {
-    final result = await (select(favoritesTable)
-          ..where((t) => t.movieId.equals(movieId)))
-        .getSingleOrNull();
+    final result = await (select(
+      favoritesTable,
+    )..where((t) => t.movieId.equals(movieId))).getSingleOrNull();
     return result != null;
   }
 
   /// Get favorite by movie ID
   Future<FavoritesTableData?> getFavoriteByMovieId(int movieId) {
-    return (select(favoritesTable)..where((t) => t.movieId.equals(movieId)))
-        .getSingleOrNull();
+    return (select(
+      favoritesTable,
+    )..where((t) => t.movieId.equals(movieId))).getSingleOrNull();
   }
 }

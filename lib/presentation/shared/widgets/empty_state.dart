@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 
 /// Empty state view
 class EmptyState extends StatelessWidget {
-  const EmptyState({
-    required this.message,
-    this.icon = Icons.inbox,
-    super.key,
-  });
+  const EmptyState({required this.message, this.icon = Icons.inbox, super.key});
 
   final String message;
   final IconData icon;

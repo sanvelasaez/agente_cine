@@ -1,10 +1,10 @@
-import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/domain/actions/get_now_playing_movies.dart';
 import 'package:agente_cine/domain/actions/get_popular_movies.dart';
 import 'package:agente_cine/domain/actions/get_top_rated_movies.dart';
 import 'package:agente_cine/domain/actions/get_trending_movies.dart';
 import 'package:agente_cine/domain/actions/get_upcoming_movies.dart';
+import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -19,12 +19,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     required GetTopRatedMovies getTopRatedMovies,
     required GetUpcomingMovies getUpcomingMovies,
     required GetNowPlayingMovies getNowPlayingMovies,
-  })  : _getTrendingMovies = getTrendingMovies,
-        _getPopularMovies = getPopularMovies,
-        _getTopRatedMovies = getTopRatedMovies,
-        _getUpcomingMovies = getUpcomingMovies,
-        _getNowPlayingMovies = getNowPlayingMovies,
-        super(const HomeState()) {
+  }) : _getTrendingMovies = getTrendingMovies,
+       _getPopularMovies = getPopularMovies,
+       _getTopRatedMovies = getTopRatedMovies,
+       _getUpcomingMovies = getUpcomingMovies,
+       _getNowPlayingMovies = getNowPlayingMovies,
+       super(const HomeState()) {
     on<_Started>(_onStarted);
     on<_Refresh>(_onRefresh);
   }

@@ -19,7 +19,8 @@ class App extends StatelessWidget {
         builder: (context, child) {
           // Log navigation events
           AppRouter.router.routerDelegate.addListener(() {
-            final location = AppRouter.router.routerDelegate.currentConfiguration;
+            final location =
+                AppRouter.router.routerDelegate.currentConfiguration;
             AppLogger.info('Navigation: ${location.uri}');
           });
           return child ?? const SizedBox.shrink();

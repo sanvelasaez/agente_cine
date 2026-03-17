@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/toggle_favorite.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/toggle_favorite.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -31,8 +31,9 @@ void main() {
   group('ToggleFavorite', () {
     test('should return true when movie is added to favorites', () async {
       // Arrange
-      when(() => mockRepository.toggleFavorite(any()))
-          .thenAnswer((_) async => const Right(true));
+      when(
+        () => mockRepository.toggleFavorite(any()),
+      ).thenAnswer((_) async => const Right(true));
 
       // Act
       final result = await usecase(testMovie);
@@ -46,8 +47,9 @@ void main() {
     test('should return false when movie is removed from favorites', () async {
       // Arrange
       final favoriteMovie = testMovie.copyWith(isFavorite: true);
-      when(() => mockRepository.toggleFavorite(any()))
-          .thenAnswer((_) async => const Right(false));
+      when(
+        () => mockRepository.toggleFavorite(any()),
+      ).thenAnswer((_) async => const Right(false));
 
       // Act
       final result = await usecase(favoriteMovie);
@@ -60,8 +62,9 @@ void main() {
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.cache('Failed to toggle favorite');
-      when(() => mockRepository.toggleFavorite(any()))
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.toggleFavorite(any()),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase(testMovie);

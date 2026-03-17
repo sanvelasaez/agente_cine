@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/search_movies.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/search_movies.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -28,18 +28,19 @@ void main() {
   group('SearchMovies', () {
     test('should return list of movies when search is successful', () async {
       // Arrange
-      when(() => mockRepository.searchMovies(
-            query: any(named: 'query'),
-            page: any(named: 'page'),
-          )).thenAnswer((_) async => const Right([testMovie]));
+      when(
+        () => mockRepository.searchMovies(
+          query: any(named: 'query'),
+          page: any(named: 'page'),
+        ),
+      ).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
       final result = await usecase(query: testQuery);
 
       // Assert
       expect(result, const Right<Failure, List<Movie>>([testMovie]));
-      verify(() => mockRepository.searchMovies(query: testQuery))
-          .called(1);
+      verify(() => mockRepository.searchMovies(query: testQuery)).called(1);
       verifyNoMoreInteractions(mockRepository);
     });
 
@@ -53,59 +54,67 @@ void main() {
         (failure) => expect(failure, isA<ValidationFailure>()),
         (_) => fail('Should return failure'),
       );
-      verifyNever(() => mockRepository.searchMovies(
-            query: any(named: 'query'),
-            page: any(named: 'page'),
-          ));
-    });
-
-    test('should return validation failure when query is only whitespace',
-        () async {
-      // Act
-      final result = await usecase(query: '   ');
-
-      // Assert
-      expect(result.isLeft(), true);
-      result.fold(
-        (failure) => expect(failure, isA<ValidationFailure>()),
-        (_) => fail('Should return failure'),
+      verifyNever(
+        () => mockRepository.searchMovies(
+          query: any(named: 'query'),
+          page: any(named: 'page'),
+        ),
       );
-      verifyNever(() => mockRepository.searchMovies(
+    });
+
+    test(
+      'should return validation failure when query is only whitespace',
+      () async {
+        // Act
+        final result = await usecase(query: '   ');
+
+        // Assert
+        expect(result.isLeft(), true);
+        result.fold(
+          (failure) => expect(failure, isA<ValidationFailure>()),
+          (_) => fail('Should return failure'),
+        );
+        verifyNever(
+          () => mockRepository.searchMovies(
             query: any(named: 'query'),
             page: any(named: 'page'),
-          ));
-    });
+          ),
+        );
+      },
+    );
 
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.network();
-      when(() => mockRepository.searchMovies(
-            query: any(named: 'query'),
-            page: any(named: 'page'),
-          )).thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.searchMovies(
+          query: any(named: 'query'),
+          page: any(named: 'page'),
+        ),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase(query: testQuery);
 
       // Assert
       expect(result, const Left<Failure, List<Movie>>(failure));
-      verify(() => mockRepository.searchMovies(query: testQuery))
-          .called(1);
+      verify(() => mockRepository.searchMovies(query: testQuery)).called(1);
     });
 
     test('should use default page value when not provided', () async {
       // Arrange
-      when(() => mockRepository.searchMovies(
-            query: any(named: 'query'),
-            page: any(named: 'page'),
-          )).thenAnswer((_) async => const Right([testMovie]));
+      when(
+        () => mockRepository.searchMovies(
+          query: any(named: 'query'),
+          page: any(named: 'page'),
+        ),
+      ).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
       await usecase(query: testQuery);
 
       // Assert
-      verify(() => mockRepository.searchMovies(query: testQuery))
-          .called(1);
+      verify(() => mockRepository.searchMovies(query: testQuery)).called(1);
     });
   });
 }

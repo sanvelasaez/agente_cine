@@ -1,11 +1,11 @@
 import 'package:agente_cine/config/router/app_routes.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:agente_cine/presentation/shared/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/shared/widgets/movie_card.dart';
-import 'package:agente_cine/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -43,9 +43,8 @@ class MovieHorizontalList extends StatelessWidget {
               horizontal: AppDimensions.spacingM,
             ),
             itemCount: movies.length,
-            separatorBuilder: (context, index) => const SizedBox(
-              width: AppDimensions.spacingM,
-            ),
+            separatorBuilder: (context, index) =>
+                const SizedBox(width: AppDimensions.spacingM),
             itemBuilder: (context, index) {
               final movie = movies[index];
               return MovieCard(
@@ -61,4 +60,3 @@ class MovieHorizontalList extends StatelessWidget {
     );
   }
 }
-

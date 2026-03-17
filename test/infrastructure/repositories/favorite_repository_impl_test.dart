@@ -33,29 +33,26 @@ void main() {
     group('getFavorites', () {
       test('should return list of favorite movies on success', () async {
         // Arrange
-        when(() => mockDataSource.getFavorites())
-            .thenAnswer((_) async => [testMovie]);
+        when(
+          () => mockDataSource.getFavorites(),
+        ).thenAnswer((_) async => [testMovie]);
 
         // Act
         final result = await repository.getFavorites();
 
         // Assert
         expect(result.isRight(), true);
-        result.fold(
-          (_) => fail('Should return Right'),
-          (movies) {
-            expect(movies.length, 1);
-            expect(movies[0].id, 550);
-            expect(movies[0].isFavorite, true);
-          },
-        );
+        result.fold((_) => fail('Should return Right'), (movies) {
+          expect(movies.length, 1);
+          expect(movies[0].id, 550);
+          expect(movies[0].isFavorite, true);
+        });
         verify(() => mockDataSource.getFavorites()).called(1);
       });
 
       test('should return empty list when no favorites', () async {
         // Arrange
-        when(() => mockDataSource.getFavorites())
-            .thenAnswer((_) async => []);
+        when(() => mockDataSource.getFavorites()).thenAnswer((_) async => []);
 
         // Act
         final result = await repository.getFavorites();
@@ -70,8 +67,9 @@ void main() {
 
       test('should return cache failure on exception', () async {
         // Arrange
-        when(() => mockDataSource.getFavorites())
-            .thenThrow(Exception('Database error'));
+        when(
+          () => mockDataSource.getFavorites(),
+        ).thenThrow(Exception('Database error'));
 
         // Act
         final result = await repository.getFavorites();
@@ -86,46 +84,55 @@ void main() {
     });
 
     group('toggleFavorite', () {
-      test('should add movie to favorites and return true when not favorite',
-          () async {
-        // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenAnswer((_) async => false);
-        when(() => mockDataSource.addFavorite(any()))
-            .thenAnswer((_) async => {});
+      test(
+        'should add movie to favorites and return true when not favorite',
+        () async {
+          // Arrange
+          when(
+            () => mockDataSource.isFavorite(any()),
+          ).thenAnswer((_) async => false);
+          when(
+            () => mockDataSource.addFavorite(any()),
+          ).thenAnswer((_) async => {});
 
-        // Act
-        final result = await repository.toggleFavorite(testMovie);
+          // Act
+          final result = await repository.toggleFavorite(testMovie);
 
-        // Assert
-        expect(result, const Right<Failure, bool>(true));
-        verify(() => mockDataSource.isFavorite(550)).called(1);
-        verify(() => mockDataSource.addFavorite(testMovie)).called(1);
-        verifyNever(() => mockDataSource.removeFavorite(any()));
-      });
+          // Assert
+          expect(result, const Right<Failure, bool>(true));
+          verify(() => mockDataSource.isFavorite(550)).called(1);
+          verify(() => mockDataSource.addFavorite(testMovie)).called(1);
+          verifyNever(() => mockDataSource.removeFavorite(any()));
+        },
+      );
 
-      test('should remove movie from favorites and return false when favorite',
-          () async {
-        // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenAnswer((_) async => true);
-        when(() => mockDataSource.removeFavorite(any()))
-            .thenAnswer((_) async => {});
+      test(
+        'should remove movie from favorites and return false when favorite',
+        () async {
+          // Arrange
+          when(
+            () => mockDataSource.isFavorite(any()),
+          ).thenAnswer((_) async => true);
+          when(
+            () => mockDataSource.removeFavorite(any()),
+          ).thenAnswer((_) async => {});
 
-        // Act
-        final result = await repository.toggleFavorite(testMovie);
+          // Act
+          final result = await repository.toggleFavorite(testMovie);
 
-        // Assert
-        expect(result, const Right<Failure, bool>(false));
-        verify(() => mockDataSource.isFavorite(550)).called(1);
-        verify(() => mockDataSource.removeFavorite(550)).called(1);
-        verifyNever(() => mockDataSource.addFavorite(any()));
-      });
+          // Assert
+          expect(result, const Right<Failure, bool>(false));
+          verify(() => mockDataSource.isFavorite(550)).called(1);
+          verify(() => mockDataSource.removeFavorite(550)).called(1);
+          verifyNever(() => mockDataSource.addFavorite(any()));
+        },
+      );
 
       test('should return cache failure on exception', () async {
         // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenThrow(Exception('Database error'));
+        when(
+          () => mockDataSource.isFavorite(any()),
+        ).thenThrow(Exception('Database error'));
 
         // Act
         final result = await repository.toggleFavorite(testMovie);
@@ -142,8 +149,9 @@ void main() {
     group('isFavorite', () {
       test('should return true when movie is favorite', () async {
         // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenAnswer((_) async => true);
+        when(
+          () => mockDataSource.isFavorite(any()),
+        ).thenAnswer((_) async => true);
 
         // Act
         final result = await repository.isFavorite(550);
@@ -155,8 +163,9 @@ void main() {
 
       test('should return false when movie is not favorite', () async {
         // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenAnswer((_) async => false);
+        when(
+          () => mockDataSource.isFavorite(any()),
+        ).thenAnswer((_) async => false);
 
         // Act
         final result = await repository.isFavorite(550);
@@ -168,8 +177,9 @@ void main() {
 
       test('should return cache failure on exception', () async {
         // Arrange
-        when(() => mockDataSource.isFavorite(any()))
-            .thenThrow(Exception('Database error'));
+        when(
+          () => mockDataSource.isFavorite(any()),
+        ).thenThrow(Exception('Database error'));
 
         // Act
         final result = await repository.isFavorite(550);

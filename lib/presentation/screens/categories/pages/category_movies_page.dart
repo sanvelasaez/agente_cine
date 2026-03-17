@@ -1,19 +1,16 @@
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
+import 'package:agente_cine/presentation/screens/categories/providers/category_movies_provider.dart';
 import 'package:agente_cine/presentation/shared/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/shared/widgets/movie_card.dart';
-import 'package:agente_cine/presentation/screens/categories/providers/category_movies_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Page showing movies filtered by genre
 class CategoryMoviesPage extends ConsumerStatefulWidget {
-  const CategoryMoviesPage({
-    required this.genre,
-    super.key,
-  });
+  const CategoryMoviesPage({required this.genre, super.key});
 
   final Genre genre;
 
@@ -39,9 +36,7 @@ class _CategoryMoviesPageState extends ConsumerState<CategoryMoviesPage> {
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent * 0.9) {
-      ref
-          .read(categoryMoviesProvider(widget.genre.id).notifier)
-          .loadMore();
+      ref.read(categoryMoviesProvider(widget.genre.id).notifier).loadMore();
     }
   }
 
@@ -50,9 +45,7 @@ class _CategoryMoviesPageState extends ConsumerState<CategoryMoviesPage> {
     final moviesState = ref.watch(categoryMoviesProvider(widget.genre.id));
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.genre.name),
-      ),
+      appBar: AppBar(title: Text(widget.genre.name)),
       body: moviesState.when(
         data: (movies) {
           if (movies.isEmpty) {

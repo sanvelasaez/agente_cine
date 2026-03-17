@@ -1,8 +1,8 @@
+import 'package:agente_cine/domain/actions/get_movie_detail.dart';
 import 'package:agente_cine/domain/entities/cast_member.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/get_movie_detail.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -41,26 +41,30 @@ void main() {
   );
 
   group('GetMovieDetail', () {
-    test('should return movie detail when repository call is successful',
-        () async {
-      // Arrange
-      when(() => mockRepository.getMovieDetail(any()))
-          .thenAnswer((_) async => const Right(testMovie));
+    test(
+      'should return movie detail when repository call is successful',
+      () async {
+        // Arrange
+        when(
+          () => mockRepository.getMovieDetail(any()),
+        ).thenAnswer((_) async => const Right(testMovie));
 
-      // Act
-      final result = await usecase(testMovieId);
+        // Act
+        final result = await usecase(testMovieId);
 
-      // Assert
-      expect(result, const Right<Failure, Movie>(testMovie));
-      verify(() => mockRepository.getMovieDetail(testMovieId)).called(1);
-      verifyNoMoreInteractions(mockRepository);
-    });
+        // Assert
+        expect(result, const Right<Failure, Movie>(testMovie));
+        verify(() => mockRepository.getMovieDetail(testMovieId)).called(1);
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
 
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.notFound('Movie not found');
-      when(() => mockRepository.getMovieDetail(any()))
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getMovieDetail(any()),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase(testMovieId);
@@ -73,8 +77,9 @@ void main() {
     test('should return network failure when no internet', () async {
       // Arrange
       const failure = Failure.network('No internet connection');
-      when(() => mockRepository.getMovieDetail(any()))
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getMovieDetail(any()),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase(testMovieId);

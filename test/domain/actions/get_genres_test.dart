@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/get_genres.dart';
 import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/get_genres.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -23,25 +23,29 @@ void main() {
   ];
 
   group('GetGenres', () {
-    test('should return list of genres when repository call is successful',
-        () async {
-      // Arrange
-      when(() => mockRepository.getGenres())
-          .thenAnswer((_) async => const Right(testGenres));
+    test(
+      'should return list of genres when repository call is successful',
+      () async {
+        // Arrange
+        when(
+          () => mockRepository.getGenres(),
+        ).thenAnswer((_) async => const Right(testGenres));
 
-      // Act
-      final result = await usecase();
+        // Act
+        final result = await usecase();
 
-      // Assert
-      expect(result, const Right<Failure, List<Genre>>(testGenres));
-      verify(() => mockRepository.getGenres()).called(1);
-      verifyNoMoreInteractions(mockRepository);
-    });
+        // Assert
+        expect(result, const Right<Failure, List<Genre>>(testGenres));
+        verify(() => mockRepository.getGenres()).called(1);
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
 
     test('should return empty list when no genres available', () async {
       // Arrange
-      when(() => mockRepository.getGenres())
-          .thenAnswer((_) async => const Right([]));
+      when(
+        () => mockRepository.getGenres(),
+      ).thenAnswer((_) async => const Right([]));
 
       // Act
       final result = await usecase();
@@ -58,8 +62,9 @@ void main() {
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.network('Failed to load genres');
-      when(() => mockRepository.getGenres())
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getGenres(),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase();

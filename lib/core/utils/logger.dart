@@ -52,7 +52,11 @@ class AppLogger {
   }
 
   /// Log network request
-  static void logRequest(String method, String url, {Map<String, dynamic>? data}) {
+  static void logRequest(
+    String method,
+    String url, {
+    Map<String, dynamic>? data,
+  }) {
     info('[$method] $url ${data != null ? '- Data: $data' : ''}');
   }
 

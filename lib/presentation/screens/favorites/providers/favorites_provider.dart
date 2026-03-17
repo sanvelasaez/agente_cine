@@ -1,27 +1,27 @@
 import 'package:agente_cine/config/dependencies/injection.dart';
-import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/domain/actions/get_favorites.dart';
 import 'package:agente_cine/domain/actions/toggle_favorite.dart';
+import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider for favorites list
 final favoritesProvider =
     StateNotifierProvider<FavoritesNotifier, AsyncValue<List<Movie>>>(
-  (ref) => FavoritesNotifier(
-    getFavorites: getIt<GetFavorites>(),
-    toggleFavorite: getIt<ToggleFavorite>(),
-  )..loadFavorites(),
-);
+      (ref) => FavoritesNotifier(
+        getFavorites: getIt<GetFavorites>(),
+        toggleFavorite: getIt<ToggleFavorite>(),
+      )..loadFavorites(),
+    );
 
 /// Notifier for managing favorites state
 class FavoritesNotifier extends StateNotifier<AsyncValue<List<Movie>>> {
   FavoritesNotifier({
     required GetFavorites getFavorites,
     required ToggleFavorite toggleFavorite,
-  })  : _getFavorites = getFavorites,
-        _toggleFavorite = toggleFavorite,
-        super(const AsyncValue.loading());
+  }) : _getFavorites = getFavorites,
+       _toggleFavorite = toggleFavorite,
+       super(const AsyncValue.loading());
 
   final GetFavorites _getFavorites;
   final ToggleFavorite _toggleFavorite;
@@ -33,10 +33,8 @@ class FavoritesNotifier extends StateNotifier<AsyncValue<List<Movie>>> {
     final result = await _getFavorites();
 
     result.fold(
-      (failure) => state = AsyncValue.error(
-        failure.userMessage,
-        StackTrace.current,
-      ),
+      (failure) =>
+          state = AsyncValue.error(failure.userMessage, StackTrace.current),
       (movies) => state = AsyncValue.data(movies),
     );
   }

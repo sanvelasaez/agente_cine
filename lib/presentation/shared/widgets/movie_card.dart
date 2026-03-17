@@ -55,9 +55,7 @@ class MovieCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ColoredBox(
                   color: AppColors.surfaceVariant,
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  child: Center(child: CircularProgressIndicator()),
                 ),
                 errorWidget: (context, url, error) => const ColoredBox(
                   color: AppColors.surfaceVariant,

@@ -14,7 +14,10 @@ class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
     AppLogger.logResponse(
       response.statusCode ?? 0,
       response.requestOptions.uri.toString(),
@@ -25,11 +28,7 @@ class LoggingInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    AppLogger.error(
-      'HTTP Error: ${err.message}',
-      err.error,
-      err.stackTrace,
-    );
+    AppLogger.error('HTTP Error: ${err.message}', err.error, err.stackTrace);
     super.onError(err, handler);
   }
 }

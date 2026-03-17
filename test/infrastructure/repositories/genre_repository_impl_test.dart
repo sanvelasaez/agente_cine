@@ -30,49 +30,49 @@ void main() {
     group('getGenres', () {
       test('should return list of genres on successful fetch', () async {
         // Arrange
-        when(() => mockDataSource.getGenres())
-            .thenAnswer((_) async => testGenreListResponse);
+        when(
+          () => mockDataSource.getGenres(),
+        ).thenAnswer((_) async => testGenreListResponse);
 
         // Act
         final result = await repository.getGenres();
 
         // Assert
         expect(result.isRight(), true);
-        result.fold(
-          (_) => fail('Should return Right'),
-          (genres) {
-            expect(genres.length, 3);
-            expect(genres[0].id, 28);
-            expect(genres[0].name, 'Action');
-            expect(genres[1].id, 18);
-            expect(genres[1].name, 'Drama');
-            expect(genres[2].id, 35);
-            expect(genres[2].name, 'Comedy');
-          },
-        );
+        result.fold((_) => fail('Should return Right'), (genres) {
+          expect(genres.length, 3);
+          expect(genres[0].id, 28);
+          expect(genres[0].name, 'Action');
+          expect(genres[1].id, 18);
+          expect(genres[1].name, 'Drama');
+          expect(genres[2].id, 35);
+          expect(genres[2].name, 'Comedy');
+        });
         verify(() => mockDataSource.getGenres()).called(1);
       });
 
-      test('should return network failure on DioException connection error',
-          () async {
-        // Arrange
-        when(() => mockDataSource.getGenres()).thenThrow(
-          DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.connectionError,
-          ),
-        );
+      test(
+        'should return network failure on DioException connection error',
+        () async {
+          // Arrange
+          when(() => mockDataSource.getGenres()).thenThrow(
+            DioException(
+              requestOptions: RequestOptions(),
+              type: DioExceptionType.connectionError,
+            ),
+          );
 
-        // Act
-        final result = await repository.getGenres();
+          // Act
+          final result = await repository.getGenres();
 
-        // Assert
-        expect(result.isLeft(), true);
-        result.fold(
-          (failure) => expect(failure, isA<NetworkFailure>()),
-          (_) => fail('Should return Left'),
-        );
-      });
+          // Assert
+          expect(result.isLeft(), true);
+          result.fold(
+            (failure) => expect(failure, isA<NetworkFailure>()),
+            (_) => fail('Should return Left'),
+          );
+        },
+      );
 
       test('should return timeout failure on DioException timeout', () async {
         // Arrange
@@ -96,8 +96,9 @@ void main() {
 
       test('should return server failure on ServerException', () async {
         // Arrange
-        when(() => mockDataSource.getGenres())
-            .thenThrow(const ServerException('Server error'));
+        when(
+          () => mockDataSource.getGenres(),
+        ).thenThrow(const ServerException('Server error'));
 
         // Act
         final result = await repository.getGenres();
@@ -112,8 +113,9 @@ void main() {
 
       test('should return network failure on NetworkException', () async {
         // Arrange
-        when(() => mockDataSource.getGenres())
-            .thenThrow(const NetworkException('No internet'));
+        when(
+          () => mockDataSource.getGenres(),
+        ).thenThrow(const NetworkException('No internet'));
 
         // Act
         final result = await repository.getGenres();
@@ -128,8 +130,9 @@ void main() {
 
       test('should return unknown failure on other exceptions', () async {
         // Arrange
-        when(() => mockDataSource.getGenres())
-            .thenThrow(Exception('Unexpected error'));
+        when(
+          () => mockDataSource.getGenres(),
+        ).thenThrow(Exception('Unexpected error'));
 
         // Act
         final result = await repository.getGenres();

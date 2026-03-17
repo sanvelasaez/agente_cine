@@ -1,7 +1,7 @@
-import 'package:agente_cine/domain/entities/movie.dart';
-import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:agente_cine/domain/actions/get_movie_detail.dart';
 import 'package:agente_cine/domain/actions/toggle_favorite.dart';
+import 'package:agente_cine/domain/entities/movie.dart';
+import 'package:agente_cine/domain/errors/failure.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,9 +13,9 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   MovieDetailBloc({
     required GetMovieDetail getMovieDetail,
     required ToggleFavorite toggleFavorite,
-  })  : _getMovieDetail = getMovieDetail,
-        _toggleFavorite = toggleFavorite,
-        super(const MovieDetailState.initial()) {
+  }) : _getMovieDetail = getMovieDetail,
+       _toggleFavorite = toggleFavorite,
+       super(const MovieDetailState.initial()) {
     on<_LoadMovieDetail>(_onLoadMovieDetail);
     on<_ToggleFavorite>(_onToggleFavorite);
     on<_Retry>(_onRetry);
@@ -57,20 +57,15 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
     result.fold(
       (failure) => emit(currentState.copyWith(isFavoriteLoading: false)),
       (isFavorite) {
-        final updatedMovie = currentState.movie.copyWith(isFavorite: isFavorite);
-        emit(
-          MovieDetailState.loaded(
-            movie: updatedMovie,
-          ),
+        final updatedMovie = currentState.movie.copyWith(
+          isFavorite: isFavorite,
         );
+        emit(MovieDetailState.loaded(movie: updatedMovie));
       },
     );
   }
 
-  Future<void> _onRetry(
-    _Retry event,
-    Emitter<MovieDetailState> emit,
-  ) async {
+  Future<void> _onRetry(_Retry event, Emitter<MovieDetailState> emit) async {
     if (_currentMovieId != null) {
       add(MovieDetailEvent.loadMovieDetail(_currentMovieId!));
     }

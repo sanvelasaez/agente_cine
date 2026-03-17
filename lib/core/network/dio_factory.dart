@@ -11,8 +11,12 @@ class DioFactory {
     final dio = Dio(
       BaseOptions(
         baseUrl: ApiConstants.baseUrl,
-        connectTimeout: const Duration(milliseconds: ApiConstants.defaultTimeout),
-        receiveTimeout: const Duration(milliseconds: ApiConstants.defaultTimeout),
+        connectTimeout: const Duration(
+          milliseconds: ApiConstants.defaultTimeout,
+        ),
+        receiveTimeout: const Duration(
+          milliseconds: ApiConstants.defaultTimeout,
+        ),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -25,9 +29,7 @@ class DioFactory {
     );
 
     // Add interceptors
-    dio.interceptors.addAll([
-      LoggingInterceptor(),
-    ]);
+    dio.interceptors.addAll([LoggingInterceptor()]);
 
     return dio;
   }

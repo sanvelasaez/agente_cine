@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 
 /// Movie backdrop image widget
 class MovieBackdrop extends StatelessWidget {
-  const MovieBackdrop({
-    required this.backdropPath,
-    super.key,
-  });
+  const MovieBackdrop({required this.backdropPath, super.key});
 
   final String? backdropPath;
 

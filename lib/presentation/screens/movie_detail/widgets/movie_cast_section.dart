@@ -8,10 +8,7 @@ import 'package:flutter/material.dart';
 
 /// Movie cast section
 class MovieCastSection extends StatelessWidget {
-  const MovieCastSection({
-    required this.cast,
-    super.key,
-  });
+  const MovieCastSection({required this.cast, super.key});
 
   final List<CastMember>? cast;
 

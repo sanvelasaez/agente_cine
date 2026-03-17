@@ -1,6 +1,3 @@
-import 'package:agente_cine/domain/repositories/favorite_repository.dart';
-import 'package:agente_cine/domain/repositories/genre_repository.dart';
-import 'package:agente_cine/domain/repositories/movie_repository.dart';
 import 'package:agente_cine/domain/actions/get_favorites.dart';
 import 'package:agente_cine/domain/actions/get_genres.dart';
 import 'package:agente_cine/domain/actions/get_movie_detail.dart';
@@ -12,6 +9,9 @@ import 'package:agente_cine/domain/actions/get_trending_movies.dart';
 import 'package:agente_cine/domain/actions/get_upcoming_movies.dart';
 import 'package:agente_cine/domain/actions/search_movies.dart';
 import 'package:agente_cine/domain/actions/toggle_favorite.dart';
+import 'package:agente_cine/domain/repositories/favorite_repository.dart';
+import 'package:agente_cine/domain/repositories/genre_repository.dart';
+import 'package:agente_cine/domain/repositories/movie_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @module

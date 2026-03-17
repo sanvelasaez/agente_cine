@@ -27,7 +27,10 @@ class ImageUrlBuilder {
   }
 
   /// Get backdrop URL
-  static String backdrop(String? path, {BackdropSize size = BackdropSize.w780}) {
+  static String backdrop(
+    String? path, {
+    BackdropSize size = BackdropSize.w780,
+  }) {
     return buildImageUrl(path, size: size);
   }
 

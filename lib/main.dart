@@ -22,24 +22,19 @@ void main() async {
 
   // Setup error handling
   FlutterError.onError = (details) {
-    AppLogger.error(
-      'Flutter Error',
-      details.exception,
-      details.stack,
-    );
+    AppLogger.error('Flutter Error', details.exception, details.stack);
   };
 
   // Run app in error zone
-  runZonedGuarded(
-    () => runApp(const App()),
-    (error, stack) {
-      AppLogger.error('Uncaught error', error, stack);
-    },
-  );
+  runZonedGuarded(() => runApp(const App()), (error, stack) {
+    AppLogger.error('Uncaught error', error, stack);
+  });
 }
 
 /// Wrapper for runZonedGuarded
-void runZonedGuarded(void Function() body, void Function(Object, StackTrace) onError) {
+void runZonedGuarded(
+  void Function() body,
+  void Function(Object, StackTrace) onError,
+) {
   body();
 }
-

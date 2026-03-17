@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
-import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/actions/search_movies.dart';
+import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/presentation/shared/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
@@ -110,10 +110,7 @@ class MovieSearchDelegate extends SearchDelegate<Movie?> {
       itemCount: movies.length,
       itemBuilder: (context, index) {
         final movie = movies[index];
-        return MovieCard(
-          movie: movie,
-          onTap: () => close(context, movie),
-        );
+        return MovieCard(movie: movie, onTap: () => close(context, movie));
       },
     );
   }
@@ -128,10 +125,7 @@ class MovieSearchDelegate extends SearchDelegate<Movie?> {
     _debounce = Timer(const Duration(milliseconds: 300), () async {
       final result = await _searchMovies(query: searchQuery);
 
-      result.fold(
-        completer.completeError,
-        completer.complete,
-      );
+      result.fold(completer.completeError, completer.complete);
     });
 
     return completer.future;

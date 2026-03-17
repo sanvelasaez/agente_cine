@@ -2,23 +2,20 @@ import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/actions/get_movie_detail.dart';
 import 'package:agente_cine/domain/actions/toggle_favorite.dart';
-import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
-import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_backdrop.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_cast_section.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_genres_section.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_info_section.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_overview_section.dart';
+import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
+import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Movie detail page
 class MovieDetailPage extends StatelessWidget {
-  const MovieDetailPage({
-    required this.movieId,
-    super.key,
-  });
+  const MovieDetailPage({required this.movieId, super.key});
 
   final int movieId;
 
@@ -57,9 +54,9 @@ class _MovieDetailView extends StatelessWidget {
                     IconButton(
                       onPressed: isFavoriteLoading
                           ? null
-                          : () => context
-                              .read<MovieDetailBloc>()
-                              .add(const MovieDetailEvent.toggleFavorite()),
+                          : () => context.read<MovieDetailBloc>().add(
+                              const MovieDetailEvent.toggleFavorite(),
+                            ),
                       icon: isFavoriteLoading
                           ? const SizedBox(
                               width: 24,
@@ -94,9 +91,9 @@ class _MovieDetailView extends StatelessWidget {
             ),
             error: (message) => ErrorView(
               message: message,
-              onRetry: () => context
-                  .read<MovieDetailBloc>()
-                  .add(const MovieDetailEvent.retry()),
+              onRetry: () => context.read<MovieDetailBloc>().add(
+                const MovieDetailEvent.retry(),
+              ),
             ),
           );
         },

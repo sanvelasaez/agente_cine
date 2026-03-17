@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 
 /// Custom loading indicator
 class LoadingIndicator extends StatelessWidget {
-  const LoadingIndicator({
-    super.key,
-    this.size = 40.0,
-    this.message,
-  });
+  const LoadingIndicator({super.key, this.size = 40.0, this.message});
 
   final double size;
   final String? message;
@@ -21,9 +17,7 @@ class LoadingIndicator extends StatelessWidget {
           SizedBox(
             width: size,
             height: size,
-            child: CircularProgressIndicator(
-              color: context.colors.primary,
-            ),
+            child: CircularProgressIndicator(color: context.colors.primary),
           ),
           if (message != null) ...[
             const SizedBox(height: 16),

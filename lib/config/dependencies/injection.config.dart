@@ -10,7 +10,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:agente_cine/config/database/app_database.dart' as _i52;
-import 'package:agente_cine/config/dependencies/modules/app_module.dart' as _i404;
+import 'package:agente_cine/config/dependencies/modules/app_module.dart'
+    as _i404;
 import 'package:agente_cine/domain/repositories/favorite_repository.dart'
     as _i155;
 import 'package:agente_cine/domain/repositories/genre_repository.dart' as _i473;

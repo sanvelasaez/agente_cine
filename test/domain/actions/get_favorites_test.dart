@@ -1,6 +1,6 @@
+import 'package:agente_cine/domain/actions/get_favorites.dart';
 import 'package:agente_cine/domain/entities/movie.dart';
 import 'package:agente_cine/domain/errors/failure.dart';
-import 'package:agente_cine/domain/actions/get_favorites.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -28,8 +28,9 @@ void main() {
   group('GetFavorites', () {
     test('should return list of favorite movies when successful', () async {
       // Arrange
-      when(() => mockRepository.getFavorites())
-          .thenAnswer((_) async => const Right([testMovie]));
+      when(
+        () => mockRepository.getFavorites(),
+      ).thenAnswer((_) async => const Right([testMovie]));
 
       // Act
       final result = await usecase();
@@ -42,8 +43,9 @@ void main() {
 
     test('should return empty list when no favorites', () async {
       // Arrange
-      when(() => mockRepository.getFavorites())
-          .thenAnswer((_) async => const Right([]));
+      when(
+        () => mockRepository.getFavorites(),
+      ).thenAnswer((_) async => const Right([]));
 
       // Act
       final result = await usecase();
@@ -60,8 +62,9 @@ void main() {
     test('should return Failure when repository call fails', () async {
       // Arrange
       const failure = Failure.cache('Failed to load favorites');
-      when(() => mockRepository.getFavorites())
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        () => mockRepository.getFavorites(),
+      ).thenAnswer((_) async => const Left(failure));
 
       // Act
       final result = await usecase();
