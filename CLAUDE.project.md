@@ -40,8 +40,9 @@ El sistema de datasources debe diseñarse para que añadir una nueva API (ej. OM
 
 | Capa | Tecnología |
 |------|-----------|
-| Framework | Flutter (stable channel) |
+| Framework | Flutter 3.41.4 (gestionado con FVM) |
 | Lenguaje | Dart |
+| Gestor de versiones | FVM (Flutter Version Management) |
 | Estado (flujos complejos) | flutter_bloc + BLoC pattern |
 | Estado (UI reactivo / caché) | Riverpod (riverpod + flutter_riverpod + hooks_riverpod) |
 | Cuándo usar cada uno | BLoC para flujos con múltiples estados (búsqueda, paginación, detalle). Riverpod para estado simple, providers de config y caché de datos ya cargados. El orquestador decide en cada feature. |
@@ -54,6 +55,46 @@ El sistema de datasources debe diseñarse para que añadir una nueva API (ej. OM
 | Generación de código | build_runner (retrofit, injectable, drift, freezed) |
 | Testing | flutter_test + mocktail + bloc_test |
 | Linting | flutter_lints + analysis_options.yaml personalizado |
+
+### Gestión de versiones con FVM
+
+**¿Por qué FVM?**
+FVM (Flutter Version Management) permite usar versiones específicas de Flutter por proyecto, evitando conflictos entre diferentes entornos de desarrollo.
+
+**Instalación:**
+```cmd
+dart pub global activate fvm
+```
+
+**Configuración inicial del proyecto:**
+```cmd
+make.bat setup
+```
+
+Este comando instala Flutter 3.41.4 vía FVM y descarga todas las dependencias del proyecto.
+
+**REGLA CRÍTICA:** Todos los comandos de Flutter y Dart deben ejecutarse con el prefijo `fvm` o mediante los comandos del `make.batfile`.
+
+**Comandos disponibles (ver `make.bat help` para lista completa):**
+```cmd
+make.bat setup          # Instala Flutter 3.41.4 via FVM y descarga dependencias
+make.bat run            # Ejecuta la app
+make.bat gen            # Regenera código (freezed, injectable, drift)
+make.bat test           # Ejecuta tests
+make.bat coverage       # Tests con reporte de cobertura
+make.bat lint           # Análisis estático de código
+make.bat doctor         # Comprueba configuración del entorno
+make.bat clean          # Limpia artefactos de build
+```
+
+**Comandos directos con FVM (si no usas make):**
+```cmd
+fvm flutter pub get
+fvm flutter run
+fvm dart run build_runner build --delete-conflicting-outputs
+fvm flutter test
+fvm flutter analyze
+```
 
 ---
 
