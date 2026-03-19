@@ -4,12 +4,12 @@
 
 ## [FASE 2] Navegación mejorada, animaciones y UX — COMPLETADA ✅
 
-## [FASE 3] Bugfixes y mejoras de UX
+## [FASE 3] Bugfixes y mejoras de UX — COMPLETADA ✅
 
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| T-203, T-204, T-205 | Features UX: Ver más + búsqueda bottomNav + MovieCard sin título | presentation-agent | feature/ux-improvements-phase3 | 2026-03-19 |
+| - | - | - | - | - |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
@@ -19,6 +19,7 @@
 ### Completada Fase 3
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
+| T-203, T-204, T-205 | Features UX: Ver más + búsqueda bottomNav + MovieCard minimalista | feature/ux-improvements-phase3 → develop | 2026-03-19 |
 | T-201, T-202 | Fix bugs críticos: BottomNav memory leak + búsqueda funcional | fix/critical-bugs-phase3 → develop | 2026-03-19 |
 
 ### Completada Fase 2
