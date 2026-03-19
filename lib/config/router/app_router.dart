@@ -5,10 +5,11 @@ import 'package:agente_cine/presentation/screens/categories/pages/category_movie
 import 'package:agente_cine/presentation/screens/favorites/pages/favorites_page.dart';
 import 'package:agente_cine/presentation/screens/home/pages/home_page.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/pages/movie_detail_page.dart';
+import 'package:agente_cine/presentation/shared/widgets/scaffold_with_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-/// App router configuration
+/// App router configuration with persistent bottom navigation
 class AppRouter {
   AppRouter._();
 
@@ -16,10 +17,52 @@ class AppRouter {
     initialLocation: AppRoutes.home,
     debugLogDiagnostics: true,
     routes: [
-      GoRoute(
-        path: AppRoutes.home,
-        name: 'home',
-        builder: (context, state) => const HomePage(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            ScaffoldWithNavBar(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.home,
+                name: 'home',
+                builder: (context, state) => const HomePage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.categories,
+                name: 'categories',
+                builder: (context, state) => const CategoriesPage(),
+                routes: [
+                  GoRoute(
+                    path: ':genreId',
+                    name: 'categoryMovies',
+                    builder: (context, state) {
+                      final genreId =
+                          int.parse(state.pathParameters['genreId']!);
+                      final genreName =
+                          state.uri.queryParameters['name'] ?? 'Unknown';
+                      final genre = Genre(id: genreId, name: genreName);
+                      return CategoryMoviesPage(genre: genre);
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.favorites,
+                name: 'favorites',
+                builder: (context, state) => const FavoritesPage(),
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: AppRoutes.movieDetail,
@@ -27,26 +70,6 @@ class AppRouter {
         builder: (context, state) {
           final movieId = int.parse(state.pathParameters['id']!);
           return MovieDetailPage(movieId: movieId);
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.favorites,
-        name: 'favorites',
-        builder: (context, state) => const FavoritesPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.categories,
-        name: 'categories',
-        builder: (context, state) => const CategoriesPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.categoryMovies,
-        name: 'categoryMovies',
-        builder: (context, state) {
-          final genreId = int.parse(state.pathParameters['genreId']!);
-          final genreName = state.uri.queryParameters['name'] ?? 'Unknown';
-          final genre = Genre(id: genreId, name: genreName);
-          return CategoryMoviesPage(genre: genre);
         },
       ),
     ],
