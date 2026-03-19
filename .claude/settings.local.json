@@ -3,6 +3,7 @@
     "allow": [
       "Bash(flutter *)",
       "Bash(git *)",
+      "Bash(git:*)",
       "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)",
       "Bash(git add:*)",
       "Bash(flutter clean:*)",
@@ -16,7 +17,9 @@
       "Bash(cp:*)",
       "Bash(fvm flutter:*)",
       "Bash(make.bat:*)",
-      "Bash(./make.bat:*)"
+      "Bash(./make.bat:*)",
+      "Bash(make *)",
+      "Bash(make setup:*)"
     ]
   }
 }
