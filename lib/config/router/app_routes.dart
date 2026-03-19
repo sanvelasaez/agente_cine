@@ -6,6 +6,6 @@ class AppRoutes {
   static const String movieDetail = '/movie/:id';
   static const String favorites = '/favorites';
   static const String categories = '/categories';
-  static const String categoryMovies = '/categories/:genreId';
+  static const String categoryMovies = ':genreId';
   static const String search = '/search';
 }

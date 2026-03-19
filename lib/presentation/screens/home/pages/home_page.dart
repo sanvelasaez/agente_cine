@@ -11,7 +11,6 @@ import 'package:agente_cine/presentation/screens/home/widgets/section_header.dar
 import 'package:agente_cine/presentation/search/movie_search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 /// Home page with multiple movie lists
 class HomePage extends StatelessWidget {
@@ -32,33 +31,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _HomeView extends StatefulWidget {
+class _HomeView extends StatelessWidget {
   const _HomeView();
-
-  @override
-  State<_HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<_HomeView> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        // Already on home, do nothing
-        break;
-      case 1:
-        context.go('/categories');
-        break;
-      case 2:
-        context.go('/favorites');
-        break;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,21 +98,6 @@ class _HomeViewState extends State<_HomeView> {
             );
           },
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
-          ),
-        ],
       ),
     );
   }

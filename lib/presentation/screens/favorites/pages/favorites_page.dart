@@ -50,12 +50,7 @@ class FavoritesPage extends ConsumerWidget {
               itemCount: movies.length,
               itemBuilder: (context, index) {
                 final movie = movies[index];
-                return MovieCard(
-                  movie: movie,
-                  onTap: () {
-                    // TODO: Navigate to movie detail
-                  },
-                );
+                return MovieCard(movie: movie);
               },
             ),
           );

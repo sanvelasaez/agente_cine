@@ -5,6 +5,7 @@ import 'package:agente_cine/presentation/shared/widgets/genre_chip.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 /// Categories page showing all movie genres
 class CategoriesPage extends ConsumerWidget {
@@ -36,7 +37,9 @@ class CategoriesPage extends ConsumerWidget {
                 return GenreChip(
                   genre: genre,
                   onTap: () {
-                    // TODO: Navigate to category movies page
+                    context.go(
+                      '/categories/${genre.id}?name=${Uri.encodeComponent(genre.name)}',
+                    );
                   },
                 );
               },
