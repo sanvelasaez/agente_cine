@@ -12,6 +12,7 @@ import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 /// Movie detail page
 class MovieDetailPage extends StatelessWidget {
@@ -40,28 +41,40 @@ class _MovieDetailView extends StatelessWidget {
       body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
         builder: (context, state) {
           return state.when(
-            initial: () => const LoadingIndicator(),
-            loading: () => const LoadingIndicator(),
+            initial: () => _buildNonLoadedState(
+              context,
+              const LoadingIndicator(),
+            ),
+            loading: () => _buildNonLoadedState(
+              context,
+              const LoadingIndicator(),
+            ),
             loaded: (movie, isFavoriteLoading) => CustomScrollView(
               slivers: [
                 SliverAppBar(
                   expandedHeight: MediaQuery.of(context).size.width * 0.6,
                   pinned: true,
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () => context.pop(),
+                  ),
                   flexibleSpace: FlexibleSpaceBar(
-                    background: MovieBackdrop(backdropPath: movie.backdropPath),
+                    background:
+                        MovieBackdrop(backdropPath: movie.backdropPath),
                   ),
                   actions: [
                     IconButton(
                       onPressed: isFavoriteLoading
                           ? null
                           : () => context.read<MovieDetailBloc>().add(
-                              const MovieDetailEvent.toggleFavorite(),
-                            ),
+                                const MovieDetailEvent.toggleFavorite(),
+                              ),
                       icon: isFavoriteLoading
                           ? const SizedBox(
                               width: 24,
                               height: 24,
-                              child: CircularProgressIndicator(strokeWidth: 2),
+                              child:
+                                  CircularProgressIndicator(strokeWidth: 2),
                             )
                           : Icon(
                               movie.isFavorite
@@ -89,15 +102,32 @@ class _MovieDetailView extends StatelessWidget {
                 ),
               ],
             ),
-            error: (message) => ErrorView(
-              message: message,
-              onRetry: () => context.read<MovieDetailBloc>().add(
-                const MovieDetailEvent.retry(),
+            error: (message) => _buildNonLoadedState(
+              context,
+              ErrorView(
+                message: message,
+                onRetry: () => context.read<MovieDetailBloc>().add(
+                      const MovieDetailEvent.retry(),
+                    ),
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _buildNonLoadedState(BuildContext context, Widget child) {
+    return Column(
+      children: [
+        AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        Expanded(child: child),
+      ],
     );
   }
 }
