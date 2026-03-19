@@ -75,13 +75,22 @@ make setup              # Si tienes GNU make instalado
 
 Este comando instala Flutter 3.41.4 vía FVM y descarga todas las dependencias del proyecto.
 
-**REGLA CRÍTICA:** Todos los comandos de Flutter y Dart deben ejecutarse con el prefijo `fvm` o mediante los comandos make.
+**REGLAS CRÍTICAS DE EJECUCIÓN:**
+
+1. **SIEMPRE usar comandos `make`**: Nunca ejecutar comandos `fvm`, `flutter` o `dart` directamente. GNU Make está instalado y configurado. Usar SIEMPRE los comandos make correspondientes.
+
+2. **NO usar `cd` innecesariamente**: Ya estás en el directorio raíz del proyecto (`C:\Users\0020415\workspace\flutter\agente_cine`). NO ejecutes `cd` antes de cada comando. Es innecesario y retrasa el desarrollo.
+
+3. **Todos los comandos de Flutter y Dart deben ejecutarse mediante `make`**: El sistema make ya está configurado con FVM internamente.
 
 ### Comandos Make disponibles
 
-El proyecto incluye tres formas de ejecutar comandos para máxima compatibilidad:
+El proyecto tiene GNU Make instalado y configurado. **USAR SIEMPRE estos comandos en lugar de fvm/flutter/dart directos:**
 
-**Opción 1 - Makefile (recomendado para Git Bash, Linux, Mac o con GNU make):**
+**IMPORTANTE - USO OBLIGATORIO DE MAKE:**
+
+GNU Make está instalado. **USAR SIEMPRE estos comandos** (nunca fvm/flutter/dart directos):
+
 ```bash
 make setup          # Instala Flutter 3.41.4 via FVM y descarga dependencias
 make doctor         # Comprueba configuración del entorno
@@ -100,33 +109,11 @@ make build-ios      # Compila para iOS sin firma de código
 make clean          # Limpia artefactos de build
 ```
 
-**Opción 2 - make.sh (alternativa bash nativa):**
-```bash
-./make.sh doctor    # Mismo comportamiento que make doctor
-./make.sh run       # Mismo comportamiento que make run
-# ... todos los comandos anteriores funcionan igual
-```
+**Alternativas disponibles (solo si make falla):**
+- `./make.sh <comando>` - Script bash nativo
+- `make.bat <comando>` - Script Windows CMD/PowerShell
 
-**Opción 3 - make.bat (Windows CMD/PowerShell):**
-```cmd
-make.bat doctor
-make.bat run
-# ... todos los comandos anteriores funcionan igual
-```
-
-**Notas importantes:**
-- Las tres opciones ejecutan exactamente los mismos comandos vía FVM
-- `Makefile` y `make.sh` detectan automáticamente el sistema operativo y usan `fvm.bat` en Windows o `fvm` en Linux/Mac
-- Usa la opción que mejor se adapte a tu terminal actual
-
-**Comandos directos con FVM (si no usas make):**
-```bash
-fvm flutter pub get
-fvm flutter run
-fvm dart run build_runner build --delete-conflicting-outputs
-fvm flutter test
-fvm flutter analyze
-```
+**NUNCA usar comandos fvm/flutter/dart directos.** El sistema make ya los encapsula correctamente.
 
 ---
 

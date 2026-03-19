@@ -1,28 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(flutter *)",
-      "Bash(git *)",
-      "Bash(git:*)",
       "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)",
-      "Bash(git add:*)",
-      "Bash(flutter clean:*)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(* && git *)",
+      "Bash(git *)",
+      "Bash(flutter *)",
+      "Bash(make *)",
+      "Bash(fvm *)",
       "Bash(find *)",
       "Bash(grep *)",
-      "Bash(for file:*)",
-      "Bash(do echo:*)",
-      "Bash(done)",
-      "WebFetch(domain:pub.dev)",
       "Bash(cd *)",
       "Bash(cp *)",
-      "Bash(fvm flutter:*)",
-      "Bash(make.bat:*)",
-      "Bash(./make.bat:*)",
-      "Bash(make *)",
-      "Bash(make setup:*)",
-      "Bash(fvm.bat flutter:*)",
-      "Bash(cd * && git *)",
-      "Bash(* && git *)"
+      "Bash(mkdir *)",
+      "Bash(ls *)"
     ]
   }
 }
