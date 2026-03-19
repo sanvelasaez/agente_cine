@@ -8,4 +8,5 @@ class AppRoutes {
   static const String categories = '/categories';
   static const String categoryMovies = ':genreId';
   static const String search = '/search';
+  static const String seeAll = '/see-all/:category';
 }

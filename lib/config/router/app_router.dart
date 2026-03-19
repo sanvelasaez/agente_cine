@@ -3,7 +3,9 @@ import 'package:agente_cine/domain/entities/genre.dart';
 import 'package:agente_cine/presentation/screens/categories/pages/categories_page.dart';
 import 'package:agente_cine/presentation/screens/categories/pages/category_movies_page.dart';
 import 'package:agente_cine/presentation/screens/favorites/pages/favorites_page.dart';
+import 'package:agente_cine/presentation/screens/home/models/movie_category.dart';
 import 'package:agente_cine/presentation/screens/home/pages/home_page.dart';
+import 'package:agente_cine/presentation/screens/home/pages/see_all_movies_page.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/pages/movie_detail_page.dart';
 import 'package:agente_cine/presentation/shared/widgets/scaffold_with_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -80,6 +82,18 @@ class AppRouter {
               );
             },
           );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.seeAll,
+        name: 'seeAll',
+        builder: (context, state) {
+          final categoryName = state.pathParameters['category']!;
+          final category = MovieCategory.values.firstWhere(
+            (c) => c.name == categoryName,
+            orElse: () => MovieCategory.trending,
+          );
+          return SeeAllMoviesPage(category: category);
         },
       ),
     ],

@@ -8,6 +8,7 @@ import 'package:agente_cine/domain/actions/get_top_rated_movies.dart';
 import 'package:agente_cine/domain/actions/get_trending_movies.dart';
 import 'package:agente_cine/domain/actions/get_upcoming_movies.dart';
 import 'package:agente_cine/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:agente_cine/presentation/screens/home/models/movie_category.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/movie_horizontal_list.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/section_header.dart';
 import 'package:agente_cine/presentation/search/movie_search_delegate.dart';
@@ -70,7 +71,12 @@ class _HomeView extends StatelessWidget {
                 children: [
                   FadeInLeft(
                     duration: const Duration(milliseconds: 400),
-                    child: const SectionHeader(title: 'Trending Now'),
+                    child: SectionHeader(
+                      title: 'Trending Now',
+                      onSeeAllTap: () => context.push(
+                        '/see-all/${MovieCategory.trending.name}',
+                      ),
+                    ),
                   ),
                   FadeIn(
                     child: MovieHorizontalList(
@@ -84,7 +90,12 @@ class _HomeView extends StatelessWidget {
                   FadeInLeft(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 100),
-                    child: const SectionHeader(title: 'Popular'),
+                    child: SectionHeader(
+                      title: 'Popular',
+                      onSeeAllTap: () => context.push(
+                        '/see-all/${MovieCategory.popular.name}',
+                      ),
+                    ),
                   ),
                   FadeIn(
                     delay: const Duration(milliseconds: 150),
@@ -99,7 +110,12 @@ class _HomeView extends StatelessWidget {
                   FadeInLeft(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 200),
-                    child: const SectionHeader(title: 'Top Rated'),
+                    child: SectionHeader(
+                      title: 'Top Rated',
+                      onSeeAllTap: () => context.push(
+                        '/see-all/${MovieCategory.topRated.name}',
+                      ),
+                    ),
                   ),
                   FadeIn(
                     delay: const Duration(milliseconds: 250),
@@ -114,7 +130,12 @@ class _HomeView extends StatelessWidget {
                   FadeInLeft(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 300),
-                    child: const SectionHeader(title: 'Upcoming'),
+                    child: SectionHeader(
+                      title: 'Upcoming',
+                      onSeeAllTap: () => context.push(
+                        '/see-all/${MovieCategory.upcoming.name}',
+                      ),
+                    ),
                   ),
                   FadeIn(
                     delay: const Duration(milliseconds: 350),
@@ -129,7 +150,12 @@ class _HomeView extends StatelessWidget {
                   FadeInLeft(
                     duration: const Duration(milliseconds: 400),
                     delay: const Duration(milliseconds: 400),
-                    child: const SectionHeader(title: 'Now Playing'),
+                    child: SectionHeader(
+                      title: 'Now Playing',
+                      onSeeAllTap: () => context.push(
+                        '/see-all/${MovieCategory.nowPlaying.name}',
+                      ),
+                    ),
                   ),
                   FadeIn(
                     delay: const Duration(milliseconds: 450),
