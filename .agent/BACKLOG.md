@@ -35,4 +35,3 @@ Implementar skeleton loaders en HomePage
 ## 🔄 PETICIONES PENDIENTES
 
 _(Escribe tus peticiones debajo de esta línea, una por línea)_
-

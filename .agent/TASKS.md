@@ -10,9 +10,12 @@
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-100 | Resolver 24 warnings de inferencia de tipos en tests | test-agent | — | ISSUE-011 |
-| T-101 | Resolver 15 info issues de estilo en código de producción | test-agent | — | ISSUE-012 |
-| T-102 | Preparar release v1.0.0: PR develop → main | orchestrator | T-100, T-101 | Fase 1 completa |
+| T-103 | Añadir dependencia animate_do al proyecto | orchestrator | — | BACKLOG: Fase 2 UX |
+| T-104 | Implementar flecha de navegación para volver atrás en todas las páginas | presentation-agent | T-103 | BACKLOG: Navegación |
+| T-105 | Hacer barra de navegación inferior fija en todas las pantallas | presentation-agent | — | BACKLOG: Navegación |
+| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | T-103, T-104, T-105 | BACKLOG: UX mejorada |
+| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-104, T-105, T-106 | Testing Fase 2 |
+| T-108 | Rediseñar rating en MovieCard: círculo coloreado con puntuación | presentation-agent | — | BACKLOG: Sustituir estrellas por círculo en esquina inferior izquierda con color según puntuación (rojo/amarillo/verde) |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
