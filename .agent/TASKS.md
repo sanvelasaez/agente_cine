@@ -5,21 +5,19 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| - | - | - | - | - |
+| T-108 | Rediseñar rating en MovieCard: círculo coloreado con puntuación | presentation-agent | feature/rating-circle-design | 2026-03-19 |
+| T-104, T-105 | Mejoras de navegación (back button + bottomNav fijo) | presentation-agent-nav | feature/navigation-improvements | 2026-03-19 |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-103 | Añadir dependencia animate_do al proyecto | orchestrator | — | BACKLOG: Fase 2 UX |
-| T-104 | Implementar flecha de navegación para volver atrás en todas las páginas | presentation-agent | T-103 | BACKLOG: Navegación |
-| T-105 | Hacer barra de navegación inferior fija en todas las pantallas | presentation-agent | — | BACKLOG: Navegación |
-| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | T-103, T-104, T-105 | BACKLOG: UX mejorada |
-| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-104, T-105, T-106 | Testing Fase 2 |
-| T-108 | Rediseñar rating en MovieCard: círculo coloreado con puntuación | presentation-agent | — | BACKLOG: Sustituir estrellas por círculo en esquina inferior izquierda con color según puntuación (rojo/amarillo/verde) |
+| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | T-104, T-105, T-108 | BACKLOG: UX mejorada - espera a que navegación y rating estén completos |
+| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-104, T-105, T-106, T-108 | Testing Fase 2 - ejecutar cuando todo esté implementado |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
+| T-103 | Añadir dependencia animate_do al proyecto | develop | 2026-03-19 |
 | T-000 | Inicialización del proyecto Flutter | main | 2026-03-11 |
 | T-001 | Configurar dependencias en pubspec.yaml | main | 2026-03-11 |
 | T-002 | Crear estructura completa de directorios | main | 2026-03-11 |
