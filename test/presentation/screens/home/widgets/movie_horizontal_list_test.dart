@@ -91,7 +91,7 @@ void main() {
       expect(find.byType(MovieCard), findsNWidgets(3));
     });
 
-    testWidgets('should render movie titles in MovieCards', (tester) async {
+    testWidgets('should render MovieCards without titles', (tester) async {
       final movies = _createMovies(2);
 
       await tester.pumpWidget(
@@ -101,8 +101,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('Movie 1'), findsOneWidget);
-      expect(find.text('Movie 2'), findsOneWidget);
+      expect(find.byType(MovieCard), findsNWidgets(2));
+      // Titles are no longer displayed in MovieCard
+      expect(find.text('Movie 1'), findsNothing);
+      expect(find.text('Movie 2'), findsNothing);
     });
 
     testWidgets('should render without errors when animations complete',

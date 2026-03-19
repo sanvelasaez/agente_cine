@@ -33,12 +33,12 @@ Widget _buildTestWidget(Movie movie, {VoidCallback? onTap}) {
 
 void main() {
   group('MovieCard Widget', () {
-    testWidgets('should display movie title', (tester) async {
+    testWidgets('should not display movie title', (tester) async {
       final movie = _createMovie(title: 'Inception');
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
-      expect(find.text('Inception'), findsOneWidget);
+      expect(find.text('Inception'), findsNothing);
     });
 
     testWidgets('should display rating circle with vote average',
