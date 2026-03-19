@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/actions/get_now_playing_movies.dart';
@@ -12,6 +14,7 @@ import 'package:agente_cine/presentation/search/movie_search_delegate.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 /// Home page with multiple movie lists
 class HomePage extends StatelessWidget {
@@ -43,8 +46,14 @@ class _HomeView extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: MovieSearchDelegate());
+            onPressed: () async {
+              final movie = await showSearch(
+                context: context,
+                delegate: MovieSearchDelegate(),
+              );
+              if (movie != null && context.mounted) {
+                unawaited(context.push('/movie/${movie.id}'));
+              }
             },
           ),
         ],
