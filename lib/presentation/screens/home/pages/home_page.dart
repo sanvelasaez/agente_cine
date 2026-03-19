@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/config/theme/app_dimensions.dart';
 import 'package:agente_cine/domain/actions/get_now_playing_movies.dart';
@@ -11,7 +9,6 @@ import 'package:agente_cine/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:agente_cine/presentation/screens/home/models/movie_category.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/movie_horizontal_list.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/section_header.dart';
-import 'package:agente_cine/presentation/search/movie_search_delegate.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,20 +41,6 @@ class _HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AgenteCine'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () async {
-              final movie = await showSearch(
-                context: context,
-                delegate: MovieSearchDelegate(),
-              );
-              if (movie != null && context.mounted) {
-                unawaited(context.push('/movie/${movie.id}'));
-              }
-            },
-          ),
-        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async {

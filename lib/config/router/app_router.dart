@@ -7,6 +7,7 @@ import 'package:agente_cine/presentation/screens/home/models/movie_category.dart
 import 'package:agente_cine/presentation/screens/home/pages/home_page.dart';
 import 'package:agente_cine/presentation/screens/home/pages/see_all_movies_page.dart';
 import 'package:agente_cine/presentation/screens/movie_detail/pages/movie_detail_page.dart';
+import 'package:agente_cine/presentation/screens/search/pages/search_page.dart';
 import 'package:agente_cine/presentation/shared/widgets/scaffold_with_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -29,6 +30,15 @@ class AppRouter {
                 path: AppRoutes.home,
                 name: 'home',
                 builder: (context, state) => const HomePage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.search,
+                name: 'search',
+                builder: (context, state) => const SearchPage(),
               ),
             ],
           ),

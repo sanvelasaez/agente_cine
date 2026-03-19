@@ -28,6 +28,15 @@ void main() {
               StatefulShellBranch(
                 routes: [
                   GoRoute(
+                    path: '/search',
+                    builder: (context, state) =>
+                        const Center(child: Text('Search Page')),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: [
+                  GoRoute(
                     path: '/categories',
                     builder: (context, state) =>
                         const Center(child: Text('Categories Page')),
@@ -57,7 +66,7 @@ void main() {
       return MaterialApp.router(routerConfig: router);
     }
 
-    testWidgets('should display BottomNavigationBar with 3 items',
+    testWidgets('should display BottomNavigationBar with 4 items',
         (tester) async {
       await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
@@ -67,15 +76,17 @@ void main() {
       final bottomNav = tester.widget<BottomNavigationBar>(
         find.byType(BottomNavigationBar),
       );
-      expect(bottomNav.items.length, 3);
+      expect(bottomNav.items.length, 4);
     });
 
-    testWidgets('should display Home, Categories, Favorites labels',
+    testWidgets(
+        'should display Home, Search, Categories, Favorites labels',
         (tester) async {
       await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
 
       expect(find.text('Home'), findsOneWidget);
+      expect(find.text('Search'), findsOneWidget);
       expect(find.text('Categories'), findsOneWidget);
       expect(find.text('Favorites'), findsOneWidget);
     });
@@ -85,6 +96,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.home), findsOneWidget);
+      expect(find.byIcon(Icons.search), findsOneWidget);
       expect(find.byIcon(Icons.category), findsOneWidget);
       expect(find.byIcon(Icons.favorite), findsOneWidget);
     });
@@ -105,6 +117,16 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Home Page'), findsOneWidget);
+    });
+
+    testWidgets('should navigate to Search on tap', (tester) async {
+      await tester.pumpWidget(buildTestWidget());
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Search'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Search Page'), findsOneWidget);
     });
 
     testWidgets('should navigate to Categories on tap', (tester) async {
@@ -132,14 +154,14 @@ void main() {
       await tester.pumpWidget(buildTestWidget());
       await tester.pumpAndSettle();
 
-      // Tap on Favorites (index 2)
+      // Tap on Favorites (index 3)
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
       final bottomNav = tester.widget<BottomNavigationBar>(
         find.byType(BottomNavigationBar),
       );
-      expect(bottomNav.currentIndex, 2);
+      expect(bottomNav.currentIndex, 3);
     });
 
     testWidgets('should wrap content in Scaffold', (tester) async {
