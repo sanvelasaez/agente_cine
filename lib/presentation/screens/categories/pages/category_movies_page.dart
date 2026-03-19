@@ -7,6 +7,7 @@ import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/shared/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 /// Page showing movies filtered by genre
 class CategoryMoviesPage extends ConsumerStatefulWidget {
@@ -45,7 +46,13 @@ class _CategoryMoviesPageState extends ConsumerState<CategoryMoviesPage> {
     final moviesState = ref.watch(categoryMoviesProvider(widget.genre.id));
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.genre.name)),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+        title: Text(widget.genre.name),
+      ),
       body: moviesState.when(
         data: (movies) {
           if (movies.isEmpty) {
