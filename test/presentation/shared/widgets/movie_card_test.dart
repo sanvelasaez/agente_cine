@@ -53,7 +53,7 @@ void main() {
 
     testWidgets('should display CircularProgressIndicator for rating',
         (tester) async {
-      final movie = _createMovie(voteAverage: 7.0);
+      final movie = _createMovie(voteAverage: 7);
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
@@ -63,7 +63,7 @@ void main() {
 
     testWidgets('should NOT display star icons (replaced by rating circle)',
         (tester) async {
-      final movie = _createMovie(voteAverage: 8.0);
+      final movie = _createMovie(voteAverage: 8);
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
@@ -84,7 +84,7 @@ void main() {
 
     testWidgets('should show placeholder icon when posterPath is null',
         (tester) async {
-      final movie = _createMovie(posterPath: null);
+      final movie = _createMovie();
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
@@ -105,7 +105,7 @@ void main() {
 
     testWidgets('should render rating circle container with circle shape',
         (tester) async {
-      final movie = _createMovie(voteAverage: 9.0);
+      final movie = _createMovie(voteAverage: 9);
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
@@ -124,7 +124,7 @@ void main() {
     });
 
     testWidgets('should handle zero rating', (tester) async {
-      final movie = _createMovie(voteAverage: 0.0);
+      final movie = _createMovie(voteAverage: 0);
 
       await tester.pumpWidget(_buildTestWidget(movie));
 
@@ -133,7 +133,7 @@ void main() {
     });
 
     testWidgets('should handle perfect 10 rating', (tester) async {
-      final movie = _createMovie(voteAverage: 10.0);
+      final movie = _createMovie(voteAverage: 10);
 
       await tester.pumpWidget(_buildTestWidget(movie));
 

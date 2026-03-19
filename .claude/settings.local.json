@@ -7,20 +7,22 @@
       "Bash(echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)",
       "Bash(git add:*)",
       "Bash(flutter clean:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
+      "Bash(find *)",
+      "Bash(grep *)",
       "Bash(for file:*)",
       "Bash(do echo:*)",
       "Bash(done)",
       "WebFetch(domain:pub.dev)",
-      "Bash(cd:*)",
-      "Bash(cp:*)",
+      "Bash(cd *)",
+      "Bash(cp *)",
       "Bash(fvm flutter:*)",
       "Bash(make.bat:*)",
       "Bash(./make.bat:*)",
       "Bash(make *)",
       "Bash(make setup:*)",
-      "Bash(fvm.bat flutter:*)"
+      "Bash(fvm.bat flutter:*)",
+      "Bash(cd * && git *)",
+      "Bash(* && git *)"
     ]
   }
 }
