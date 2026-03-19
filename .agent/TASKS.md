@@ -5,17 +5,18 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| T-104, T-105 | Mejoras de navegación (back button + bottomNav fijo) | presentation-agent-nav | feature/navigation-improvements | 2026-03-19 |
+| - | - | - | - | - |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | T-104, T-105 | BACKLOG: UX mejorada |
-| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-104, T-105, T-106 | Testing Fase 2 |
+| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | — | BACKLOG: UX mejorada |
+| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-106 | Testing Fase 2 |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
+| T-104, T-105 | Mejoras de navegación (back button + bottomNav persistente) | feature/navigation-improvements → develop | 2026-03-19 |
 | T-108 | Rediseñar rating en MovieCard: círculo coloreado | feature/rating-circle-design → develop | 2026-03-19 |
 | T-103 | Añadir dependencia animate_do 4.2.0 | develop | 2026-03-19 |
 | T-000 | Inicialización del proyecto Flutter | main | 2026-03-11 |
