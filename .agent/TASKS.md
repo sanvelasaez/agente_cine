@@ -5,7 +5,7 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| T-104, T-105 | Mejoras de navegación (back + bottomNav) | presentation-agent-nav | feature/navigation-improvements | 2026-03-19 |
+| T-104, T-105 | Mejoras de navegación (back button + bottomNav fijo) | presentation-agent-nav | feature/navigation-improvements | 2026-03-19 |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
