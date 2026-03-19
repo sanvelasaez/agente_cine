@@ -4,6 +4,8 @@
 
 ## [FASE 2] Navegación mejorada, animaciones y UX — COMPLETADA ✅
 
+## [FASE 3] Bugfixes y mejoras de UX
+
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
@@ -12,7 +14,11 @@
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| - | - | - | - | - |
+| T-201 | Fix: BottomNavigationBar no cambia entre pantallas | presentation-agent | — | BUG CRÍTICO - Barra bloqueada en home |
+| T-202 | Fix: Botón de búsqueda no funciona | presentation-agent | — | BUG - No responde al pulsar |
+| T-203 | Feature: Añadir botón "Ver más" en secciones de películas | presentation-agent | T-201 | Nueva pantalla con grid completo |
+| T-204 | Feature: Mover búsqueda a bottomNav y eliminar AppBar | presentation-agent | T-201, T-202 | Búsqueda accesible desde cualquier pantalla |
+| T-205 | Feature: Eliminar título de MovieCard | presentation-agent | — | UI más limpia y minimalista |
 
 ### Completada Fase 2
 | ID | Tarea | Branch mergeado | Fecha |
