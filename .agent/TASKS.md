@@ -5,12 +5,12 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| - | - | - | - | - |
+| T-107 | Crear tests para funcionalidades Fase 2 | test-agent | test/phase2-features | 2026-03-19 |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | — | Testing Fase 2 |
+| - | - | - | - | - |
 
 ### Completada
 | ID | Tarea | Branch mergeado | Fecha |
