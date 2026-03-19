@@ -19,7 +19,8 @@
       "Bash(make.bat:*)",
       "Bash(./make.bat:*)",
       "Bash(make *)",
-      "Bash(make setup:*)"
+      "Bash(make setup:*)",
+      "Bash(fvm.bat flutter:*)"
     ]
   }
 }
