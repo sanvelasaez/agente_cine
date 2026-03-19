@@ -68,27 +68,59 @@ dart pub global activate fvm
 
 **Configuración inicial del proyecto:**
 ```cmd
-make.bat setup
+make.bat setup          # Windows CMD/PowerShell
+./make.sh setup         # Git Bash, Linux, Mac
+make setup              # Si tienes GNU make instalado
 ```
 
 Este comando instala Flutter 3.41.4 vía FVM y descarga todas las dependencias del proyecto.
 
-**REGLA CRÍTICA:** Todos los comandos de Flutter y Dart deben ejecutarse con el prefijo `fvm` o mediante los comandos del `make.batfile`.
+**REGLA CRÍTICA:** Todos los comandos de Flutter y Dart deben ejecutarse con el prefijo `fvm` o mediante los comandos make.
 
-**Comandos disponibles (ver `make.bat help` para lista completa):**
-```cmd
-make.bat setup          # Instala Flutter 3.41.4 via FVM y descarga dependencias
-make.bat run            # Ejecuta la app
-make.bat gen            # Regenera código (freezed, injectable, drift)
-make.bat test           # Ejecuta tests
-make.bat coverage       # Tests con reporte de cobertura
-make.bat lint           # Análisis estático de código
-make.bat doctor         # Comprueba configuración del entorno
-make.bat clean          # Limpia artefactos de build
+### Comandos Make disponibles
+
+El proyecto incluye tres formas de ejecutar comandos para máxima compatibilidad:
+
+**Opción 1 - Makefile (recomendado para Git Bash, Linux, Mac o con GNU make):**
+```bash
+make setup          # Instala Flutter 3.41.4 via FVM y descarga dependencias
+make doctor         # Comprueba configuración del entorno
+make devices        # Lista dispositivos y emuladores disponibles
+make run            # Ejecuta la app
+make gen            # Regenera código (freezed, injectable, drift)
+make gen-watch      # Regenera código automáticamente al guardar
+make format         # Formatea todo el código Dart
+make fix            # Aplica correcciones de lint automáticamente
+make lint           # Análisis estático de código
+make test           # Ejecuta todos los tests
+make coverage       # Tests con reporte de cobertura
+make build          # Compila APK debug para Android
+make build-release  # Compila APK release para Android
+make build-ios      # Compila para iOS sin firma de código
+make clean          # Limpia artefactos de build
 ```
 
-**Comandos directos con FVM (si no usas make):**
+**Opción 2 - make.sh (alternativa bash nativa):**
+```bash
+./make.sh doctor    # Mismo comportamiento que make doctor
+./make.sh run       # Mismo comportamiento que make run
+# ... todos los comandos anteriores funcionan igual
+```
+
+**Opción 3 - make.bat (Windows CMD/PowerShell):**
 ```cmd
+make.bat doctor
+make.bat run
+# ... todos los comandos anteriores funcionan igual
+```
+
+**Notas importantes:**
+- Las tres opciones ejecutan exactamente los mismos comandos vía FVM
+- `Makefile` y `make.sh` detectan automáticamente el sistema operativo y usan `fvm.bat` en Windows o `fvm` en Linux/Mac
+- Usa la opción que mejor se adapte a tu terminal actual
+
+**Comandos directos con FVM (si no usas make):**
+```bash
 fvm flutter pub get
 fvm flutter run
 fvm dart run build_runner build --delete-conflicting-outputs

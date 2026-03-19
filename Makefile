@@ -2,6 +2,20 @@
 
 .PHONY: help setup run test coverage build build-ios build-release gen gen-watch format fix clean lint doctor devices
 
+# Detect OS and set FVM command
+UNAME_S := $(shell uname -s 2>/dev/null || echo Windows)
+ifneq (,$(findstring MINGW,$(UNAME_S)))
+	FVM := fvm.bat
+else ifneq (,$(findstring MSYS,$(UNAME_S)))
+	FVM := fvm.bat
+else ifneq (,$(findstring CYGWIN,$(UNAME_S)))
+	FVM := fvm.bat
+else ifeq ($(UNAME_S),Windows)
+	FVM := fvm.bat
+else
+	FVM := fvm
+endif
+
 help:
 	@echo ""
 	@echo "AgenteCine — comandos disponibles"
@@ -31,47 +45,47 @@ help:
 	@echo ""
 
 setup:
-	fvm install
-	fvm flutter pub get
+	$(FVM) install
+	$(FVM) flutter pub get
 
 doctor:
-	fvm flutter doctor -v
+	$(FVM) flutter doctor -v
 
 devices:
-	fvm flutter devices
+	$(FVM) flutter devices
 
 run:
-	fvm flutter run
+	$(FVM) flutter run
 
 gen:
-	fvm dart run build_runner build --delete-conflicting-outputs
+	$(FVM) dart run build_runner build --delete-conflicting-outputs
 
 gen-watch:
-	fvm dart run build_runner watch --delete-conflicting-outputs
+	$(FVM) dart run build_runner watch --delete-conflicting-outputs
 
 format:
-	fvm dart format .
+	$(FVM) dart format .
 
 fix:
-	fvm dart fix --apply
+	$(FVM) dart fix --apply
 
 lint:
-	fvm flutter analyze
+	$(FVM) flutter analyze
 
 test:
-	fvm flutter test
+	$(FVM) flutter test
 
 coverage:
-	fvm flutter test --coverage
+	$(FVM) flutter test --coverage
 
 build:
-	fvm flutter build apk --debug
+	$(FVM) flutter build apk --debug
 
 build-release:
-	fvm flutter build apk --release
+	$(FVM) flutter build apk --release
 
 build-ios:
-	fvm flutter build ios --debug --no-codesign
+	$(FVM) flutter build ios --debug --no-codesign
 
 clean:
-	fvm flutter clean
+	$(FVM) flutter clean

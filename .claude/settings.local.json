@@ -10,11 +10,13 @@
       "Bash(grep:*)",
       "Bash(for file:*)",
       "Bash(do echo:*)",
-      "Read(//d/workspace/flutter/agente_cine/lib/domain/entities/**)",
       "Bash(done)",
       "WebFetch(domain:pub.dev)",
       "Bash(cd:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(fvm flutter:*)",
+      "Bash(make.bat:*)",
+      "Bash(./make.bat:*)"
     ]
   }
 }
