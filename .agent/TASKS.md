@@ -9,14 +9,19 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| T-201, T-202 | Fix bugs críticos: BottomNav + búsqueda | presentation-agent | fix/critical-bugs-phase3 | 2026-03-19 |
+| - | - | - | - | - |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-203 | Feature: Añadir botón "Ver más" en secciones de películas | presentation-agent | T-201 | Nueva pantalla con grid completo |
-| T-204 | Feature: Mover búsqueda a bottomNav y eliminar AppBar | presentation-agent | T-201, T-202 | Búsqueda accesible desde cualquier pantalla |
+| T-203 | Feature: Añadir botón "Ver más" en secciones de películas | presentation-agent | — | Nueva pantalla con grid completo |
+| T-204 | Feature: Mover búsqueda a bottomNav y eliminar AppBar | presentation-agent | — | Búsqueda accesible desde cualquier pantalla |
 | T-205 | Feature: Eliminar título de MovieCard | presentation-agent | — | UI más limpia y minimalista |
+
+### Completada Fase 3
+| ID | Tarea | Branch mergeado | Fecha |
+|----|-------|----------------|-------|
+| T-201, T-202 | Fix bugs críticos: BottomNav memory leak + búsqueda funcional | fix/critical-bugs-phase3 → develop | 2026-03-19 |
 
 ### Completada Fase 2
 | ID | Tarea | Branch mergeado | Fecha |
