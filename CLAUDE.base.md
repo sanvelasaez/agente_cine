@@ -40,6 +40,23 @@ chore(scope): descripción corta en presente
 
 ## 🤖 REGLAS DEL EQUIPO DE AGENTES
 
+### ⚠️ REGLAS CRÍTICAS DE EJECUCIÓN (NO NEGOCIABLES)
+
+**1. NUNCA USAR `cd` EN COMANDOS**
+- Ya estás en el directorio raíz del proyecto: `C:\Users\0020415\workspace\flutter\agente_cine`
+- Todos los paths son relativos al directorio raíz
+- ❌ PROHIBIDO: `cd lib && grep...`, `cd .. && make test`, etc.
+- ✅ CORRECTO: `grep ... lib/...`, `make test`
+
+**2. SIEMPRE USAR COMANDOS `make`**
+- GNU Make está instalado y configurado
+- ❌ PROHIBIDO: `fvm flutter test`, `fvm dart format .`, etc.
+- ✅ CORRECTO: `make test`, `make format`, `make lint`, etc.
+
+**3. NO PREGUNTAR AL USUARIO**
+- Ejecutar todo automáticamente sin confirmación
+- Permisos completos otorgados para toda operación
+
 ### Modelo de IA
 
 Todos los agentes de este proyecto, incluido el orquestador, deben usar **claude-sonnet-4-5-20251001**.
