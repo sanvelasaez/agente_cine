@@ -5,12 +5,11 @@
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| - | - | - | - | - |
+| T-106 | Implementar animaciones con animate_do | presentation-agent | feature/animations-animate-do | 2026-03-19 |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
-| T-106 | Implementar animaciones creativas con animate_do en toda la app | presentation-agent | — | BACKLOG: UX mejorada |
 | T-107 | Crear tests para las nuevas funcionalidades de Fase 2 | test-agent | T-106 | Testing Fase 2 |
 
 ### Completada
