@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:agente_cine/app.dart';
 import 'package:agente_cine/config/dependencies/injection.dart';
 import 'package:agente_cine/core/utils/logger.dart';
@@ -29,12 +31,4 @@ void main() async {
   runZonedGuarded(() => runApp(const App()), (error, stack) {
     AppLogger.error('Uncaught error', error, stack);
   });
-}
-
-/// Wrapper for runZonedGuarded
-void runZonedGuarded(
-  void Function() body,
-  void Function(Object, StackTrace) onError,
-) {
-  body();
 }
