@@ -2,23 +2,28 @@
 
 ## [FASE 1] Setup y arquitectura base del proyecto — COMPLETADA ✅
 
+## [FASE 2] Navegación mejorada, animaciones y UX — COMPLETADA ✅
+
 ### En progreso
 | ID | Tarea | Agente | Branch | Inicio |
 |----|-------|--------|--------|--------|
-| T-107 | Crear tests para funcionalidades Fase 2 | test-agent | test/phase2-features | 2026-03-19 |
+| - | - | - | - | - |
 
 ### Pendiente
 | ID | Tarea | Agente asignado | Dependencias | Notas |
 |----|-------|----------------|--------------|-------|
 | - | - | - | - | - |
 
-### Completada
+### Completada Fase 2
 | ID | Tarea | Branch mergeado | Fecha |
 |----|-------|----------------|-------|
+| T-107 | Tests para funcionalidades Fase 2 (26 tests nuevos, 110 total) | test/phase2-features → develop | 2026-03-19 |
 | T-106 | Implementar animaciones con animate_do | feature/animations-animate-do → develop | 2026-03-19 |
 | T-104, T-105 | Mejoras de navegación (back button + bottomNav persistente) | feature/navigation-improvements → develop | 2026-03-19 |
 | T-108 | Rediseñar rating en MovieCard: círculo coloreado | feature/rating-circle-design → develop | 2026-03-19 |
 | T-103 | Añadir dependencia animate_do 4.2.0 | develop | 2026-03-19 |
+
+### Completada Fase 1
 | T-000 | Inicialización del proyecto Flutter | main | 2026-03-11 |
 | T-001 | Configurar dependencias en pubspec.yaml | main | 2026-03-11 |
 | T-002 | Crear estructura completa de directorios | main | 2026-03-11 |

@@ -99,18 +99,36 @@
 
 ---
 
-## 🚀 Fase 2 — NAVEGACIÓN Y ANIMACIONES (EN PROGRESO)
+## 🚀 Fase 2 — NAVEGACIÓN, ANIMACIONES Y UX — COMPLETADA ✅
 
 | Módulo | Completado | Total tareas | % |
 |--------|-----------|-------------|---|
-| Setup animate_do | 0 | 1 | 0% |
-| Navegación mejorada | 0 | 2 | 0% |
-| Animaciones UX | 0 | 1 | 0% |
-| Testing Fase 2 | 0 | 1 | 0% |
+| Setup animate_do | 1 | 1 | 100% |
+| Navegación mejorada | 2 | 2 | 100% |
+| Rediseño UX | 1 | 1 | 100% |
+| Animaciones | 1 | 1 | 100% |
+| Testing Fase 2 | 1 | 1 | 100% |
 
-**Tareas totales:** 5
-**Completadas:** 0
+**Tareas totales:** 6
+**Completadas:** 6
 **En progreso:** 0
-**Progreso:** 0%
+**Progreso:** 100% ✅
 
 **Última actualización:** 2026-03-19 por orchestrator
+
+### Hitos Completados Fase 2
+
+✅ **T-103:** animate_do 4.2.0 añadido al proyecto
+✅ **T-108:** Rating redesign - Círculo coloreado con CircularProgressIndicator
+✅ **T-104:** Back buttons en páginas secundarias (MovieDetailPage, CategoryMoviesPage)
+✅ **T-105:** BottomNavigationBar persistente con StatefulShellRoute.indexedStack
+✅ **T-106:** Animaciones sutiles con animate_do (FadeIn, SlideIn, staggered delays)
+✅ **T-107:** Suite de tests ampliada (110 tests, +26 nuevos)
+
+### Métricas Fase 2
+
+- **Tests:** 110/110 pasando (+26 desde Fase 1)
+- **Cobertura:** >80% mantenida
+- **Lint:** 0 errores, 0 warnings
+- **Commits:** 15+ en Fase 2
+- **Branches mergeadas:** 5
