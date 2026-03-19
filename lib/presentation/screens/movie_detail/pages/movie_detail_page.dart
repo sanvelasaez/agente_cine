@@ -10,6 +10,7 @@ import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_info
 import 'package:agente_cine/presentation/screens/movie_detail/widgets/movie_overview_section.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -89,13 +90,28 @@ class _MovieDetailView extends StatelessWidget {
                   padding: const EdgeInsets.all(AppDimensions.spacingM),
                   sliver: SliverList(
                     delegate: SliverChildListDelegate([
-                      MovieInfoSection(movie: movie),
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 400),
+                        child: MovieInfoSection(movie: movie),
+                      ),
                       const SizedBox(height: AppDimensions.spacingL),
-                      MovieOverviewSection(overview: movie.overview),
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 400),
+                        delay: const Duration(milliseconds: 100),
+                        child: MovieOverviewSection(overview: movie.overview),
+                      ),
                       const SizedBox(height: AppDimensions.spacingL),
-                      MovieGenresSection(genres: movie.genres),
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 400),
+                        delay: const Duration(milliseconds: 200),
+                        child: MovieGenresSection(genres: movie.genres),
+                      ),
                       const SizedBox(height: AppDimensions.spacingL),
-                      MovieCastSection(cast: movie.cast),
+                      FadeInUp(
+                        duration: const Duration(milliseconds: 400),
+                        delay: const Duration(milliseconds: 300),
+                        child: MovieCastSection(cast: movie.cast),
+                      ),
                       const SizedBox(height: AppDimensions.spacingXl),
                     ]),
                   ),

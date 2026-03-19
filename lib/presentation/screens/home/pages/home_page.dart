@@ -9,6 +9,7 @@ import 'package:agente_cine/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/movie_horizontal_list.dart';
 import 'package:agente_cine/presentation/screens/home/widgets/section_header.dart';
 import 'package:agente_cine/presentation/search/movie_search_delegate.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,39 +59,77 @@ class _HomeView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SectionHeader(title: 'Trending Now'),
-                  MovieHorizontalList(
-                    asyncValue: state.trending,
-                    onRetry: () =>
-                        context.read<HomeBloc>().add(const HomeEvent.refresh()),
+                  FadeInLeft(
+                    duration: const Duration(milliseconds: 400),
+                    child: const SectionHeader(title: 'Trending Now'),
+                  ),
+                  FadeIn(
+                    child: MovieHorizontalList(
+                      asyncValue: state.trending,
+                      onRetry: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.refresh()),
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.spacingL),
-                  const SectionHeader(title: 'Popular'),
-                  MovieHorizontalList(
-                    asyncValue: state.popular,
-                    onRetry: () =>
-                        context.read<HomeBloc>().add(const HomeEvent.refresh()),
+                  FadeInLeft(
+                    duration: const Duration(milliseconds: 400),
+                    delay: const Duration(milliseconds: 100),
+                    child: const SectionHeader(title: 'Popular'),
+                  ),
+                  FadeIn(
+                    delay: const Duration(milliseconds: 150),
+                    child: MovieHorizontalList(
+                      asyncValue: state.popular,
+                      onRetry: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.refresh()),
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.spacingL),
-                  const SectionHeader(title: 'Top Rated'),
-                  MovieHorizontalList(
-                    asyncValue: state.topRated,
-                    onRetry: () =>
-                        context.read<HomeBloc>().add(const HomeEvent.refresh()),
+                  FadeInLeft(
+                    duration: const Duration(milliseconds: 400),
+                    delay: const Duration(milliseconds: 200),
+                    child: const SectionHeader(title: 'Top Rated'),
+                  ),
+                  FadeIn(
+                    delay: const Duration(milliseconds: 250),
+                    child: MovieHorizontalList(
+                      asyncValue: state.topRated,
+                      onRetry: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.refresh()),
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.spacingL),
-                  const SectionHeader(title: 'Upcoming'),
-                  MovieHorizontalList(
-                    asyncValue: state.upcoming,
-                    onRetry: () =>
-                        context.read<HomeBloc>().add(const HomeEvent.refresh()),
+                  FadeInLeft(
+                    duration: const Duration(milliseconds: 400),
+                    delay: const Duration(milliseconds: 300),
+                    child: const SectionHeader(title: 'Upcoming'),
+                  ),
+                  FadeIn(
+                    delay: const Duration(milliseconds: 350),
+                    child: MovieHorizontalList(
+                      asyncValue: state.upcoming,
+                      onRetry: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.refresh()),
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.spacingL),
-                  const SectionHeader(title: 'Now Playing'),
-                  MovieHorizontalList(
-                    asyncValue: state.nowPlaying,
-                    onRetry: () =>
-                        context.read<HomeBloc>().add(const HomeEvent.refresh()),
+                  FadeInLeft(
+                    duration: const Duration(milliseconds: 400),
+                    delay: const Duration(milliseconds: 400),
+                    child: const SectionHeader(title: 'Now Playing'),
+                  ),
+                  FadeIn(
+                    delay: const Duration(milliseconds: 450),
+                    child: MovieHorizontalList(
+                      asyncValue: state.nowPlaying,
+                      onRetry: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.refresh()),
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.spacingL),
                 ],

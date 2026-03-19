@@ -67,9 +67,19 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.movieDetail,
         name: 'movieDetail',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final movieId = int.parse(state.pathParameters['id']!);
-          return MovieDetailPage(movieId: movieId);
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: MovieDetailPage(movieId: movieId),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+                child: child,
+              );
+            },
+          );
         },
       ),
     ],

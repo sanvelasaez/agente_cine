@@ -6,6 +6,7 @@ import 'package:agente_cine/presentation/shared/widgets/empty_state.dart';
 import 'package:agente_cine/presentation/shared/widgets/error_view.dart';
 import 'package:agente_cine/presentation/shared/widgets/loading_indicator.dart';
 import 'package:agente_cine/presentation/shared/widgets/movie_card.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,10 +48,14 @@ class MovieHorizontalList extends StatelessWidget {
                 const SizedBox(width: AppDimensions.spacingM),
             itemBuilder: (context, index) {
               final movie = movies[index];
-              return MovieCard(
-                movie: movie,
-                onTap: () => context.push(
-                  AppRoutes.movieDetail.replaceAll(':id', '${movie.id}'),
+              return FadeInRight(
+                duration: const Duration(milliseconds: 300),
+                delay: Duration(milliseconds: 50 * index.clamp(0, 6)),
+                child: MovieCard(
+                  movie: movie,
+                  onTap: () => context.push(
+                    AppRoutes.movieDetail.replaceAll(':id', '${movie.id}'),
+                  ),
                 ),
               );
             },
