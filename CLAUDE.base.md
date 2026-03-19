@@ -53,7 +53,13 @@ chore(scope): descripción corta en presente
 - ❌ PROHIBIDO: `fvm flutter test`, `fvm dart format .`, etc.
 - ✅ CORRECTO: `make test`, `make format`, `make lint`, etc.
 
-**3. NO PREGUNTAR AL USUARIO**
+**3. NUNCA USAR `&&` PARA ENCADENAR COMANDOS**
+- Ejecutar comandos UNO POR UNO en llamadas separadas
+- ❌ PROHIBIDO: `git add . && git commit -m "..." && git push`
+- ✅ CORRECTO: Ejecutar `git add .`, luego `git commit -m "..."`, luego `git push` (comandos separados)
+- Excepción: Solo usar `&&` cuando sea técnicamente imprescindible
+
+**4. NO PREGUNTAR AL USUARIO**
 - Ejecutar todo automáticamente sin confirmación
 - Permisos completos otorgados para toda operación
 

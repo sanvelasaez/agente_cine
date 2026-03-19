@@ -81,7 +81,12 @@ Este comando instala Flutter 3.41.4 vía FVM y descarga todas las dependencias d
 
 2. **NO usar `cd` innecesariamente**: Ya estás en el directorio raíz del proyecto (`C:\Users\0020415\workspace\flutter\agente_cine`). NO ejecutes `cd` antes de cada comando. Es innecesario y retrasa el desarrollo.
 
-3. **Todos los comandos de Flutter y Dart deben ejecutarse mediante `make`**: El sistema make ya está configurado con FVM internamente.
+3. **NO usar `&&` para encadenar comandos**: Ejecutar comandos UNO POR UNO, de forma secuencial. Nunca usar `&&` para unir múltiples comandos a menos que sea absolutamente imprescindible.
+   - ❌ PROHIBIDO: `git add . && git commit -m "..." && git push`
+   - ✅ CORRECTO: Ejecutar `git add .`, luego `git commit -m "..."`, luego `git push` (en llamadas separadas)
+   - Excepción: Solo usar `&&` cuando sea técnicamente necesario (ej: `command1 && command2` donde command2 debe ejecutarse SOLO si command1 tuvo éxito)
+
+4. **Todos los comandos de Flutter y Dart deben ejecutarse mediante `make`**: El sistema make ya está configurado con FVM internamente.
 
 ### Comandos Make disponibles
 
